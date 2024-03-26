@@ -33,7 +33,7 @@ const UserDropdown = (): JSX.Element => {
              <div className="relative dropdown">
             <div
               onClick={toggleDropdown}
-              className="cursor-pointer text-2xl hover:text-blue-500 transition duration-300"
+              className="cursor-pointer text-2xl text-gray-500 hover:text-blue-500 transition duration-300"
             >
               <FaRegUser/>
             </div>
