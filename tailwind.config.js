@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens:{
+        'xs' : '400px',
+        '2xs' : '360px'
+      }
+    },
     fontFamily: {
       Roboto: ['Roboto', 'sans-serif'],
       Montserrat: ['Montserrat', 'sans-serif'],

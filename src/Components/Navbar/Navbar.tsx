@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/Images/Logo/logo.png"
 import { CiUnlock } from "react-icons/ci";
 import UserDropdown from "./UserDropdown";
-import HamburgerMenu from "./HamburgerMenu";
 import { FiHome } from "react-icons/fi";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
 import { MdContactPhone } from "react-icons/md";
+import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 
 const Navbar = (): JSX.Element => {
     const links = [
@@ -42,14 +42,14 @@ const Navbar = (): JSX.Element => {
             
             <div className="flex justify-between items-center w-11/12 mx-auto">
                 {/* Logo */}
-                <Link to={"/"} className="animate-pulse"><img className="w-40 md:w-60" src={logo} alt="" /></Link>
+                <Link to={"/"}><img className="w-40 md:w-60" src={logo} alt="" /></Link>
 
                 <div className="flex items-center gap-5">
                     {/* Mapping throught all the links here */}
                 <div className="hidden lg:flex items-center gap-5">
                     {
                         links.map((link, index) => 
-                        <Link key={index} to={`${link?.link}`} className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300">{link?.pathName}</Link>
+                        <Link key={index} to={`/${link?.link}`} className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300">{link?.pathName}</Link>
                         )
                     }
                 </div>
