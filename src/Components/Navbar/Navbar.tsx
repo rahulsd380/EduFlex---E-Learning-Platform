@@ -22,8 +22,8 @@ const Navbar = (): JSX.Element => {
             icon : <IoInformationCircleOutline/>
         },
         {
-            pathName: "Course",
-            link : "course",
+            pathName: "Courses",
+            link : "courses",
             icon : <FaBook/>
         },
         {

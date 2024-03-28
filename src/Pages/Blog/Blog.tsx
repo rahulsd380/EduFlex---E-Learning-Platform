@@ -22,8 +22,8 @@ const Blog = (): JSX.Element => {
     return (
         <div className="w-11/12 mx-auto">
 
-            {/* hERO SECTION */}
-            <div className="relative my-3">
+            {/* HERO SECTION */}
+            <div className="relative mt-3">
                 <div className="absolute z-10 flex flex-col justify-center h-full gap-4 px-5">
                     <h1 className="text-4xl text-gray-100 font-medium font-Roboto">Explore the World of Ideas: <br />Diving into Engaging Articles, Insights, and Inspiration on Our Blog!</h1>
                     <p className="text-gray-300 font-normal font-Roboto w-3/4">Explore our blog: a treasure trove of diverse articles, insights, and inspiration. From tech trends to cultural reflections, our curated content offers something for everyone. Engage with thought-provoking analyses and captivating narratives that spark curiosity and ignite imagination. Whether seeking expert advice or a moment of reflection, our blog promises to inform and inspire. Join us on this enriching journey of discovery and exploration.</p>
