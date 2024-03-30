@@ -1,7 +1,7 @@
 import img1 from "../../assets/Images/Blog/1.png";
 import logo from "../../assets/Images/Logo/fabicon.png";
 import { BsCalendarDateFill } from "react-icons/bs";
-import { MdStar } from "react-icons/md";
+// import { MdStar } from "react-icons/md";
 import { LiaLuggageCartSolid } from "react-icons/lia";
 
 const CourseCard = (): JSX.Element => {
@@ -27,7 +27,7 @@ const CourseCard = (): JSX.Element => {
                 <div className="w-7 h-7 rounded-full">
                   <img src={logo} alt="" />
                 </div>
-                <h1 className="xs:text-sm text-gray-700 font-medium font-Roboto">
+                <h1 className="text-xs sm:text-sm text-gray-700 font-medium font-Roboto">
                   Rahul Sutradhar
                 </h1>
               </div>

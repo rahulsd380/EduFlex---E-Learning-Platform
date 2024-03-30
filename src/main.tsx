@@ -10,6 +10,7 @@ import Home from './Pages/Home/Home';
 import Blog from './Pages/Blog/Blog';
 import BlogDetails from './Pages/Blog/BlogDetails';
 import Courses from './Pages/Courses/Courses';
+import SignUp from './Pages/SignUp/SignUp';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path : "/blogDetails",
         element: <BlogDetails></BlogDetails>
+      },
+      {
+        path : "/signup",
+        element: <SignUp></SignUp>
       },
     ]
   },
