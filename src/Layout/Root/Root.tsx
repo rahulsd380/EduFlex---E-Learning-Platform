@@ -15,7 +15,7 @@ const Root = () => {
         isPageLoading ? 
         <PreLoader/>
         :
-        <div>
+        <div className='bg-[#fafbfcd8]'>
             <Navbar/>
             <Outlet></Outlet>
         </div>

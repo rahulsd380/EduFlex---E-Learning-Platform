@@ -121,11 +121,11 @@ const BlogDetails = (): JSX.Element => {
         </div>
 
         {/* All comments */}
-        <div className="border-b pb-2 mt-5">
         <h1 className="text-xl text-gray-500 font-semibold font-Roboto border-b pb-2">
           All thoughts from the readers
         </h1>
 
+        <div className="border-b pb-2 mt-5">
         <div className="flex justify-between items-center">
             {/* User */}
         <div className="flex items-center gap-1 mt-2">
@@ -141,8 +141,55 @@ const BlogDetails = (): JSX.Element => {
           </p>
             </div>
           </div>
+            {/* Like and dislike button on user comment */}
+          <div className="border border-gray-200 rounded-lg px-3 py-2">
+          <div>
+                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-1">
+                    <AiFillLike className="text-sm text-gray-500"/>
+                    <p className="text-sm text-gray-500">100</p>
+                </div>
 
+                <div className="h-[20px] w-0.5 bg-gray-300">
 
+                </div>
+
+                <div className="flex items-center gap-1">
+                    <p className="text-sm text-gray-500">55</p>
+                    <BiSolidDislike className="text-sm text-gray-500"/>
+                </div>
+                        </div>
+                    </div>
+          </div>
+          </div>
+
+          <p className=" text-gray-700 font-Roboto text-justify mt-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+            dolorem error commodi accusamus delectus optio velit, voluptate
+            maiores nemo vero, reiciendis hic voluptatum cum? Voluptatem earum
+            expedita, impedit similique sunt vero. Culpa harum nobis assumenda
+            a, ducimus explicabo ratione dignissimos. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Eveniet dicta incidunt odio, at quod
+            tempore error fugit laboriosam tenetur aliquid.
+          </p>
+        </div>
+
+        <div className="border-b pb-2 mt-5">
+        <div className="flex justify-between items-center">
+            {/* User */}
+        <div className="flex items-center gap-1 mt-2">
+            <div className="w-10 h-10 rounded-full">
+              <img src={logo} alt="" />
+            </div>
+            <div className="flex flex-col">
+            <h1 className="text-sm sm:text-lg text-gray-600 font-semibold font-Roboto">
+              Rahul Sutradhar
+            </h1>
+            <p className="text-sm text-gray-500">
+            7 days ago
+          </p>
+            </div>
+          </div>
             {/* Like and dislike button on user comment */}
           <div className="border border-gray-200 rounded-lg px-3 py-2">
           <div>

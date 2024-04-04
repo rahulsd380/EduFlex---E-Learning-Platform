@@ -56,7 +56,7 @@ const Navbar = (): JSX.Element => {
                  
                  {/* Login and sign up btn */}
                 <div className="hidden md:flex items-center gap-5">
-                    <Link to={""} className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"><CiUnlock className="text-xl"/> Login</Link>
+                    <Link to={"/signin"} className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"><CiUnlock className="text-xl"/> Login</Link>
 
                     <Link to={"/signup"} className="bg-blue-500 py-2 px-2 md:px-4 rounded-md text-white font-Roboto font-normal">Sign Up For Free</Link>
                 </div>

@@ -8,28 +8,10 @@ import { IoEyeOffOutline } from "react-icons/io5";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockLine } from "react-icons/ri";
 
-import { FaRegUser } from "react-icons/fa6";
-
-const SignUp = () : JSX.Element => {
-
-  const [signupError, setSignupError] = useState<string>("")
-
-    const handleSignUp = (e: FormEvent<HTMLFormElement>) => {
+const SignIn = () : JSX.Element => {
+    const handleSignIn = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log(name, email);
-
-        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-
-        if(!passwordRegex.test(password)){
-          setSignupError("Password must contain at least one Digit, one Lowercase letter, one Uppercase letter, one Special character and be at least 8 characters long.");
-          return;
-        }
-        setSignupError("")
     }
-    
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -42,10 +24,10 @@ const SignUp = () : JSX.Element => {
         <div className="w-[40%] p-2.5 z-10 bg-[#FFFFFF] rounded-3xl">
           <div className="text-center">
             <h1 className="text-2xl mt-2 font-semibold text-gray-700">
-              Create An Account
+              Sign In Account
             </h1>
             <p className="text-sm text-gray-600 mt-1">
-              Sign Up Now And Unloock Exclusive Access
+              Sign In Now And Unloock Exclusive Access
             </p>
           </div>
 
@@ -64,35 +46,22 @@ const SignUp = () : JSX.Element => {
 
           <p className="text-gray-500 text-center mt-5">OR</p>
 
-          <form onSubmit={handleSignUp} className="flex flex-col gap-4 p-5">
-            
-            <div className="flex gap-1 items-center">
-              <FaRegUser className="text-gray-500 text-[18px]"/>
-              <input
-              name="name"
-                required
-                type="text"
-                placeholder="Full Name"
-                className="rounded w-full focus:outline-none border-b border-gray-300 hover:border-blue-600 transition duration-300 focus:border-blue-400 focus:border-l-4 py-[4px] px-2"
-              />
-            </div>
+          <form onSubmit={handleSignIn} className="flex flex-col gap-4 p-5">
+           
 
             <div className="flex gap-1 items-center">
               <AiOutlineMail className="text-gray-500 text-xl mb-1"/>
               <input
                 required
-                name="email"
                 type="email"
                 placeholder="Email Address"
                 className="rounded w-full focus:outline-none border-b border-gray-300 hover:border-blue-600 transition duration-300 focus:border-blue-400 focus:border-l-4 py-[4px] px-2"
               />
             </div>
 
-            
             <div className="flex gap-1 items-center">
               <RiLockLine className="text-gray-500 text-xl mb-1"/>
               <input
-              name="password"
                 required
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
@@ -101,33 +70,30 @@ const SignUp = () : JSX.Element => {
               <div className="-ml-6 cursor-pointer" onClick={handlePasswordToggle}>
               {
                 showPassword ? 
-                <IoEyeOffOutline/>
+                <IoEyeOffOutline className="text-gray-500"/>
                 
                 :
-                <IoEyeOutline/>
+                <IoEyeOutline className="text-gray-500"/>
               }
               </div>
             </div>
-            <p className="text-red-500">{signupError}</p>
 
             <button
               className="bg-gray-800 py-2 px-4 rounded-md text-gray-200 font-Roboto font-normal w-full transition duration-300 ease-in-out transform hover:bg-gray-700 mt-2"
             >
-              Create Account
+              Sign In
             </button>
 
             <p className="text-sm text-gray-600 text-center">
-              Already have an account?{" "}
+              Don't have an account?{" "}
               <Link
                 className="font-semibold hover:underline text-gray-800"
-                to={"/signin"}
+                to={"/signup"}
               >
-                Sign In
+                Sign Up
               </Link>
             </p>
           </form>
-
-          <p className="text-xs text-gray-600 text-center border-t pt-2">By cliking on the button above, you are aggre to our <Link to={"/"} className="font-semibold underline">Terms of Service</Link> and <Link to={"/"} className="font-semibold underline">Privacy Policy</Link></p>
         </div>
       </div>
 
@@ -152,4 +118,4 @@ const SignUp = () : JSX.Element => {
   );
 };
 
-export default SignUp;
+export default SignIn;
