@@ -6,10 +6,20 @@ import { FiHome } from "react-icons/fi";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
-import { MdContactPhone } from "react-icons/md";
+// import { MdContactPhone } from "react-icons/md";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
+import { useState } from "react";
+import ContactUs from "../ContactUs/ContactUs";
+
 
 const Navbar = (): JSX.Element => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+    const handleModal = (): void => {
+      setIsModalOpen(!isModalOpen)
+    }
+    
+
     const links = [
         {
             pathName: "Home",
@@ -31,12 +41,13 @@ const Navbar = (): JSX.Element => {
             link : "blog",
             icon : <ImBlog/>
         },
-        {
-            pathName: "Contact",
-            link : "contact",
-            icon : <MdContactPhone/>
-        },
-    ]
+        // {
+        //     pathName: "Contact",
+        //     link : "contactUs",
+        //     icon : <MdContactPhone/>
+        // },
+    ];
+
     return (
         <div className="py-3">
             
@@ -52,6 +63,12 @@ const Navbar = (): JSX.Element => {
                         <Link key={index} to={`/${link?.link}`} className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300">{link?.pathName}</Link>
                         )
                     }
+                </div>
+
+                <button onClick={handleModal}  className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300">Contact Us</button>
+
+                <div className="">
+                <ContactUs isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
                 </div>
                  
                  {/* Login and sign up btn */}

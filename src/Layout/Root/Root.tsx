@@ -10,7 +10,7 @@ const Root = () => {
         setTimeout(() => {
             setIsPageLoading(false)
         }, 2000)
-    }, [])
+    }, []);
     return (
         isPageLoading ? 
         <PreLoader/>

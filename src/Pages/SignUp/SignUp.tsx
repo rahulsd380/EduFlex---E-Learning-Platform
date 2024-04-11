@@ -38,8 +38,8 @@ const SignUp = () : JSX.Element => {
   }
   return (
     <div className="relative">
-      <div className="font-Roboto flex justify-center z-10 mt-10">
-        <div className="w-[40%] p-2.5 z-10 bg-[#FFFFFF] rounded-3xl">
+      <div className="font-Roboto flex justify-center z-10 mt-10 px-5 lg:px-0">
+        <div className="w-full md:w-[70%] lg:w-[40%] p-2.5 z-10 bg-[#FFFFFF] rounded-3xl">
           <div className="text-center">
             <h1 className="text-2xl mt-2 font-semibold text-gray-700">
               Create An Account
@@ -49,7 +49,7 @@ const SignUp = () : JSX.Element => {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 w-full mt-3">
+          <div className="flex flex-col md:flex-row items-center gap-3 w-full mt-3">
             
           <div
               className="bg-gray-50 py-2 px-4 rounded-md text-gray-700 font-Roboto font-normal w-full transition duration-300 ease-in-out transform hover:bg-gray-200 mt-2 flex items-center gap-2 cursor-pointer text-sm">
