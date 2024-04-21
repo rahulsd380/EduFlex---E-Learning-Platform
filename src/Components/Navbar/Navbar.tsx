@@ -23,7 +23,7 @@ const Navbar = (): JSX.Element => {
     const links = [
         {
             pathName: "Home",
-            link : "/",
+            link : "",
             icon : <FiHome/>
         },
         {
@@ -41,17 +41,12 @@ const Navbar = (): JSX.Element => {
             link : "blog",
             icon : <ImBlog/>
         },
-        // {
-        //     pathName: "Contact",
-        //     link : "contactUs",
-        //     icon : <MdContactPhone/>
-        // },
     ];
 
     return (
         <div className="py-3">
             
-            <div className="flex justify-between items-center w-11/12 mx-auto">
+            <div className="flex justify-between items-center max-w-[2000px] mx-auto">
                 {/* Logo */}
                 <Link to={"/"}><img className="w-40 md:w-60" src={logo} alt="" /></Link>
 
@@ -65,7 +60,7 @@ const Navbar = (): JSX.Element => {
                     }
                 </div>
 
-                <button onClick={handleModal}  className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300">Contact Us</button>
+                <button onClick={handleModal}  className="font-Roboto text-gray-500 font-normal hover:text-blue-500 transition duration-300 hidden md:block">Contact Us</button>
 
                 <div className="">
                 <ContactUs isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>

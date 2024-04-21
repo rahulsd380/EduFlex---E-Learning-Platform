@@ -13,6 +13,8 @@ import Courses from './Pages/Courses/Courses';
 import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import ContactUs from './Components/ContactUs/ContactUs';
+import DashboardLayout from './Layout/DashboardLayout/DashboardLayout';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +50,17 @@ const router = createBrowserRouter([
       },
     ]
   },
+
+  {
+    path : '/dashboard',
+    element : <DashboardLayout/>,
+    children : [
+      {
+        path : '/dashboard',
+        element : <Dashboard/>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

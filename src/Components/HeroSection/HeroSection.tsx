@@ -19,7 +19,7 @@ const HeroSection = () => {
           yourself with the knowledge and skills to succeed in any endeavor.
         </p>
 
-        <div className="flex items-center gap-5 justify-center">
+        <div className="flex flex-wrap items-center gap-5 justify-center">
           <Link
             to={"/"}
             className="bg-gradient-to-r from-sky-500 to-blue-700 py-3 px-9 rounded-md text-white font-normal"

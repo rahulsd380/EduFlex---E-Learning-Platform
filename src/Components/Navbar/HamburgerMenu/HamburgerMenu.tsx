@@ -37,7 +37,7 @@ const HamburgerMenu = ({ links }: Props): JSX.Element => {
     },
     {
       pathName: "Dashboard",
-      link: "course",
+      link: "dashboard",
       icon: <MdDashboard />,
     },
   ];
