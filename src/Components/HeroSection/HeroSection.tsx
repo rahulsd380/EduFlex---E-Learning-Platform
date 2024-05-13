@@ -33,7 +33,7 @@ const HeroSection = () => {
           </button>
         </div>
 
-        <div className="hidden lg:block w-[304px] h-[304px] rounded-full bg-blue-500 bg-opacity-30 blur-[100px] absolute top-[150px] right-4 z-20"></div>
+        
       </div>
     </div>
   );

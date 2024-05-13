@@ -8,6 +8,7 @@ import { CiUnlock } from "react-icons/ci";
 const UserDropdown = (): JSX.Element => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
+
   const toggleDropdown = (): void => {
     setIsOpen(!isOpen)
   }

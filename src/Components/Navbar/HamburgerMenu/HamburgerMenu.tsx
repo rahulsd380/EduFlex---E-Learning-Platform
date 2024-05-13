@@ -64,7 +64,7 @@ const HamburgerMenu = ({ links }: Props): JSX.Element => {
     };
   }, [isHamburgerOpen]);
   return (
-    <div className="relative hamburgerMenu">
+    <div className="relative hamburgerMenu block lg:hidden">
       <AiOutlineMenu
         onClick={toggleHamburgerMenu}
         className="cursor-pointer text-[26px] text-gray-500 hover:text-blue-500 transition duration-300"

@@ -14,6 +14,7 @@ import ContactUs from "../ContactUs/ContactUs";
 
 const Navbar = (): JSX.Element => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+    const [user, setUser] = useState(false)
 
     const handleModal = (): void => {
       setIsModalOpen(!isModalOpen)
@@ -46,7 +47,7 @@ const Navbar = (): JSX.Element => {
     return (
         <div className="py-3">
             
-            <div className="flex justify-between items-center max-w-[2000px] mx-auto">
+            <div className="flex justify-between items-center w-11/12 mx-auto">
                 {/* Logo */}
                 <Link to={"/"}><img className="w-40 md:w-60" src={logo} alt="" /></Link>
 
@@ -73,7 +74,9 @@ const Navbar = (): JSX.Element => {
                     <Link to={"/signup"} className="bg-blue-500 py-2 px-2 md:px-4 rounded-md text-white font-Roboto font-normal">Sign Up For Free</Link>
                 </div>
 
-                <UserDropdown/>
+                {
+                    user && <UserDropdown/>
+                }
                     <HamburgerMenu links={links}/>
                 </div>
             </div>
