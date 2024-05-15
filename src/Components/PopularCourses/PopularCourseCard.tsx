@@ -7,6 +7,7 @@ import star from "../../assets/Icons/Star 1.svg";
 import avatar1 from "../../assets/Images/Avatar.png";
 import avatar2 from "../../assets/Images/Avatar (1).png";
 import avatar3 from "../../assets/Images/Avatar2.png";
+import clock from "../../assets/Icons/clock.svg";
 import { Link } from "react-router-dom";
 
 const PopularCourseCard = () => {
@@ -60,7 +61,13 @@ const PopularCourseCard = () => {
                {
                 courses.map(course => 
                     <div key={course?.id} className="bg-white rounded-lg shadow p-6 flex flex-col gap-5">
+                    <div className="relative">
                     <img className="rounded-md h-[240px]" src={course?.img} alt="" />
+                    <div className="bg-white rounded backdrop-blur-lg px-[10px] py-1 flex items-center gap-2 absolute right-2 top-2 text-sm">
+                        <img src={clock} alt="" />
+                        08 hr 12 mins
+                    </div>
+                    </div>
 
                     <div className="flex flex-col gap-2">
 

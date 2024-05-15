@@ -40,7 +40,7 @@ const ContactUs = ({
         <div className="bg-gray-800 bg-opacity-30  fixed inset-0 flex justify-center items-center z-50 w-full mx-auto">
           {/* Form */}
           <div id="closeModal" className="w-5/6 mx-auto overflow-y-auto">
-            <div className="bg-gradient-to-r from-sky-500 to-blue-700 w-full p-3 rounded-t-3xl relative">
+            <div className="bg-[#20B486] w-full p-3 rounded-t-3xl relative">
               <h1 className="text-white font-Roboto font-bold text-xl text-center">
                 Reach Out to Us Today for Any Inquiries or Assistance!
               </h1>
@@ -80,17 +80,17 @@ const ContactUs = ({
                     <div className="flex flex-col gap-5 relative">
                     <div className="bg-gray-500 w-[1px] h-[130px] md:h-[90px] absolute mt-5 md:mt-2 ml-2 z-10"></div>
                       <p className="text-gray-800 font-Roboto flex items-center gap-4">
-                      <VscCallOutgoing className="text-xl z-20 bg-white" /> Once you share your issue, our experts will reach you
+                      <VscCallOutgoing className="text-xl z-20 bg-white text-[#20B486]" /> Once you share your issue, our experts will reach you
                         out shortly.
                       </p>
                       <p className="text-gray-800 font-Roboto flex items-center gap-4">
                         {" "}
-                        <HiOutlineUserGroup className="text-xl z-20 bg-white" /> Once you share your issue, our experts will reach you
+                        <HiOutlineUserGroup className="text-xl z-20 bg-white text-[#20B486]" /> Once you share your issue, our experts will reach you
                         out shortly.
                       </p>
                       <p className="text-gray-800 font-Roboto flex items-center gap-4">
                         {" "}
-                        <LuUserCheck className="text-xl z-20 bg-white" /> Once you share your issue, our experts will reach you
+                        <LuUserCheck className="text-xl z-20 bg-white text-[#20B486]" /> Once you share your issue, our experts will reach you
                         out shortly.
                       </p>
                     </div>
@@ -116,7 +116,7 @@ const ContactUs = ({
                   <div className="p-5 w-full rounded-lg bg-gradient-to-r from-gray-50 to-gray-100 flex flex-col md:flex-row gap-10 md:gap-0 items-center justify-between mt-5">
                     <div className="flex flex-col gap-1 items-center">
                       <div className="rounded-full w-20 h-20 p-2 bg-white flex justify-center items-center">
-                        <FiMessageSquare className="text-5xl text-blue-400" />
+                        <FiMessageSquare className="text-5xl text-[#20B486]" />
                       </div>
                       <h3 className="text-base font-semibold font-Roboto text-gray-600">
                         Instant Response
@@ -125,7 +125,7 @@ const ContactUs = ({
 
                     <div className="flex flex-col gap-1 items-center">
                       <div className="rounded-full w-20 h-20 p-2 bg-white flex justify-center items-center">
-                        <FaUsersCog className="text-5xl text-blue-400" />
+                        <FaUsersCog className="text-5xl text-[#20B486]" />
                       </div>
                       <h3 className="text-base font-semibold font-Roboto text-gray-600">
                         Expert Assistance
@@ -134,7 +134,7 @@ const ContactUs = ({
 
                     <div className="flex flex-col gap-1 items-center">
                       <div className="rounded-full w-20 h-20 p-2 bg-white flex justify-center items-center">
-                        <RiCustomerService2Fill className="text-5xl text-blue-400" />
+                        <RiCustomerService2Fill className="text-5xl text-[#20B486]" />
                       </div>
                       <h3 className="text-base font-semibold font-Roboto text-gray-600">
                         Personalized Service
@@ -181,7 +181,7 @@ const ContactUs = ({
                 ></textarea>
 
                 <button
-                  className="bg-blue-500 px-4 w-full h-12 rounded-lg text-white"
+                  className="bg-[#20B486] px-4 w-full h-12 rounded-lg text-white"
                   type="submit"
                 >
                   Send Message
@@ -189,7 +189,7 @@ const ContactUs = ({
 
                 <div className="flex items-center gap-3">
                   <p className="flex items-center gap-2 font-Roboto text-gray-700 text-left text-sm">
-                    <MdAddIcCall className="text-xl" />
+                    <MdAddIcCall className="text-xl text-[#20B486]" />
                     Call for any query :
                     <span className="flex items-center gap-1">
                       <a

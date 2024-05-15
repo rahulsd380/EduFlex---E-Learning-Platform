@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PopularCourseCard from "./PopularCourseCard";
 
 
@@ -20,6 +21,15 @@ const PopularCourses = () => {
             </div>
 
             <PopularCourseCard/>
+
+            <div className="flex justify-center">
+            <Link
+              to={"/courses"}
+              className="bg-[#20B486] py-4 px-7 rounded-lg border border-[#20B486] text-white font-medium text-lg shadow mt-3"
+            >
+              Explore All Courses
+            </Link>
+            </div>
             </div>
         </div>
     );

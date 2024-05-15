@@ -1,96 +1,145 @@
 import img1 from "../../assets/Images/Blog/1.png";
-import logo from "../../assets/Images/Logo/fabicon.png";
-import { BsCalendarDateFill } from "react-icons/bs";
-// import { MdStar } from "react-icons/md";
-import { LiaLuggageCartSolid } from "react-icons/lia";
+import img2 from "../../assets/Images/Blog/2.png";
+import img3 from "../../assets/Images/Blog/3.png";
+// import img4 from "../../assets/Images/Blog/4.png";
+import arrowUp from "../../assets/Icons/arrow-up-right.svg";
+import star from "../../assets/Icons/Star 1.svg";
+import avatar1 from "../../assets/Images/Avatar.png";
+import avatar2 from "../../assets/Images/Avatar (1).png";
+import avatar3 from "../../assets/Images/Avatar2.png";
+import clock from "../../assets/Icons/clock.svg";
+import { Link } from "react-router-dom";
 
 const CourseCard = (): JSX.Element => {
-  const courseDetails = [
+  const courses = [
     {
-      id: 1,
-      category: "Development",
-      categoryIcon: BsCalendarDateFill,
-      image: img1,
-      title: "Be A MERN Stack Master! || MERN Stack Development",
-      author: "Rahul Sutradhar",
-      authorImg: logo,
-      duration: "6 Months",
-      enrollmentStartsIn: "10 days",
-      description:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia alias odit ullam labore",
+        id : 1,
+        img : img1,
+        category : "Design",
+        title : "Figma UI UX Design..",
+        description : "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+        review : "4.5",
+        reviewCount : "15,820",
+        price : "17.99",
+        reviewerImg : avatar1,
+        reviewerName : "Jane Cooper",
+        totalEnrolled : "2001",
+
     },
     {
-      id: 2,
-      category: "Programming",
-      categoryIcon: BsCalendarDateFill,
-      image: img1,
-      title: "Be A Problem Solver!",
-      author: "Rahul Sutradhar",
-      authorImg: logo,
-      duration: "6 Months",
-      enrollmentStartsIn: "10 days",
-      description:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia alias odit ullam labore",
+        id : 1,
+        img : img1,
+        category : "Design",
+        title : "Figma UI UX Design..",
+        description : "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+        review : "4.5",
+        reviewCount : "15,820",
+        price : "17.99",
+        reviewerImg : avatar1,
+        reviewerName : "Jane Cooper",
+        totalEnrolled : "2001",
+
     },
-  ];
+    {
+        id : 1,
+        img : img2,
+        category : "Development",
+        title : "Figma UI UX Design..",
+        description : "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+        review : "4.5",
+        reviewCount : "15,820",
+        price : "25.60",
+        reviewerImg : avatar2,
+        reviewerName : "Jane Cooper",
+        totalEnrolled : "2001",
+
+    },
+    {
+        id : 1,
+        img : img3,
+        category : "Marketing",
+        title : "Figma UI UX Design..",
+        description : "Use Figma to get a job in UI Design, User Interface, User Experience design.",
+        review : "4.5",
+        reviewCount : "15,820",
+        price : "20",
+        reviewerImg : avatar3,
+        reviewerName : "Jane Cooper",
+        totalEnrolled : "2001",
+
+    },
+]
   return (
-      <>
-      {courseDetails.map((detail) => (
-        <div key={detail?.id} className="flex flex-col justify-between">
-          <div className="relative">
-            <img className="w-full rounded-xl" src={detail?.image} alt="" />
-            <p className="bg-orange-500 px-3 py-1 rounded-br-lg text-white absolute left-0 top-3 flex items-center gap-1 text-sm">
-              <LiaLuggageCartSolid className="text-lg" /> {detail?.category}
-            </p>
-          </div>
-
-          <div className="p-2 flex flex-col gap-[6px]">
-            <div>
-              <h1 className="text-xl text-gray-700 font-medium font-Roboto mb-[2px]">
-              {detail?.title}
-              </h1>
-
-              <div className="flex items-center justify-between">
-                {/* User profile */}
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-full">
-                    <img src={detail?.authorImg} alt="" />
-                  </div>
-                  <h1 className="text-xs sm:text-sm text-gray-700 font-medium font-Roboto">
-                  {detail?.author}
-                  </h1>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <p className="text-sm text-gray-600 flex items-center gap-1">
-                    <BsCalendarDateFill />{detail?.duration}
-                  </p>
-
-                  <div className="bg-green-200 rounded px-3 py-[2px] text-gray-600 text-sm">
-                    Starts in {detail?.enrollmentStartsIn}
-                  </div>
-                </div>
-              </div>
+    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-10 mt-10">
+       {
+        courses.map(course => 
+            <div key={course?.id} className="bg-white rounded-lg shadow p-6 flex flex-col gap-5">
+            <div className="relative">
+            <img className="rounded-md h-[240px]" src={course?.img} alt="" />
+            <div className="bg-white rounded backdrop-blur-lg px-[10px] py-1 flex items-center gap-2 absolute right-2 top-2 text-sm">
+                <img src={clock} alt="" />
+                08 hr 12 mins
+            </div>
             </div>
 
-            <p className="text-sm text-justify text-gray-600 font-normal font-Roboto">
-            {detail?.description}{" "}
-              <span className="font-medium">... ... Read More</span>
+            <div className="flex flex-col gap-2">
+
+            <p className="font-semibold text-[#1A906B] text-[14px] leading-5">
+                {course?.category}
             </p>
 
-            <div className="flex items-center gap-2">
-              <button className="border border-gray-200 py-2 px-2 md:px-4 rounded-md text-gray-500 font-Roboto font-normal w-1/2">
-                View Details
-              </button>
+            <Link to={""} className="flex justify-between items-center">
+            
+            <h1 className="capitalize font-bold text-2xl text-[#101828]">
+            {course?.title}
+  </h1>
+  <img className="w-6" src={arrowUp} alt="" />
+            </Link>
 
-              <button className="bg-gradient-to-r from-indigo-500 to-blue-500 py-2 px-2 md:px-4 rounded-md text-white font-Roboto font-normal w-1/2">
-                Enroll Now
-              </button>
-            </div>
-          </div>
+  <p className="font-normal text-[#667085] text-base leading-6">
+  {course?.description}
+  </p>
+
+  <div className="flex items-center gap-[10px]">
+  <div className="flex items-center gap-[5px]">
+  <p className="font-semibold text-[#3FC89E] text-[14px] leading-5">{course?.review}</p>
+  <img src={star} alt="" />
+  <img src={star} alt="" />
+  <img src={star} alt="" />
+  <img src={star} alt="" />
+  <img src={star} alt="" />
+  </div>
+  <p className="font-normal text-[#969696] text-[14px]">({course?.reviewCount})</p>
+  </div>
+  </div>
+
+
+
+  <div className="flex justify-between items-center">
+   <div className="flex items-center gap-3">
+   <img src={course?.reviewerImg} alt="" />
+    <p>
+    <p className="font-semibold text-[#101828] text-[14px]">
+    {course?.reviewerName}
+            </p>
+    <p className="font-normal text-[#101828] text-[14px]">
+    {course?.totalEnrolled} Enrolled
+            </p>
+    </p>
+   </div>
+
+   <h1 className="capitalize font-bold text-2xl text-[#3FC89E]">
+   ${course?.price}
+  </h1>
+
+  </div>
         </div>
-      ))}
-      </>
+
+        )
+       }
+    </div>
+</div>
   );
 };
 
