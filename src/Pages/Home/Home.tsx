@@ -10,8 +10,8 @@ const Home = () => {
 
     return ( 
         <div>
+            <Hero/> 
             <PopularCourses/>
-            <Hero/>
             <HeroSection/>
             <Overview/>
             <Categories/>
