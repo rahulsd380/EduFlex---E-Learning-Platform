@@ -9,7 +9,7 @@ const OurService = () => {
                 <h1 className="text-3xl text-[#101828] font-bold text-center">Fostering a playful & engaging learning environment</h1>
             </div>
 
-            <div className="grid grid-cols-3 gap-10 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
 
                 
                 <div className="group px-10 py-[30px] rounded-xl border-[1px] bg-white hover:bg-[#4AC8AE] transition duration-500">

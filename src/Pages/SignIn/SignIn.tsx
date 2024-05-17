@@ -111,8 +111,8 @@ const SignIn = (): JSX.Element => {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <defs>
             <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#38bdf8" />
-              <stop offset="100%" stop-color="#2b6cb0" />
+              <stop offset="0%" stop-color="#20B470" />
+              <stop offset="100%" stop-color="#20B486" />
             </linearGradient>
           </defs>
           <path

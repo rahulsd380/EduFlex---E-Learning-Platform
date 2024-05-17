@@ -62,36 +62,36 @@ const SignUp = (): JSX.Element => {
           <p className="text-gray-500 text-center mt-5">OR</p>
 
           <form onSubmit={handleSignUp} className="flex flex-col gap-4 p-5">
-            <div className="flex gap-1 items-center">
-              <FaRegUser className="text-gray-500 text-[18px]" />
+            <div className="flex gap-1 items-center relative">
+              <FaRegUser className="text-gray-500 text-[18px] absolute bottom-[9px]" />
               <input
                 name="name"
                 required
                 type="text"
                 placeholder="Full Name"
-                className="rounded w-full focus:outline-none border-b border-gray-300 hover:border-blue-600 transition duration-300 focus:border-blue-400 focus:border-l-4 py-[4px] px-2"
+                className="w-full focus:outline-none border-b border-gray-300 hover:border-[#20B486] focus:border-b-[#20B486] transition duration-300 py-[4px] pl-7 pr-2"
               />
             </div>
 
-            <div className="flex gap-1 items-center">
-              <AiOutlineMail className="text-gray-500 text-xl mb-1" />
+            <div className="flex gap-1 items-center relative">
+              <AiOutlineMail className="text-gray-500 text-xl mb-1 absolute bottom-[4px]" />
               <input
                 required
                 name="email"
                 type="email"
                 placeholder="Email Address"
-                className="rounded w-full focus:outline-none border-b border-gray-300 hover:border-blue-600 transition duration-300 focus:border-blue-400 focus:border-l-4 py-[4px] px-2"
+                className="w-full focus:outline-none border-b border-gray-300 hover:border-[#20B486] focus:border-b-[#20B486] transition duration-300 py-[4px] pl-7 pr-2"
               />
             </div>
 
-            <div className="flex gap-1 items-center">
-              <RiLockLine className="text-gray-500 text-xl mb-1" />
+            <div className="flex gap-1 items-center relative/">
+              <RiLockLine className="text-gray-500 text-xl mb-1 absolute bottom-[4px]" />
               <input
                 name="password"
                 required
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                className="rounded w-full focus:outline-none border-b border-gray-300 hover:border-blue-600 transition duration-300 focus:border-blue-400 focus:border-l-4 py-[4px] px-2"
+                className="w-full focus:outline-none border-b border-gray-300 hover:border-[#20B486] focus:border-b-[#20B486] transition duration-300 py-[4px] pl-7 pr-2"
               />
               <div
                 className="-ml-6 cursor-pointer"
@@ -131,26 +131,11 @@ const SignUp = (): JSX.Element => {
       </div>
 
       <div className="absolute w-full bottom-0">
-        {/* <Wave options={{
-          amplitude: 50,
-          speed: 0.15,
-          points: 4
-        }}
-        style={{ display: 'flex', height: "300px" }} 
-        fill="url(#gradient)">
-  <defs>
-    <linearGradient id="gradient" gradientTransform="rotate(90)">
-      <stop offset="10%"  stopColor="#4299e1" />
-      <stop offset="90%" stopColor="#2c5282" />
-    </linearGradient>
-  </defs>
-</Wave> */}
-
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <defs>
             <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#38bdf8" />
-              <stop offset="100%" stop-color="#2b6cb0" />
+              <stop offset="0%" stop-color="#20B470" />
+              <stop offset="100%" stop-color="#20B486" />
             </linearGradient>
           </defs>
           <path

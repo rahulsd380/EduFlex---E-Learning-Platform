@@ -16,7 +16,7 @@ const Root = () => {
         <PreLoader/>
         :
         <div className='bg-[#fafbfcd8]'>
-            <Navbar/>
+            {/* <Navbar/> */}
             <Outlet></Outlet>
         </div>
     );

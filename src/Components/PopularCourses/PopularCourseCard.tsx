@@ -57,12 +57,12 @@ const PopularCourseCard = () => {
     ]
     return (
         <div>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                {
                 courses.map(course => 
                     <div key={course?.id} className="bg-white rounded-lg shadow p-6 flex flex-col gap-5">
                     <div className="relative">
-                    <img className="rounded-md h-[240px]" src={course?.img} alt="" />
+                    <img className="rounded-md w-full h-full md:h-[240px]" src={course?.img} alt="" />
                     <div className="bg-white rounded backdrop-blur-lg px-[10px] py-1 flex items-center gap-2 absolute right-2 top-2 text-sm">
                         <img src={clock} alt="" />
                         08 hr 12 mins

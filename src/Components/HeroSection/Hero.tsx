@@ -6,13 +6,14 @@ import heroStudent from "../../assets/Images/heroStudent.png";
 import ring from "../../assets/Images/Ring.svg";
 import board from "../../assets/Icons/Board.svg";
 import onlineEducation from "../../assets/Icons/Online Education.svg";
+import Collaboration from "./Collaboration";
 
 const Hero = () => {
   return (
     <div className="max-w-[2000px] mx-auto relative">
       <div className="font-Roboto flex items-center w-11/12 mx-auto mt-[50px]">
         <div className="w-[60%]">
-          <h1 className="capitalize  font-bold text-6xl text-[#101828] leading-[70px] text-balance max-w-[573px]">
+          <h1 className="capitalize font-bold text-6xl text-[#101828] leading-[70px] text-balance max-w-[573px]">
             Up your <span className="text-[#20B486]">skills</span> to{" "}
             <span className="text-[#20B486]">advance</span> your{" "}
             <span className="text-[#20B486]">career</span> path
@@ -114,6 +115,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <Collaboration/>
+
 
       {/* The blured bg */}
       <div className="hidden lg:block w-[304px] h-[304px] rounded-full bg-[#24BB8C] bg-opacity-10 blur-[100px] absolute top-[270px] left-4"></div>
