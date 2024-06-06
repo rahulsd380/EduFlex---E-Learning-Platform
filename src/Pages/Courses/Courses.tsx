@@ -3,7 +3,7 @@ import CourseCard from "./CourseCard";
 
 const Courses = (): JSX.Element => {
     return (
-        <div className=" w-[90%] mx-auto mt-3">
+        <div className=" max-w-[1500px] w-[90%] mx-auto mt-3">
             <div className="flex flex-col gap-3">
             <p className="font-semibold text-[#1A906B] text-base leading-6">
             Explore Programs

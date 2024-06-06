@@ -60,7 +60,7 @@ const PopularCourseCard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                {
                 courses.map(course => 
-                    <div key={course?.id} className="bg-white rounded-lg shadow p-6 flex flex-col gap-5">
+                    <Link to={"/"} key={course?.id} className="bg-white rounded-lg shadow p-6 flex flex-col gap-5 group">
                     <div className="relative">
                     <img className="rounded-md w-full h-full md:h-[240px]" src={course?.img} alt="" />
                     <div className="bg-white rounded backdrop-blur-lg px-[10px] py-1 flex items-center gap-2 absolute right-2 top-2 text-sm">
@@ -80,7 +80,7 @@ const PopularCourseCard = () => {
                     <h1 className="capitalize font-bold text-2xl text-[#101828]">
                     {course?.title}
           </h1>
-          <img className="w-6" src={arrowUp} alt="" />
+          <img className="w-6 group-hover:transform group-hover:-translate-y-0.5 transition duration-300" src={arrowUp} alt="" />
                     </Link>
 
           <p className="font-normal text-[#667085] text-base leading-6">
@@ -120,7 +120,7 @@ const PopularCourseCard = () => {
           </h1>
 
           </div>
-                </div>
+                </Link>
 
                 )
                }

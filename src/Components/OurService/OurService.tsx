@@ -3,7 +3,7 @@ import { FaChevronRight } from "react-icons/fa6";
 
 const OurService = () => {
     return (
-        <div className="font-Roboto w-[90%] mx-auto mt-20">
+        <div className="font-Roboto max-w-[1500px] w-[90%] mx-auto mt-20">
             <div className="flex flex-col gap-1 my-5">
                 <p className="text-[#20B486] font-semibold text-base text-center">Our Services</p>
                 <h1 className="text-3xl text-[#101828] font-bold text-center">Fostering a playful & engaging learning environment</h1>

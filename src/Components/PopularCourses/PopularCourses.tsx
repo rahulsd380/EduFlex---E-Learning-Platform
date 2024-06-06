@@ -5,7 +5,7 @@ import PopularCourseCard from "./PopularCourseCard";
 const PopularCourses = () => {
     return (
         <div className="mt-20">
-            <div className="w-11/12 mx-auto font-Roboto flex flex-col gap-10">
+            <div className="max-w-[1500px] w-[90%] mx-auto font-Roboto flex flex-col gap-10">
             <div className="flex flex-col gap-3">
             <p className="font-semibold text-[#1A906B] text-base leading-6">
             Explore Programs

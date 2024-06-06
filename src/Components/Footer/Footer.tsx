@@ -7,8 +7,8 @@ import github from "../../assets/Icons/Social Icons/github.svg";
 
 const Footer = () => {
     return (
-        <div className="bg-[#101828] py-14 w-full">
-            <footer className="w-[90%] mx-auto  font-Roboto">
+        <div className="bg-[#101828] py-14 w-full mt-20">
+            <footer className="max-w-[1500px] w-[90%] mx-auto  font-Roboto">
             <div className="flex flex-col md:flex-row justify-between">
             <div className="flex flex-col gap-2">
             <img className="w-20" src={logo} alt="genius-grove-logo" />

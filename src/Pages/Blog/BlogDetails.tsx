@@ -19,7 +19,7 @@ import { BiSolidDislike } from "react-icons/bi";
 
 const BlogDetails = (): JSX.Element => {
   return (
-    <div className="grid grid-cols-3 gap-8 w-11/12 mx-auto mt-5">
+    <div className="grid grid-cols-3 gap-8 max-w-[1500px] w-[90%] mx-auto mt-5">
       <div className="col-span-2 border shadow p-5 rounded-md flex flex-col gap-2">
         <div className="flex justify-between items-center">
         <div

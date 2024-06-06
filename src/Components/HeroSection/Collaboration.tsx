@@ -7,7 +7,7 @@ import logo4 from "../../assets/Icons/Company logo/UserTesting (logo — Black).
 const Collaboration = () => {
   const companyImages = [logo1, logo2, logo3, logo4, logo2];
   return (
-    <div className="w-11/12 mx-auto mt-16 flex items-center gap-10">
+    <div className="max-w-[1500px] w-[90%] mx-auto mt-16 flex items-center gap-10">
       <div>
         <h1 className="capitalize font-bold text-3xl text-[#20B486] leading-[34px]">
           250+

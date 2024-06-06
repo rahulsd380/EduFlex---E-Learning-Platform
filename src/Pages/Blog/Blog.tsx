@@ -20,7 +20,7 @@ const Blog = (): JSX.Element => {
         }]
     
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="max-w-[1500px] w-[90%] mx-auto">
 
             {/* HERO SECTION */}
             <div className="relative mt-3">

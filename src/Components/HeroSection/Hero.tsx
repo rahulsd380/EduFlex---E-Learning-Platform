@@ -11,7 +11,7 @@ import Collaboration from "./Collaboration";
 const Hero = () => {
   return (
     <div className="max-w-[2000px] mx-auto relative">
-      <div className="font-Roboto flex items-center w-11/12 mx-auto mt-[50px]">
+      <div className="font-Roboto flex items-center max-w-[1500px] w-[90%] mx-auto mt-[50px]">
         <div className="w-[60%]">
           <h1 className="capitalize font-bold text-6xl text-[#101828] leading-[70px] text-balance max-w-[573px]">
             Up your <span className="text-[#20B486]">skills</span> to{" "}
@@ -34,7 +34,7 @@ const Hero = () => {
 
             <Link
               to={"/"}
-              className="bg-[#EAFFF9] py-4 px-7 rounded-lg border border-[#EAFFF9] text-[#3BC49A] font-medium text-lg shadow"
+              className="bg-[#EAFFF9] py-4 px-7 rounded-lg border border-[#EAFFF9] text-[#3BC49A] font-medium text-lg shadow z-50"
             >
               Get Started
             </Link>
