@@ -26,7 +26,6 @@ const Root = () => {
     
         window.onload = handleLoad;
     
-        // Cleanup function to remove the onload event if needed
         return () => {
           window.onload = null;
         };

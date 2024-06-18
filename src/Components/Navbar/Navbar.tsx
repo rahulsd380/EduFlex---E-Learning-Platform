@@ -11,8 +11,17 @@ import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 import { useEffect, useRef, useState } from "react";
 import ContactUs from "../ContactUs/ContactUs";
 import search from "../../assets/Icons/search.svg";
+import AuthModal from "../AuthModal/AuthModal";
 
 const Navbar = (): JSX.Element => {
+    // For opening the modal
+    const [openModal, setOpenModal] = useState<boolean>(false);
+    // Modal types
+    const [modalType, setModalType] = useState<"Login" | "Signup" | "OTP">("Login");
+    // User type
+    // const [userType, setUserType] = useState<"Student" | "Employer">("Student");
+
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [user, setUser] = useState(false);
 
@@ -140,12 +149,12 @@ const Navbar = (): JSX.Element => {
 
           {/* Login and sign up btn */}
           <div className="hidden md:flex items-center gap-5">
-            <Link
-              to={"/signin"}
+            <button
+              onClick={() => setOpenModal(true)}
               className="font-Roboto text-gray-500 font-normal hover:text-[#20B486] transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"
             >
               <CiUnlock className="text-xl" /> Login
-            </Link>
+            </button>
 
             <Link
               to={"/signup"}
@@ -160,6 +169,16 @@ const Navbar = (): JSX.Element => {
         </div>
       </div>
       <div className="w-full h-[1px] bg-gray-300 mt-3"></div>
+      {openModal && (
+        <AuthModal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          modalType={modalType}
+          setModalType={setModalType}
+          // userType={userType}
+          // setUserType={setUserType}
+        />
+      )}
     </div>
   );
 };
