@@ -150,18 +150,28 @@ const Navbar = (): JSX.Element => {
           {/* Login and sign up btn */}
           <div className="hidden md:flex items-center gap-5">
             <button
-              onClick={() => setOpenModal(true)}
+              onClick={
+                () => {
+                  setOpenModal(true)
+                  setModalType("Login")
+                }
+              }
               className="font-Roboto text-gray-500 font-normal hover:text-[#20B486] transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"
             >
               <CiUnlock className="text-xl" /> Login
             </button>
 
-            <Link
-              to={"/signup"}
+            <button
+             onClick={
+              () => {
+                setOpenModal(true)
+                setModalType("Signup")
+              }
+            }
               className="bg-[#20B486] py-2 px-2 md:px-4 rounded-md text-white font-Roboto font-normal"
             >
               Sign Up For Free
-            </Link>
+            </button>
           </div>
 
           {user && <UserDropdown />}

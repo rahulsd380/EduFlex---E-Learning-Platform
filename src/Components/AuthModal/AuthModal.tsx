@@ -41,11 +41,13 @@ const AuthModal: React.FC<TModalTypes> = ({
         >
 
           {/* Close button */}
+          <div className="flex justify-end">
           <div
             onClick={() => setOpenModal(false)}
-            className="flex justify-end cursor-pointer"
+            className="cursor-pointer w-7"
           >
             <img src={crossBtn} alt="close-btn" className="w-7 h-7" />
+          </div>
           </div>
 
 
@@ -53,7 +55,9 @@ const AuthModal: React.FC<TModalTypes> = ({
           <div>
             <h1 className="text-secondary-800 text-[28px] font-bold text-center">
               <span className="bg-[#20B486] px-2 text-white mr-3">
-                Sign Up
+                {
+                  modalType === "Login" ? "Login" : "Sign Up"
+                }
               </span>
               To EduFlex
             </h1>

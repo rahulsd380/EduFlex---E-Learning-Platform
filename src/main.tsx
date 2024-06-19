@@ -10,8 +10,6 @@ import Home from './Pages/Home/Home';
 import Blog from './Pages/Blog/Blog';
 import BlogDetails from './Pages/Blog/BlogDetails';
 import Courses from './Pages/Courses/Courses';
-import SignUp from './Pages/SignUp/SignUp';
-import SignIn from './Pages/SignIn/SignIn';
 import ContactUs from './Components/ContactUs/ContactUs';
 import DashboardLayout from './Layout/DashboardLayout/DashboardLayout';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
@@ -35,14 +33,6 @@ const router = createBrowserRouter([
       {
         path : "/blogDetails",
         element: <BlogDetails></BlogDetails>
-      },
-      {
-        path : "/signup",
-        element: <SignUp></SignUp>
-      },
-      {
-        path : "/signin",
-        element: <SignIn></SignIn>
       },
       {
         path : "/contactUs",
