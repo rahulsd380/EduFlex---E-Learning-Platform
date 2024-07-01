@@ -13,10 +13,12 @@ import Courses from './Pages/Courses/Courses';
 import ContactUs from './Components/ContactUs/ContactUs';
 import DashboardLayout from './Layout/DashboardLayout/DashboardLayout';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement : <ErrorPage/>,
     children : [
       {
         path : "/",

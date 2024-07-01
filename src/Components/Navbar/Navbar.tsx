@@ -17,7 +17,7 @@ const Navbar = (): JSX.Element => {
     // For opening the modal
     const [openModal, setOpenModal] = useState<boolean>(false);
     // Modal types
-    const [modalType, setModalType] = useState<"Login" | "Signup" | "OTP">("Login");
+    const [modalType, setModalType] = useState<"Login" | "Signup" | "OTP" | "ForgotPassword">("Login");
     // User type
     // const [userType, setUserType] = useState<"Student" | "Employer">("Student");
 
@@ -92,20 +92,20 @@ const Navbar = (): JSX.Element => {
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2">
           <img className="w-10" src={logo} alt="" />
-          <h1 className="font-Roboto font-bold text-[27px] text-[#101828]">
+          <h1 className="font-Roboto font-bold text-[27px] text-neutral-5">
             EduFlex
           </h1>
         </Link>
 
         <div className="flex items-center gap-5">
-          <div className="relative">
+          <div className="hidden md:block relative">
             <div ref={inputRef} className="relative">
               <img src={search} alt="" className="absolute left-[6px] top-3" />
               <input
                 onClick={handleShowSuggestion}
                 placeholder="Want to learn?"
                 type="text"
-                className="border-[1px] border-[#D0D5DD] rounded-lg bg-white py-2 pl-7 pr-2 focus:border-[#20B486] transition duration-300 focus:outline-none"
+                className="border-[1px] border-dark-5 rounded-lg bg-white py-2 pl-7 pr-2 focus:border-primary-10 transition duration-300 focus:outline-none"
               />
             </div>
 
@@ -126,18 +126,20 @@ const Navbar = (): JSX.Element => {
               <Link
                 key={index}
                 to={`/${link?.link}`}
-                className="font-Roboto text-gray-500 font-normal hover:text-[#20B486] transition duration-300"
+                className="font-Roboto text-body-text font-normal hover:text-primary-10 transition duration-300 flex flex-col group"
               >
                 {link?.pathName}
+                <span className="mt-[2px] h-[1px] w-[0px] rounded-full bg-primary-10 transition-all duration-500 group-hover:w-full"></span>
               </Link>
             ))}
           </div>
 
           <button
             onClick={handleModal}
-            className="font-Roboto text-gray-500 font-normal hover:text-[#20B486] transition duration-300 hidden md:block"
+            className="font-Roboto text-body-text font-normal hover:text-primary-10 transition duration-300 hidden md:flex flex-col group"
           >
             Contact Us
+            <span className="mt-[2px] h-[1px] w-[0px] rounded-full bg-primary-10 transition-all duration-500 group-hover:w-full"></span>
           </button>
 
           <div className="">
@@ -156,7 +158,7 @@ const Navbar = (): JSX.Element => {
                   setModalType("Login")
                 }
               }
-              className="font-Roboto text-gray-500 font-normal hover:text-[#20B486] transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"
+              className="font-Roboto text-body-text font-normal hover:text-primary-10 transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"
             >
               <CiUnlock className="text-xl" /> Login
             </button>
@@ -168,7 +170,7 @@ const Navbar = (): JSX.Element => {
                 setModalType("Signup")
               }
             }
-              className="bg-[#20B486] py-2 px-2 md:px-4 rounded-md text-white font-Roboto font-normal"
+              className="bg-primary-10 py-2 px-2 md:px-4 rounded-md text-white font-Roboto font-normal"
             >
               Sign Up For Free
             </button>

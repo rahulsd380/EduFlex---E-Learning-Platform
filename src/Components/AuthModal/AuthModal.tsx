@@ -6,17 +6,17 @@ import OTP from "./OTP";
 // import crossBtn from "../../assets/Icons/Auth Modal/cross.svg";
 
 export type TModalTypes = {
-    openModal: boolean;
-    setOpenModal: Dispatch<SetStateAction<boolean>>;
-    modalType: "Login" | "Signup" | "OTP";
-    setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP">>;
-  };
+  openModal: boolean;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+  modalType: "Login" | "Signup" | "OTP" | "ForgotPassword";
+  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP">>;
+};
 
 const AuthModal: React.FC<TModalTypes> = ({
   openModal,
   setOpenModal,
   modalType,
-  setModalType
+  setModalType,
 }) => {
   return (
     <div className="mx-auto flex items-center justify-center">
@@ -34,32 +34,33 @@ const AuthModal: React.FC<TModalTypes> = ({
           onClick={(e_) => e_.stopPropagation()}
           className={`font-Roboto w-[529px] h-[575px] overflow-y-auto absolute rounded-2xl bg-white p-6 text-center drop-shadow-2xl  
             ${
-            openModal
-              ? "opacity-1 translate-y-0 duration-300"
-              : "translate-y-20 opacity-0 duration-150"
-          }`}
+              openModal
+                ? "opacity-1 translate-y-0 duration-300"
+                : "translate-y-20 opacity-0 duration-150"
+            }`}
         >
-
           {/* Close button */}
           <div className="flex justify-end">
-          <div
-            onClick={() => setOpenModal(false)}
-            className="cursor-pointer w-7"
-          >
-            <img src={crossBtn} alt="close-btn" className="w-7 h-7" />
+            <div
+              onClick={() => setOpenModal(false)}
+              className="cursor-pointer w-7"
+            >
+              <img src={crossBtn} alt="close-btn" className="w-7 h-7" />
+            </div>
           </div>
-          </div>
-
 
           {/* Auth modal heading */}
           <div>
             <h1 className="text-secondary-800 text-[28px] font-bold text-center">
-              <span className="bg-[#20B486] px-2 text-white mr-3">
-                {
-                  modalType === "Login" ? "Login" : "Sign Up"
-                }
+              <span className="bg-primary-10 px-2 text-white mr-3">
+                {modalType === "Login"? "Login"
+                  :
+                  modalType === "Signup"? "Signup"
+                  :
+                  modalType === "OTP" ? "Verify"
+                  : ""}
               </span>
-              To EduFlex
+              {modalType === "Login" || modalType === "Signup" ? "To EduFlex" : "OTP"}
             </h1>
           </div>
 
@@ -97,7 +98,7 @@ const AuthModal: React.FC<TModalTypes> = ({
             {/* <Login/> */}
 
             {modalType === "Login" ? (
-              <Login setModalType={setModalType}/>
+              <Login setModalType={setModalType} />
             ) : modalType === "Signup" ? (
               <Signup setModalType={setModalType} />
             ) : (

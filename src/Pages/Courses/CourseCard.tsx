@@ -86,24 +86,24 @@ const CourseCard = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-[#1A906B] text-[14px] leading-5">
+              <p className="font-semibold text-primary-15 text-[14px] leading-5">
                 {course?.category}
               </p>
 
               <Link to={""} className="flex justify-between items-center">
-                <h1 className="capitalize font-bold text-2xl text-[#101828]">
+                <h1 className="capitalize font-bold text-2xl text-neutral-5">
                   {course?.title}
                 </h1>
                 <img className="w-6 group-hover:transform group-hover:-translate-y-0.5 transition duration-300" src={arrowUp} alt="" />
               </Link>
 
-              <p className="font-normal text-[#667085] text-base leading-6">
+              <p className="font-normal text-body-text text-base leading-6">
                 {course?.description}
               </p>
 
               <div className="flex items-center gap-[10px]">
                 <div className="flex items-center gap-[5px]">
-                  <p className="font-semibold text-[#3FC89E] text-[14px] leading-5">
+                  <p className="font-semibold text-primary-20 text-[14px] leading-5">
                     {course?.review}
                   </p>
                   <img src={star} alt="" />
@@ -112,7 +112,7 @@ const CourseCard = (): JSX.Element => {
                   <img src={star} alt="" />
                   <img src={star} alt="" />
                 </div>
-                <p className="font-normal text-[#969696] text-[14px]">
+                <p className="font-normal text-body-text text-[14px]">
                   ({course?.reviewCount})
                 </p>
               </div>
@@ -122,16 +122,16 @@ const CourseCard = (): JSX.Element => {
               <div className="flex items-center gap-3">
                 <img src={course?.reviewerImg} alt="" />
                 <p>
-                  <p className="font-semibold text-[#101828] text-[14px]">
+                  <p className="font-semibold text-neutral-5 text-[14px]">
                     {course?.reviewerName}
                   </p>
-                  <p className="font-normal text-[#101828] text-[14px]">
+                  <p className="font-normal text-neutral-5 text-[14px]">
                     {course?.totalEnrolled} Enrolled
                   </p>
                 </p>
               </div>
 
-              <h1 className="capitalize font-bold text-2xl text-[#3FC89E]">
+              <h1 className="capitalize font-bold text-2xl text-primary-20">
                 ${course?.price}
               </h1>
             </div>

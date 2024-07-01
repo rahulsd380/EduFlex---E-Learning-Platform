@@ -9,10 +9,10 @@ const Collaboration = () => {
   return (
     <div className="max-w-[1500px] w-[90%] mx-auto mt-16 flex items-center gap-10">
       <div>
-        <h1 className="capitalize font-bold text-3xl text-[#20B486] leading-[34px]">
+        <h1 className="capitalize font-bold text-3xl text-primary-10 leading-[34px]">
           250+
         </h1>
-        <p className="text-[#101828] font-Roboto text-[25px] font-light">
+        <p className="text-neutral-5 font-Roboto text-[25px] font-light">
           Collaboration
         </p>
       </div>

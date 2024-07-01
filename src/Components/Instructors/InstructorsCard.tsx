@@ -1,5 +1,4 @@
 import React from "react";
-import code from "../../assets/Icons/code.svg";
 import linkedin from "../../assets/Icons/Social Icons/linkedin.svg";
 import facebook from "../../assets/Icons/Social Icons/facebook.svg";
 
@@ -23,21 +22,21 @@ const InstructorsCard: React.FC<InstructorsCardProps> = ({ instructors }) => {
       {instructors.map((instructor) => (
         <div
           key={instructor.id}
-          className="p-6 rounded-xl bg-gray-100 border-[1px] border-gray-200 transition duration-500 text-center"
+          className="p-6 rounded-xl bg-gray-100 border-[1px] border-dark-5 border-gray-200 transition duration-500 text-center"
         >
-          <div className="w-32 h-32 mx-auto flex justify-center items-center bg-[#E0EAFF] rounded-lg">
+          <div className="w-32 h-32 mx-auto flex justify-center items-center bg-secondary-5 rounded-lg">
             <img className="w-full rounded-lg" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
           </div>
 
-          <h1 className="text-3xl text-[#101828] font-bold mt-4">
+          <h1 className="text-3xl text-neutral-5 font-bold mt-4">
             {instructor.instructorName}
           </h1>
 
-          <p className="text-[#22B286] font-normal text-base mt-1">
+          <p className="text-primary-10 font-normal text-base mt-1">
             {instructor.title}
           </p>
 
-          <p className="text-[#667085] font-normal text-base mt-4">
+          <p className="text-body-text font-normal text-base mt-4">
             {instructor.companyInfo}
           </p>
 
