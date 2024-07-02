@@ -10,7 +10,7 @@ const createCourse = catchAsync(async (req, res) => {
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'Bike added successfully',
+      message: 'New course launched!',
       data: result,
     });
   });
