@@ -75,7 +75,7 @@ const CourseCard = (): JSX.Element => {
         {courses.map((course) => (
           <Link to={"/"}
             key={course?.id}
-            className="bg-white rounded-lg shadow p-6 flex flex-col gap-5 group"
+            className="bg-white hover:shadow-lg rounded-lg shadow p-6 flex flex-col gap-5 group"
           >
             <div className="relative">
               <img className="rounded-md h-[240px]" src={course?.img} alt="" />

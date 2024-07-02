@@ -23,7 +23,7 @@ const Navbar = (): JSX.Element => {
 
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   const handleModal = (): void => {
     setIsModalOpen(!isModalOpen);
@@ -176,7 +176,7 @@ const Navbar = (): JSX.Element => {
             </button>
           </div>
 
-          {user && <UserDropdown />}
+          {user && <UserDropdown setOpenModal={setOpenModal} setModalType={setModalType}/>}
           <HamburgerMenu links={links} />
         </div>
       </div>
