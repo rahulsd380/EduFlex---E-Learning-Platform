@@ -11,7 +11,7 @@ const Heading = ({subTitle, heaing, description} : THeading) => {
         <h1 className="text-3xl text-neutral-60 font-bold capitalize">
           {heaing}
         </h1>
-        <p className="text-body-text text-lg font-normal max-w-[700px] mx-auto">
+        <p className="text-body-text font-normal max-w-[700px] mx-auto">
          {description}
         </p>
       </div>
