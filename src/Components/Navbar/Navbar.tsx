@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Images/Logo/logo.png";
+import search from "../../assets/Icons/search.svg";
 import { CiUnlock } from "react-icons/ci";
 import UserDropdown from "./UserDropdown";
 import { FiHome } from "react-icons/fi";
@@ -10,7 +11,7 @@ import { ImBlog } from "react-icons/im";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 import { useEffect, useRef, useState } from "react";
 import ContactUs from "../ContactUs/ContactUs";
-import search from "../../assets/Icons/search.svg";
+ 
 import AuthModal from "../AuthModal/AuthModal";
 
 const Navbar = (): JSX.Element => {
@@ -50,6 +51,12 @@ const Navbar = (): JSX.Element => {
       link: "blog",
       icon: <ImBlog />,
     },
+    {
+      pathName: "Dashboard",
+      link: "admin",
+      icon: <ImBlog />,
+    },
+
   ];
 
   const [showSuggestion, setShowSuggestion] = useState<boolean>(false);

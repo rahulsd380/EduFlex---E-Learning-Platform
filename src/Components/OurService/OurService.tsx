@@ -1,13 +1,16 @@
 import code from "../../assets/Icons/code.svg";
 import { FaChevronRight } from "react-icons/fa6";
+import Heading from "../Heading";
 
 const OurService = () => {
     return (
         <div className="font-Roboto max-w-[1500px] w-[90%] mx-auto mt-20">
-            <div className="flex flex-col gap-1 my-5">
-                <p className="text-primary-10 font-semibold text-base text-center">Our Services</p>
-                <h1 className="text-3xl text-neutral-5 font-bold text-center">Fostering a playful & engaging learning environment</h1>
-            </div>
+
+            <Heading
+      subTitle="Support"
+      heaing="Our Awesome Supports"
+      description="On Weekend UX, instructors from all over the world instruct millions of students. We offer the knowledge and abilities."
+      />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
 

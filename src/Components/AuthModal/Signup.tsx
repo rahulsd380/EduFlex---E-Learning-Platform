@@ -4,99 +4,155 @@ import google from "../../assets/Icons/Auth Modal/google.svg";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
 import { inputLabelStyles, inputStyles } from "./AuthModal.constants";
+import { useForm } from "react-hook-form";
 
 export type TSignupLoginModalTypes = {
-    setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP">>;
-  };
+  setModalType: Dispatch<
+    SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword">
+  >;
+};
 
-const Signup :React.FC<TSignupLoginModalTypes> = ({setModalType}) => {
+type TSignupData = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const [showPassword, setShowPassword] = useState(false);
 
-  return (
-    <div className="flex flex-col font-Roboto">
+  const handleSignup = (data: TSignupData) => {
+    const signupData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    };
 
+    console.log(signupData);
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit(handleSignup)}
+      className="flex flex-col font-Roboto"
+    >
       {/* Input field continer */}
       <div className="flex flex-col gap-6">
         {/* Name */}
-      <div className="relative">
-        <input
-          type="text"
-          id="floating_outlined"
-          className={inputStyles}
-          placeholder=" "
-        />
-        <label
-          htmlFor="floating_outlined"
-          className={inputLabelStyles}
-        >
-          Name
-        </label>
-      </div>
+        <div className="relative">
+          <input
+            {...register("name")}
+            type="text"
+            id="floating_outlined"
+            className={`${inputStyles}${errors.name ? "border-rose-500" : ""}`}
+            placeholder=" "
+          />
+          <label htmlFor="floating_outlined" className={inputLabelStyles}>
+            Name
+          </label>
+        </div>
 
         {/* Email */}
-      <div className="relative">
-        <input
-          type="email"
-          id="floating_outlined"
-          className={inputStyles}
-          placeholder=" "
-        />
-        <label
-          htmlFor="floating_outlined"
-          className={inputLabelStyles}
-        >
-          Email
-        </label>
-      </div>
+        <div className="relative">
+          <input
+            {...register("email")}
+            type="email"
+            id="floating_outlined"
+            className={inputStyles}
+            placeholder=" "
+          />
+          <label htmlFor="floating_outlined" className={inputLabelStyles}>
+            Email
+          </label>
+        </div>
 
         {/* Password */}
-      <div className="relative">
-        <input
-          type={`${showPassword ? "text" : "password"}`}
-          id="floating_outlined"
-          className={inputStyles}
-          placeholder=" "
-        />
-        <label
-          htmlFor="floating_outlined"
-          className={inputLabelStyles}
-        >
-          Password
-        </label>
-          {
-            showPassword ? 
-            <img onClick={() => setShowPassword(false)} src={eyeClosed} alt="" className="w-[18px] absolute top-[15px] bottom-0 right-4 cursor-pointer" />
-
-            :
-            <img onClick={() => setShowPassword(true)} src={eyeOpen} alt="" className="w-[18px] absolute top-[15px] bottom-0 right-4 cursor-pointer" />
-          }
+        <div className="relative">
+          <input
+            {...register("password")}
+            type={`${showPassword ? "text" : "password"}`}
+            id="floating_outlined"
+            className={inputStyles}
+            placeholder=" "
+          />
+          <label htmlFor="floating_outlined" className={inputLabelStyles}>
+            Password
+          </label>
+          {showPassword ? (
+            <img
+              onClick={() => setShowPassword(false)}
+              src={eyeClosed}
+              alt=""
+              className="w-[18px] absolute top-[15px] bottom-0 right-4 cursor-pointer"
+            />
+          ) : (
+            <img
+              onClick={() => setShowPassword(true)}
+              src={eyeOpen}
+              alt=""
+              className="w-[18px] absolute top-[15px] bottom-0 right-4 cursor-pointer"
+            />
+          )}
+        </div>
       </div>
-      </div>
 
-        {/* Sign up button */}
-      <button onClick={() => setModalType("OTP")} className="bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6">
+      {/* Sign up button */}
+      <button
+        type="submit"
+        onClick={() => setModalType("OTP")}
+        className="bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6"
+      >
         Get OTP
       </button>
 
       <div className="flex flex-col gap-6">
-      <p className="text-center mt-4">Already have an account? <button onClick={() => setModalType("Login")} className="text-primary-10 font-medium">Log In</button></p>
+        <p className="text-center mt-4">
+          Already have an account?{" "}
+          <button
+            onClick={() => setModalType("Login")}
+            className="text-primary-10 font-medium"
+          >
+            Log In
+          </button>
+        </p>
 
-      <div className="flex items-center justify-center gap-5"> 
-        <div className="w-[200px] h-[1px] bg-dark-5"></div>
-        Or
-        <div className="w-[200px] h-[1px] bg-dark-5"></div>
+        <div className="flex items-center justify-center gap-5">
+          <div className="w-[200px] h-[1px] bg-dark-5"></div>
+          Or
+          <div className="w-[200px] h-[1px] bg-dark-5"></div>
+        </div>
+
+        <button className="bg-white border border-dark-5 font-medium w-full px-4 py-3 rounded-lg focus:outline-none flex justify-center items-center gap-3">
+          <img src={google} alt="google-icon" className="w-6" />
+          Continue with Google
+        </button>
+
+        <p className="text-sm max-w-[380px] text-gray-800 mx-auto">
+          By signing up to create an account, I accept Company's{" "}
+          <p className="inline">
+            <Link
+              to={"/"}
+              className="text-primary-10 hover:underline font-medium inline"
+            >
+              Terms & Conditions
+            </Link>{" "}
+            <p className="text-gray-800 inline">and</p>{" "}
+            <Link
+              to={"/"}
+              className="text-primary-10 hover:underline font-medium inline"
+            >
+              Privacy policy
+            </Link>
+          </p>
+        </p>
       </div>
-
-      <button className="bg-white border border-dark-5 font-medium w-full px-4 py-3 rounded-lg focus:outline-none flex justify-center items-center gap-3">
-        <img src={google} alt="google-icon" className="w-6" />
-        Continue with Google
-      </button>
-
-      <p className="text-sm max-w-[345px] text-gray-800 mx-auto">By signing up to create an account, I accept Company's <p className="inline"><Link to={"/"} className="text-primary-10 hover:underline font-medium inline">Terms & Conditions</Link> <p className="text-gray-800 inline">and</p> <Link to={"/"} className="text-primary-10 hover:underline font-medium inline">Privacy policy</Link></p></p>
-      </div>
-
-      
-    </div>
+    </form>
   );
 };
 

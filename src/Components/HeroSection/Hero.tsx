@@ -10,7 +10,7 @@ import Collaboration from "./Collaboration";
 
 const Hero = () => {
   return (
-    <div className="max-w-[2000px] mx-auto relative">
+    <div className="max-w-[2000px] mx-auto">
       <div className="font-Roboto flex items-center max-w-[1500px] w-[90%] mx-auto mt-[50px]">
         <div className="w-[60%]">
           <h1 className="capitalize font-bold text-6xl text-neutral-5 leading-[70px] text-balance max-w-[573px]">
@@ -62,12 +62,17 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="w-[40%] relative">
+        <div className="w-[40%]">
+        <div className="relative">
+          <div className="bg-primary-10 rounded-full flex justify-center items-center w-[430px] h-[430px] overflow-hidden relative">
+            <img className="w-[366px] h-[432px]" src={heroStudent} alt="" />
+          </div>
+
           {/* circle border */}
-          <div className="border-[1px] border-primary-10 w-[440px] h-[440px] rounded-full absolute right-20 bottom-6"></div>
+          <div className="border-[1px] border-primary-10 w-[440px] h-[440px] rounded-full absolute right-20 -top-5"></div>
 
           {/* first div */}
-          <div className="w-[140px] h-[170px] border-[0.765px] border-primary-10 bg-primary-4 shadow-xl p-4 rounded-[14px] flex flex-col gap-1 justify-center items-center absolute right-3 -top-10">
+          <div className="w-[140px] h-[170px] border-[0.765px] border-primary-10 bg-primary-4 shadow-xl p-4 rounded-[14px] flex flex-col gap-1 justify-center items-center absolute right-0 -top-10 z-10">
             <img src={ring} alt="" />
             <h1 className="font-Roboto text-neutral-5 text-[25px] font-bold">
               5K+
@@ -78,7 +83,7 @@ const Hero = () => {
           </div>
 
           {/* second small div */}
-          <div className="w-[140px] h-20 border-[0.765px] border-primary-10 bg-primary-4 shadow-xl p-4 rounded-[14px] flex gap-2 justify-center items-center absolute bottom-5 right-3">
+          <div className="w-[140px] h-20 border-[0.765px] border-primary-10 bg-primary-4 shadow-xl p-4 rounded-[14px] flex gap-2 justify-center items-center absolute bottom-5 right-3 z-10">
             <div className="w-12 h-12 bg-primary-10 flex justify-center items-center p-2 rounded-xl">
               <img src={board} alt="" />
             </div>
@@ -93,7 +98,7 @@ const Hero = () => {
           </div>
 
           {/* third div */}
-          <div className="w-[180px] h-20 border-[0.765px] border-primary-10 bg-primary-4 shadow-xl p-4 rounded-[14px] flex gap-2 justify-center items-center absolute -left-24 top-44">
+          <div className="w-[180px] h-20 border-[0.765px] border-primary-10 bg-primary-4 shadow-xl p-4 rounded-[14px] flex gap-2 justify-center items-center absolute -left-24 top-44 z-10">
             <div className="w-12 h-12 bg-primary-10 flex justify-center items-center p-2 rounded-xl">
               <img src={onlineEducation} alt="" />
             </div>
@@ -110,9 +115,8 @@ const Hero = () => {
           {/* fourth div */}
           <div className="w-11 h-11 rounded-full bg-primary-10 absolute bottom-0 left-7"></div>
 
-          <div className="bg-primary-10 rounded-full flex justify-center items-center w-[430px] h-[430px] overflow-hidden ">
-            <img className="w-[366px] h-[432px]" src={heroStudent} alt="" />
-          </div>
+          
+        </div>
         </div>
       </div>
       <Collaboration/>
@@ -122,7 +126,7 @@ const Hero = () => {
       <div className="hidden lg:block w-[304px] h-[304px] rounded-full bg-primary-10 bg-opacity-10 blur-[100px] absolute top-[270px] left-4"></div>
 
       {/* The circle shapes (left side) */}
-      <div className="w-[414px] h-[414px] rounded-full border border-primary-10/20 flex justify-center items-center absolute top-0 bottom-0">
+      <div className="w-[414px] h-[414px] rounded-full border border-primary-10/20 flex justify-center items-center absolute top-36 bottom-0">
         <div className="w-[344px] h-[344px] rounded-full border border-primary-10/20 flex justify-center items-center">
           <div className="w-[265px] h-[265px] rounded-full border border-primary-10/20 flex justify-center items-center">
             <div className="w-[162px] h-[162px] rounded-full border border-primary-10/20"></div>

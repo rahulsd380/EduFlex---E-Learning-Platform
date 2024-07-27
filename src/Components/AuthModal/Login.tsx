@@ -4,20 +4,43 @@ import google from "../../assets/Icons/Auth Modal/google.svg";
 import { useState } from "react";
 import { TSignupLoginModalTypes } from "./Signup";
 import { inputLabelStyles, inputStyles } from "./AuthModal.constants";
+import { useForm } from "react-hook-form";
+
+type TLoginData = {
+  name: string;
+  email: string;
+  password: string;
+};
 
 const Login:React.FC<TSignupLoginModalTypes> = ({setModalType}) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
+
+  const handleLogin = (data: TLoginData) => {
+    const loginData = {
+      email: data.email,
+      password: data.password,
+    };
+
+    console.log(loginData);
+  };
   const [showPassword, setShowPassword] = useState(false);
 
 
   return (
-    <div className="flex flex-col font-Roboto">
+    <form onSubmit={handleSubmit(handleLogin)} className="flex flex-col font-Roboto">
 
       {/* Input field continer */}
       <div className="flex flex-col gap-6">
         {/* Email */}
       <div className="relative">
         <input
-          type="  "
+         {...register("email")}
+          type=""
           id="floating_outlined"
           className={inputStyles}
           placeholder=" "
@@ -33,6 +56,7 @@ const Login:React.FC<TSignupLoginModalTypes> = ({setModalType}) => {
         {/* Password */}
       <div className="relative">
         <input
+        {...register("password")}
           type={`${showPassword ? "text" : "password"}`}
           id="floating_outlined"
           className={inputStyles}
@@ -58,7 +82,7 @@ const Login:React.FC<TSignupLoginModalTypes> = ({setModalType}) => {
       <button className="text-primary-10 font-medium text-end mt-2">Forgot Password?</button>
 
         {/* log in button */}
-      <button className="bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6">
+      <button type='submit' className="bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6">
         Log In
       </button>
 
@@ -78,7 +102,7 @@ const Login:React.FC<TSignupLoginModalTypes> = ({setModalType}) => {
       </div>
 
       
-    </div>
+    </form>
   );
 };
 

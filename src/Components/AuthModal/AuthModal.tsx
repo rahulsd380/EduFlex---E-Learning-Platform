@@ -9,7 +9,7 @@ export type TModalTypes = {
   openModal: boolean;
   setOpenModal: Dispatch<SetStateAction<boolean>>;
   modalType: "Login" | "Signup" | "OTP" | "ForgotPassword";
-  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP">>;
+  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword">>;
 };
 
 const AuthModal: React.FC<TModalTypes> = ({
@@ -50,9 +50,9 @@ const AuthModal: React.FC<TModalTypes> = ({
           </div>
 
           {/* Auth modal heading */}
-          <div>
+          <div className="flex flex-col gap-1">
             <h1 className="text-secondary-800 text-[28px] font-bold text-center">
-              <span className="bg-primary-10 px-2 text-white mr-3">
+              <span className="bg-primary-10 px-2 text-white mr-3 py-1">
                 {modalType === "Login"? "Login"
                   :
                   modalType === "Signup"? "Signup"
@@ -62,6 +62,8 @@ const AuthModal: React.FC<TModalTypes> = ({
               </span>
               {modalType === "Login" || modalType === "Signup" ? "To EduFlex" : "OTP"}
             </h1>
+
+            <p className="text-sm max-w-[345px] text-gray-800 mx-auto">Let's get started in a mission of being the gratest man your bloodline has ever seen!</p>
           </div>
 
           <div className="flex flex-col gap-8 mt-8">

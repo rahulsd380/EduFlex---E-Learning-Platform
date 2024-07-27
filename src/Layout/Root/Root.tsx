@@ -1,7 +1,9 @@
+
 import { Outlet } from 'react-router-dom';
 import Navbar from '../../Components/Navbar/Navbar';
 import { useEffect, useState } from 'react';
 import PreLoader from '../../Components/Loaders/PreLoader/PreLoader';
+import Footer from '../../Components/Footer/Footer';
 
 const Root = () => {
     const [isPageLoading, setIsPageLoading] = useState(true);
@@ -37,6 +39,7 @@ const Root = () => {
         <div className='bg-[#fafbfcd8]'>
             <Navbar/>
             <Outlet></Outlet>
+            <Footer/>
         </div>
     );
 };

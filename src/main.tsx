@@ -14,6 +14,12 @@ import ContactUs from './Components/ContactUs/ContactUs';
 import DashboardLayout from './Layout/DashboardLayout/DashboardLayout';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+import ManageCourses from './Pages/Dashboard/Admin/ManageCourses/ManageCourses';
+import ManageBlogs from './Pages/Dashboard/Admin/ManageBlogs/ManageBlogs';
+import ManageUser from './Pages/Dashboard/Admin/ManageUser/ManageUser';
+import ReportsAnalytics from './Pages/Dashboard/Admin/ReportsAnalytics/ReportsAnalytics';
+import Announcements from './Pages/Dashboard/Admin/Announcements/Announcements';
+import ManageEnrollments from './Pages/Dashboard/Admin/ManageEnrollments/ManageEnrollments';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,13 +50,37 @@ const router = createBrowserRouter([
   },
 
   {
-    path : '/dashboard',
+    path : '/admin',
     element : <DashboardLayout/>,
     children : [
       {
-        path : '/dashboard',
+        path : 'manage dashboard',
         element : <Dashboard/>
-      }
+      },
+      {
+        path : 'manage-course',
+        element : <ManageCourses/>
+      },
+      {
+        path : 'manage-blogs',
+        element : <ManageBlogs/>
+      },
+      {
+        path : 'manage-users',
+        element : <ManageUser/>
+      },
+      {
+        path : 'reports-analytics',
+        element : <ReportsAnalytics/>
+      },
+      {
+        path : 'announcements',
+        element : <Announcements/>
+      },
+      {
+        path : 'manage-enrollments',
+        element : <ManageEnrollments/>
+      },
     ]
   }
 ]);

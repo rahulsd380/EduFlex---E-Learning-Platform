@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const PopularCourseCard = () => {
     const courses = [
         {
-            id : 1,
+            _id : 1,
             img : img1,
             category : "Design",
             title : "Figma UI UX Design..",
@@ -27,7 +27,7 @@ const PopularCourseCard = () => {
 
         },
         {
-            id : 1,
+            _id : 2,
             img : img2,
             category : "Development",
             title : "Figma UI UX Design..",
@@ -41,7 +41,7 @@ const PopularCourseCard = () => {
 
         },
         {
-            id : 1,
+            _id : 3,
             img : img3,
             category : "Marketing",
             title : "Figma UI UX Design..",
@@ -60,7 +60,7 @@ const PopularCourseCard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                {
                 courses.map(course => 
-                    <Link to={"/"} key={course?.id} className="bg-white rounded-lg shadow p-6 flex flex-col gap-5 group">
+                    <Link key={course?._id} to={"/"} className="bg-white rounded-lg shadow p-6 flex flex-col gap-5 group">
                     <div className="relative">
                     <img className="rounded-md w-full h-full md:h-[240px]" src={course?.img} alt="" />
                     <div className="bg-white rounded backdrop-blur-lg px-[10px] py-1 flex items-center gap-2 absolute right-2 top-2 text-sm">
