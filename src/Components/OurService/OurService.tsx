@@ -22,7 +22,7 @@ const OurService = () => {
                    <div className="px-[11px] py-3 bg-secondary-5 rounded-lg ">
                    <img src={code} alt="" />
                    </div>
-                   <h1 className="text-2xl text-neutral-5 font-bold group-hover:text-white">UX Design Course</h1>
+                   <h1 className="text-2xl text-neutral-60 font-bold group-hover:text-white">UX Design Course</h1>
                    </div>
 
                    <p className="text-body-text font-normal text-base mt-[30px] group-hover:text-white">Classes in development that cover the most recent advancements in web.</p>
@@ -39,7 +39,7 @@ const OurService = () => {
                    <div className="px-[11px] py-3 bg-secondary-5 rounded-lg ">
                    <img src={code} alt="" />
                    </div>
-                   <h1 className="text-2xl text-neutral-5 font-bold group-hover:text-white">UX Design Course</h1>
+                   <h1 className="text-2xl text-neutral-60 font-bold group-hover:text-white">UX Design Course</h1>
                    </div>
 
                    <p className="text-body-text font-normal text-base mt-[30px] group-hover:text-white">Classes in development that cover the most recent advancements in web.</p>
@@ -56,7 +56,7 @@ const OurService = () => {
                    <div className="px-[11px] py-3 bg-secondary-5 rounded-lg ">
                    <img src={code} alt="" />
                    </div>
-                   <h1 className="text-2xl text-neutral-5 font-bold group-hover:text-white">UX Design Course</h1>
+                   <h1 className="text-2xl text-neutral-60 font-bold group-hover:text-white">UX Design Course</h1>
                    </div>
 
                    <p className="text-body-text font-normal text-base mt-[30px] group-hover:text-white">Classes in development that cover the most recent advancements in web.</p>

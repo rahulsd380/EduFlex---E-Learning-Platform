@@ -26,13 +26,13 @@ const DashboardHeader = () => {
     }
 
     return (
-        <div className="flex items-center justify-between border-b border-neutral-5/20 pb-3">
+        <div className="flex items-center justify-between border-b border-neutral-60/20 pb-3">
             <div>
-            <h1 className="text-2xl text-neutral-5 font-bold capitalize">
+            <h1 className="text-2xl text-neutral-60 font-bold capitalize">
             {/* {location.pathname.replace("/", "").toUpperCase()} */}
             {title}
         </h1>
-        <p className="text-neutral-5/80 font-semibold text-xs mt-[2px]">{subTitle}.</p>
+        <p className="text-neutral-60/80 font-semibold text-xs mt-[2px]">{subTitle}.</p>
             </div>
 
         <div className="px-2 py-1 rounded-[100px] border border-primary-10 flex items-center gap-5">
@@ -56,8 +56,8 @@ const DashboardHeader = () => {
                 <img src={user} alt="" className="size-8" />
             </div>
                 <div>
-                <p className="text-neutral-5 font-semibold text-lg">Rahul Sutradhar</p>
-                <p className="text-neutral-5/80 font-semibold text-xs">Admin</p>
+                <p className="text-neutral-60 font-semibold text-lg">Rahul Sutradhar</p>
+                <p className="text-neutral-60/80 font-semibold text-xs">Admin</p>
                 </div>
             </div>
             

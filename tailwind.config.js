@@ -41,9 +41,23 @@ export default {
       secondary : {
         5 : '#E0EAFF',
       },
+      // neutral: {
+      //   5 : '#101828',
+      //   10: '',
+      // },
       neutral: {
-        5 : '#101828',
-        10: '',
+        5: '#f5f5f5',
+        10 : '#F6F6F6',
+        15: '#E9ECF2',
+        20: '#DCDFE5',
+        25: '#202635',
+        30: '#C4C7CC',
+        35: '#D9D9D9',
+        40: '#ABAEB2', //For Dark theme/Body Text
+        45: '#252525',
+        55: '#4B494D',
+        60: '#101828', //For Light theme/Body Text
+        100: '#141414', //For Light theme/Heading
       },
 
     },

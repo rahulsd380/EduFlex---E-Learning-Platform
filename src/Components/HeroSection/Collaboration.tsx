@@ -12,7 +12,7 @@ const Collaboration = () => {
         <h1 className="capitalize font-bold text-3xl text-primary-10 leading-[34px]">
           250+
         </h1>
-        <p className="text-neutral-5 font-Roboto text-[25px] font-light">
+        <p className="text-neutral-60 font-Roboto text-[25px] font-light">
           Collaboration
         </p>
       </div>

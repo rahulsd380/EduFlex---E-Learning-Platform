@@ -99,7 +99,7 @@ const Navbar = (): JSX.Element => {
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2">
           <img className="w-10" src={logo} alt="" />
-          <h1 className="font-Roboto font-bold text-[27px] text-neutral-5">
+          <h1 className="font-Roboto font-bold text-[27px] text-neutral-60">
             EduFlex
           </h1>
         </Link>

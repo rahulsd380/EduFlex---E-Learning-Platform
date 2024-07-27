@@ -28,7 +28,7 @@ const InstructorsCard: React.FC<InstructorsCardProps> = ({ instructors }) => {
             <img className="w-full rounded-lg" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
           </div>
 
-          <h1 className="text-3xl text-neutral-5 font-bold mt-4">
+          <h1 className="text-3xl text-neutral-60 font-bold mt-4">
             {instructor.instructorName}
           </h1>
 

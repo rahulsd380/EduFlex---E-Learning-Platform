@@ -61,7 +61,7 @@ const DashboardSidebar = () => {
         },
       ];
     return (
-        <div className="w-[250px] bg-neutral-5 h-screen  flex flex-col justify-between font-Roboto">
+        <div className="w-[250px] bg-neutral-60 h-screen  flex flex-col justify-between font-Roboto">
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2 p-5">
           <img className="w-10" src={logo} alt="" />

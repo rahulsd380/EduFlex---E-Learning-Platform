@@ -13,7 +13,7 @@ const Hero = () => {
     <div className="max-w-[2000px] mx-auto">
       <div className="font-Roboto flex items-center max-w-[1500px] w-[90%] mx-auto mt-[50px]">
         <div className="w-[60%]">
-          <h1 className="capitalize font-bold text-6xl text-neutral-5 leading-[70px] text-balance max-w-[573px]">
+          <h1 className="capitalize font-bold text-6xl text-neutral-60 leading-[70px] text-balance max-w-[573px]">
             Up your <span className="text-primary-10">skills</span> to{" "}
             <span className="text-primary-10">advance</span> your{" "}
             <span className="text-primary-10">career</span> path
@@ -74,10 +74,10 @@ const Hero = () => {
           {/* first div */}
           <div className="w-[140px] h-[170px] border-[0.765px] border-primary-10 bg-primary-4 shadow-xl p-4 rounded-[14px] flex flex-col gap-1 justify-center items-center absolute right-0 -top-10 z-10">
             <img src={ring} alt="" />
-            <h1 className="font-Roboto text-neutral-5 text-[25px] font-bold">
+            <h1 className="font-Roboto text-neutral-60 text-[25px] font-bold">
               5K+
             </h1>
-            <p className="font-Roboto text-neutral-5 text-[15px] font-normal">
+            <p className="font-Roboto text-neutral-60 text-[15px] font-normal">
               Online Courses
             </p>
           </div>
@@ -88,10 +88,10 @@ const Hero = () => {
               <img src={board} alt="" />
             </div>
             <div>
-              <p className="font-Roboto text-neutral-5 text-[12px] font-normal">
+              <p className="font-Roboto text-neutral-60 text-[12px] font-normal">
                 Tutors
               </p>
-              <h1 className="font-Roboto text-neutral-5 text-[20px] font-bold">
+              <h1 className="font-Roboto text-neutral-60 text-[20px] font-bold">
                 250+
               </h1>
             </div>
@@ -103,10 +103,10 @@ const Hero = () => {
               <img src={onlineEducation} alt="" />
             </div>
             <div>
-              <h1 className="font-Roboto text-neutral-5 text-[20px] font-bold">
+              <h1 className="font-Roboto text-neutral-60 text-[20px] font-bold">
                 5K+
               </h1>
-              <p className="font-Roboto text-neutral-5 text-[12px] font-normal">
+              <p className="font-Roboto text-neutral-60 text-[12px] font-normal">
                 Online Courses
               </p>
             </div>

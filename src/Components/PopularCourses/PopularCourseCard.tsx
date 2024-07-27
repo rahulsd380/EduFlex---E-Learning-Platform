@@ -77,7 +77,7 @@ const PopularCourseCard = () => {
 
                     <Link to={""} className="flex justify-between items-center">
                     
-                    <h1 className="capitalize font-bold text-2xl text-neutral-5">
+                    <h1 className="capitalize font-bold text-2xl text-neutral-60">
                     {course?.title}
           </h1>
           <img className="w-6 group-hover:transform group-hover:-translate-y-0.5 transition duration-300" src={arrowUp} alt="" />
@@ -106,10 +106,10 @@ const PopularCourseCard = () => {
            <div className="flex items-center gap-3">
            <img src={course?.reviewerImg} alt="" />
             <p>
-            <p className="font-semibold text-neutral-5 text-[14px]">
+            <p className="font-semibold text-neutral-60 text-[14px]">
             {course?.reviewerName}
                     </p>
-            <p className="font-normal text-neutral-5 text-[14px]">
+            <p className="font-normal text-neutral-60 text-[14px]">
             {course?.totalEnrolled} Enrolled
                     </p>
             </p>
