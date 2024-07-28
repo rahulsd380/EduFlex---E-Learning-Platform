@@ -3,10 +3,9 @@ import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import { CourseServices } from "./courses.service";
 
+// Create course route
 const createCourse = catchAsync(async (req, res) => {
-  
     const result = await CourseServices.createCourse(req.body);
-  
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -15,7 +14,7 @@ const createCourse = catchAsync(async (req, res) => {
     });
   });
 
-
+// Get all courses route
   const getAllCourses = catchAsync(async (req, res) => {
     const result = await CourseServices.getAllCourses();
     sendResponse(res, {
@@ -26,7 +25,7 @@ const createCourse = catchAsync(async (req, res) => {
     });
   })
 
-
+// Get single course route
   const getSingleCourseById = catchAsync(async (req, res) => {
     const {courseId} = req.params;
     const result = await CourseServices.getSingleCourseById(courseId);
