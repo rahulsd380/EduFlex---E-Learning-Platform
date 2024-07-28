@@ -17,7 +17,11 @@ const DashboardHeader = () => {
     } else if (location.pathname === "/admin/manage-course") {
         title = "Manage Courses";
         subTitle = "Organize and maintain all course materials.";
-    } else if (location.pathname === "/admin/manage-blogs") {
+    } else if (location.pathname === "/admin/manage-team") {
+        title = "Manage Team";
+        subTitle = "Expand new with the iconic team member.";
+    } 
+    else if (location.pathname === "/admin/manage-blogs") {
         title = "Manage Blogs";
         subTitle = "Create, edit, and manage informative content.";
     } else if (location.pathname === "/admin/manage-users") {
@@ -32,7 +36,7 @@ const DashboardHeader = () => {
             {/* {location.pathname.replace("/", "").toUpperCase()} */}
             {title}
         </h1>
-        <p className="text-neutral-60/80 font-semibold text-xs mt-[2px]">{subTitle}.</p>
+        <p className="text-neutral-60/80 font-semibold text-xs mt-[2px]">{subTitle}</p>
             </div>
 
         <div className="px-2 py-1 rounded-[100px] border border-primary-10 flex items-center gap-5">
@@ -57,7 +61,7 @@ const DashboardHeader = () => {
             </div>
                 <div>
                 <p className="text-neutral-60 font-semibold text-lg">Rahul Sutradhar</p>
-                <p className="text-neutral-60/80 font-semibold text-xs">Admin</p>
+                <p className="text-neutral-60/80 font-semibold text-xs">Manager</p>
                 </div>
             </div>
             

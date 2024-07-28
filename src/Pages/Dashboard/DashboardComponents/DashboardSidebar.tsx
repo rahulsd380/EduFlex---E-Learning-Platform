@@ -30,6 +30,11 @@ const DashboardSidebar = () => {
           icon: <FiHome />,
         },
         {
+          pathName: "Manage Team",
+          link: "admin/manage-team",
+          icon: <FiHome />,
+        },
+        {
           pathName: "Manage User",
           link: "admin/manage-users",
           icon: <IoInformationCircleOutline />,
@@ -61,7 +66,7 @@ const DashboardSidebar = () => {
         },
       ];
     return (
-        <div className="w-[250px] bg-neutral-60 h-screen  flex flex-col justify-between font-Roboto">
+        <div className="w-[270px] bg-neutral-60 h-screen overflow-x-hidden overflow-y-auto flex flex-col justify-between font-Roboto">
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2 p-5">
           <img className="w-10" src={logo} alt="" />

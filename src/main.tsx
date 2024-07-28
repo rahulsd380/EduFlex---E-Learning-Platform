@@ -20,6 +20,7 @@ import ManageUser from './Pages/Dashboard/Admin/ManageUser/ManageUser';
 import ReportsAnalytics from './Pages/Dashboard/Admin/ReportsAnalytics/ReportsAnalytics';
 import Announcements from './Pages/Dashboard/Admin/Announcements/Announcements';
 import ManageEnrollments from './Pages/Dashboard/Admin/ManageEnrollments/ManageEnrollments';
+import ManageTeam from './Pages/Dashboard/Admin/ManageTeam/ManageTeam';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
       {
         path : 'manage-enrollments',
         element : <ManageEnrollments/>
+      },
+      {
+        path : 'manage-team',
+        element : <ManageTeam/>
       },
     ]
   }

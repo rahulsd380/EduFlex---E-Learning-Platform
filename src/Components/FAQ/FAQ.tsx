@@ -42,14 +42,13 @@ const FAQ = () => {
   return (
     <div className="bg-gradient-to-r from-slate-50 to-lime-50 px-2 py-10 mt-20">
       <div className="max-w-[1500px] w-[90%] mx-auto font-Roboto">
-
         <Heading
-      subTitle="FAQ"
-      heaing="Frequently Asked Questions"
-      description="Our support team is here to help. Reach out via email, phone, or live
+          subTitle="FAQ"
+          heaing="Frequently Asked Questions"
+          description="Our support team is here to help. Reach out via email, phone, or live
           chat for any inquiries. We’re committed to providing timely
           assistance."
-      />
+        />
 
         <hr className="border border-neutral-40 mt-7" />
         <div className="w-full max-w-4xl mx-auto mt-10">
