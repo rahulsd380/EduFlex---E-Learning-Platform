@@ -13,6 +13,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "reac
 
 import email from "../../../../assets/Icons/email.svg";
 import call from "../../../../assets/Icons/call-white.svg";
+import chat from "../../../../assets/Icons/chat-button.svg";
 import { useState } from "react";
 import AddSocialLinkModal from "./AddSocialLinkModal";
 import AddSkillModal from "./AddSkillModal";
@@ -76,19 +77,11 @@ const TeamMemberDetailsModal = ({
           </div>
           </div>
 
-          {/* Call && Email */}
-        <div className="flex items-center justify-between gap-3 mt-3">
-            <a href={`mailto:${"rahulsd380@gmail.com"}`} className="w-full px-5 py-2 bg-dark-5/50 rounded-md flex justify-center items-center gap-2">
-            <img src={email} alt="" className="size-5" />
-                <p className="text-neutral-60/80 font-medium text-base">Email</p>
-            </a>
-            
-
-            <a href="tel:+8801608249337" className="w-full px-5 py-2 bg-primary-10 rounded-md flex justify-center items-center gap-2">
-            <img src={call} alt="" className="size-5" />
-                <p className="text-white font-medium text-base">Call</p>
-            </a>
-        </div>
+            {/* Text now */}
+          <div className="w-full px-5 py-2 bg-primary-10 rounded-md flex justify-center items-center gap-2 mt-4">
+            <img src={chat} alt="" className="size-5" />
+                <p className="text-white font-medium text-base">Text Now</p>
+            </div>
 
           {/* <button className="px-3 py-2 bg-primary-10 text-white w-full rounded mt-5">
             Add More Skill

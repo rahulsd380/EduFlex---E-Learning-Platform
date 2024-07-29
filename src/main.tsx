@@ -21,6 +21,7 @@ import ReportsAnalytics from './Pages/Dashboard/Admin/ReportsAnalytics/ReportsAn
 import Announcements from './Pages/Dashboard/Admin/Announcements/Announcements';
 import ManageEnrollments from './Pages/Dashboard/Admin/ManageEnrollments/ManageEnrollments';
 import ManageTeam from './Pages/Dashboard/Admin/ManageTeam/ManageTeam';
+import BlogDetailsAdmin from './Pages/Dashboard/Admin/ManageBlogs/BlogDetailsAdmin';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path : 'manage-blogs',
         element : <ManageBlogs/>
+      },
+      {
+        path : 'blog-details',
+        element : <BlogDetailsAdmin/>
       },
       {
         path : 'manage-users',
