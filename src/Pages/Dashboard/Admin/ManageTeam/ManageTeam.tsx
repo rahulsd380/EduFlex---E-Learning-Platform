@@ -18,6 +18,8 @@ const ManageTeam = () => {
           <ManageTeamActionDropdown/>
         </div>
 
+        
+
         {/* profile image - name - email */}
         <div className="flex flex-col justify-center items-center text-center">
         <div className="size-20 rounded-full bg-primary-15 flex justify-center items-center">

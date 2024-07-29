@@ -1,21 +1,36 @@
+// More to come
+// 1. Profile img Update. done
+// 2. Role Management  done
+// 3. Status Toggle
+
 import cross from "../../../../assets/Icons/cross.svg";
-import profileImg from "../../../../assets/Images/profileImg.jpeg";
 import { socialMediaIcons } from "../../../../Components/Footer/footerConstants";
-import teacher from "../../../../assets/Icons/teacher.svg";
-import teamLocation from "../../../../assets/Icons/team-location.svg";
-import emailOutline from "../../../../assets/Icons/email-outline.svg";
+// import teacher from "../../../../assets/Icons/teacher.svg";
+// import teamLocation from "../../../../assets/Icons/team-location.svg";
+// import emailOutline from "../../../../assets/Icons/email-outline.svg";
 import callOutline from "../../../../assets/Icons/call-outline.svg";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 import email from "../../../../assets/Icons/email.svg";
 import call from "../../../../assets/Icons/call-white.svg";
 import { useState } from "react";
 import AddSocialLinkModal from "./AddSocialLinkModal";
+import AddSkillModal from "./AddSkillModal";
+import Profile from "./Profile";
 
 const TeamMemberDetailsModal = ({
   openTeamMemberDetailsModal,
   setTeamMemberDetailsModal,
 }) => {
     const [addSocialLinkModal, setAddSocialLinkModal] = useState(false);
+    const [addSkillModal, setAddSkillModal] = useState(false);
+    const [selectedUrls, setSelectedUrls] = useState<string[]>([]);
+    const [currentUrl, setCurrentUrl] = useState("");
+
+    const [currentSkill, setCurrentSkill] = useState("");
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+
+    console.log(selectedUrls);
     const skills = ["HTML", "CSS", "JavaScript", "React", "Node", "Express", "MongoDB"]
   return (
     <div className="mx-auto w-fit">
@@ -35,22 +50,15 @@ const TeamMemberDetailsModal = ({
               : "scale-110 opacity-0 duration-150"
           }`}
         >
-          <div className="flex justify-end">
-            <button className="size-7">
-              <img
-                onClick={() => setTeamMemberDetailsModal(false)}
-                src={cross}
-                alt=""
-                className=" cursor-pointer"
-              />
-            </button>
-          </div>
+          
 
           <div className="flex gap-5">
           <div className="w-[30%]">
-          <div className="flex w-full h-40 rounded-lg bg-neutral-40">
+          <Profile/>
+          
+          {/* <div className="flex w-full h-40 rounded-lg bg-neutral-40">
             <img src={profileImg} alt="" className="rounded-lg size-full" />
-          </div>
+          </div> */}
 
             {/* Skills */}
           <div className="mt-2">
@@ -112,9 +120,22 @@ const TeamMemberDetailsModal = ({
 
             {/* Right side info */}
           <div className="w-[70%] overflow-y-auto">
+          <div className="flex items-center justify-between">
           <h1 className="text-2xl text-neutral-60 font-bold capitalize leading-none">
           Rahul Sutradhar
         </h1>
+
+        <div className="flex justify-end">
+            <button className="size-7">
+              <img
+                onClick={() => setTeamMemberDetailsModal(false)}
+                src={cross}
+                alt=""
+                className=" cursor-pointer"
+              />
+            </button>
+          </div>
+          </div>
         <p className="text-neutral-60/80 font-semibold text-xs mt-2">MERN Stack Instructor</p>
 
         {/* Social Media Links */}
@@ -141,30 +162,28 @@ const TeamMemberDetailsModal = ({
                 {/* Personal Informations */}
                 <div className="flex flex-col gap-3">
             <p className="text-neutral-60 font-bold text-sm">Personal Informations</p>
-                <div className="flex items-center gap-1">
-                {/* First Name */}
+                {/* Full Name */}
                 <div className="flex flex-col gap-1">
-                <label htmlFor="first-name" className="text-body-text font-medium text-sm">First Name</label>
+                <label htmlFor="first-name" className="text-body-text font-medium text-sm">Full Name</label>
             <input
             placeholder="Jonny"
                 defaultValue={"Rahul"}
                 name="first-name"
                 type="text"
-                className=" rounded bg-dark-5/40 border border-dark-10/30 p-2 w-full focus:border-primary-10 transition duration-300 focus:outline-none"
+                className="rounded bg-dark-5/40 border border-dark-10/30 p-2 w-full focus:border-primary-10 transition duration-300 focus:outline-none"
               />
                 </div>
 
-                {/* Last Name */}
+                {/* Email */}
                 <div className="flex flex-col gap-1">
                 <label htmlFor="last-name" className="text-body-text font-medium text-sm">Last Name</label>
             <input
-            placeholder="Bairstow"
-                defaultValue={"Sutradhar"}
+            placeholder="Enter email"
+                defaultValue={"rahul@gmail.com"}
                 name="last-name"
                 type="text"
                 className="w-full rounded bg-dark-5/40 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none"
               />
-                </div>
                 </div>
 
                 {/* Phone Number */}
@@ -178,6 +197,22 @@ const TeamMemberDetailsModal = ({
                 className=" rounded bg-dark-5/40 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none"
               />
                 </div>
+
+                <div className="flex flex-col gap-1">
+                <label htmlFor="phone-number" className="text-body-text font-medium text-sm">Role</label>
+        <select
+          // value={role}
+          // onChange={handleRoleChange}
+          className="rounded bg-dark-5/40 border border-dark-10/30 p-2 w-full focus:border-primary-10 transition duration-300 focus:outline-none"
+        >
+          <option value="" disabled>Select Role</option>
+          <option value="Student">Student</option>
+          <option value="Instructor">Instructor</option>
+          <option value="Manager">Manager</option>
+          <option value="Ceo">CEO</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </div>
 
             {/* Address */}
                 <div className="flex flex-col gap-1">
@@ -202,17 +237,80 @@ const TeamMemberDetailsModal = ({
             </div>
                
             {/* Social links card */}
-               <div className="flex items-center gap-2">
-               <div className="bg-dark-5/40 p-2 rounded flex items-center justify-center">
-                    <img src={callOutline} alt="" className="size-7"/>
-                </div>
-                <input
+               <div className="flex flex-col gap-3">
+               
+
+                {
+                  selectedUrls.length < 1 ? 
+                  <p className="text-neutral-60/80 font-semibold text-xs">No URL(s) Added!</p>
+                  :
+                  selectedUrls.map((url, index) => 
+                    <div className="flex items-center gap-2">
+
+<div className="bg-dark-5/40 p-2 rounded flex items-center justify-center">
+  {url.includes("facebook") ? (
+    <FaFacebook />
+  ) : url.includes("instagram") ? (
+    <FaInstagram />
+  ) : url.includes("twitter") ? (
+    <FaTwitter />
+  ) : url.includes("linkedin") ? (
+    <FaLinkedin />
+  ) : url.includes("whatsapp") ? (
+    <FaWhatsapp />
+  ) : (
+    <img src={callOutline} alt="" className="size-7" />
+  )
+                }
+              </div>
+
+
+                      <div key={index} className="w-full rounded bg-dark-5/40 border p-2 border-primary-10 text-body-text">
+                  {url}
+                  </div>
+                    </div>
+                  )
+                }
+                {/* <input
              placeholder="www.example.com"
                 defaultValue={"www.facebook.com"}
                 name="location"
                 type="text"
                 className="w-full rounded bg-dark-5/40 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none"
-              />
+              /> */}
+               </div> 
+                </div>
+
+                {/* Skills */}
+                <div className="flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+            <p className="text-neutral-60 font-bold text-sm">Skills</p>
+            <button type="button" onClick={() => setAddSkillModal(true)} className="p-1 max-w-[100px] bg-white hover:bg-primary-10 hover:text-white transition duration-300 border border-neutral-40/50 text-neutral-60 font-bold text-sm w-full rounded-[100px]">
+            Add Skill
+          </button>
+            </div>
+               
+            {/* Social links card */}
+               <div className="flex flex-col gap-3">
+               <div className="mt-3 flex flex-wrap items-center gap-2">
+            {
+                selectedSkills.length < 1 ?
+                <p className="text-neutral-60/80 font-semibold text-xs">No Skills Added!</p>
+                :
+                selectedSkills.map((skill, index) => 
+                  <div key={index} className="rounded bg-dark-5/40 border p-2 border-primary-10 text-body-text text-sm">
+              {skill}
+          </div>
+              )
+            }
+          </div>
+                {/* <input
+             placeholder="www.example.com"
+                defaultValue={"www.facebook.com"}
+                name="location"
+                type="text"
+                className="w-full rounded bg-dark-5/40 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none"
+              /> */}
                </div>
 
                 <div className="flex justify-end">
@@ -231,7 +329,16 @@ const TeamMemberDetailsModal = ({
 
         </div>
       </div>
-      <AddSocialLinkModal addSocialLinkModal={addSocialLinkModal} setAddSocialLinkModal={setAddSocialLinkModal}/>
+      <AddSocialLinkModal addSocialLinkModal={addSocialLinkModal} setAddSocialLinkModal={setAddSocialLinkModal} currentUrl={currentUrl} setCurrentUrl={setCurrentUrl} selectedUrls={selectedUrls} setSelectedUrls={setSelectedUrls}/>
+
+      <AddSkillModal
+        addSkillModal={addSkillModal}
+        setAddSkillModal={setAddSkillModal}
+        currentSkill={currentSkill}
+        setCurrentSkill={setCurrentSkill}
+        selectedSkills={selectedSkills}
+        setSelectedSkills={setSelectedSkills}
+      />
     </div>
   );
 };
