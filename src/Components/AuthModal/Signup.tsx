@@ -3,13 +3,10 @@ import eyeClosed from "../../assets/Icons/Auth Modal/eye-closed.svg";
 import google from "../../assets/Icons/Auth Modal/google.svg";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
-import { inputLabelStyles, inputStyles } from "./AuthModal.constants";
 import { useForm } from "react-hook-form";
 
 export type TSignupLoginModalTypes = {
-  setModalType: Dispatch<
-    SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword">
-  >;
+  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword">>;
 };
 
 type TSignupData = {
@@ -23,7 +20,7 @@ const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<TSignupData>();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -34,69 +31,89 @@ const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
       password: data.password,
     };
 
+    setModalType("OTP")
+
     console.log(signupData);
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(handleSignup)}
-      className="flex flex-col font-Roboto"
-    >
-      {/* Input field continer */}
+    <form onSubmit={handleSubmit(handleSignup)} className="flex flex-col font-Roboto">
+      {/* Input field container */}
       <div className="flex flex-col gap-6">
         {/* Name */}
-        <div className="relative">
+        <div className="flex flex-col gap-1 w-full">
+          <p className="text-body-text font-medium text-sm">Name</p>
           <input
-            {...register("name")}
+            {...register("name", { required: "Name is required" })}
             type="text"
-            id="floating_outlined"
-            className={`${inputStyles}${errors.name ? "border-rose-500" : ""}`}
-            placeholder=" "
+            id="name"
+            className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+            placeholder="Enter your full name"
           />
-          <label htmlFor="floating_outlined" className={inputLabelStyles}>
-            Name
-          </label>
+          {errors.name && (
+            <span className="text-warning-10 text-start">
+              {errors.name.message as string}
+            </span>
+          )}
         </div>
 
         {/* Email */}
-        <div className="relative">
+        <div className="flex flex-col gap-1 w-full">
+          <p className="text-body-text font-medium text-sm">Email</p>
           <input
-            {...register("email")}
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                message: "Invalid email address",
+              },
+            })}
             type="email"
-            id="floating_outlined"
-            className={inputStyles}
-            placeholder=" "
+            id="email"
+            className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+            placeholder="Enter your e-mail"
           />
-          <label htmlFor="floating_outlined" className={inputLabelStyles}>
-            Email
-          </label>
+          {errors.email && (
+            <span className="text-warning-10 text-start">
+              {errors.email.message as string}
+            </span>
+          )}
         </div>
 
         {/* Password */}
-        <div className="relative">
+        <div className="flex flex-col gap-1 w-full relative">
+          <p className="text-body-text font-medium text-sm">Password</p>
           <input
-            {...register("password")}
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters",
+              },
+            })}
             type={`${showPassword ? "text" : "password"}`}
-            id="floating_outlined"
-            className={inputStyles}
-            placeholder=" "
+            id="password"
+            className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+            placeholder="Password must be at least 8 characters"
           />
-          <label htmlFor="floating_outlined" className={inputLabelStyles}>
-            Password
-          </label>
+          {errors.password && (
+            <span className="text-warning-10 text-start">
+              {errors.password.message as string}
+            </span>
+          )}
           {showPassword ? (
             <img
               onClick={() => setShowPassword(false)}
               src={eyeClosed}
-              alt=""
-              className="w-[18px] absolute top-[15px] bottom-0 right-4 cursor-pointer"
+              alt="Hide password"
+              className="w-[18px] absolute top-9 bottom-0 right-4 cursor-pointer"
             />
           ) : (
             <img
               onClick={() => setShowPassword(true)}
               src={eyeOpen}
-              alt=""
-              className="w-[18px] absolute top-[15px] bottom-0 right-4 cursor-pointer"
+              alt="Show password"
+              className="w-[18px] absolute top-9 bottom-0 right-4 cursor-pointer"
             />
           )}
         </div>
@@ -105,7 +122,6 @@ const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
       {/* Sign up button */}
       <button
         type="submit"
-        onClick={() => setModalType("OTP")}
         className="bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6"
       >
         Get OTP

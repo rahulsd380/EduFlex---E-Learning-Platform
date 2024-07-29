@@ -32,7 +32,7 @@ const AuthModal: React.FC<TModalTypes> = ({
             scrollbarColor: "rgba(107, 114, 128, 0.5) rgba(255, 255, 255, 0.1)",
           }}
           onClick={(e_) => e_.stopPropagation()}
-          className={`font-Roboto w-[529px] h-[575px] overflow-y-auto absolute rounded-2xl bg-white p-6 text-center drop-shadow-2xl  
+          className={`font-Roboto w-[529px] h-[575px] overflow-y-auto absolute rounded-2xl bg-white p-6  drop-shadow-2xl  
             ${
               openModal
                 ? "opacity-1 translate-y-0 duration-300"

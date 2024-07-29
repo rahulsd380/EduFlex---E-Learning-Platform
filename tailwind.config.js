@@ -30,6 +30,9 @@ export default {
         5: '#e5eaf1',    //border-color
         10: '#98A2B3',
       },
+      warning : {
+        10: '#dc2626',
+      },
       primary: {
         4 : '#F5F5F4',
         5 : '#EAFFF9',

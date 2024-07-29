@@ -30,8 +30,8 @@ const Courses = (): JSX.Element => {
         description="Let's join our famous class, the knowledge provided will definitely be useful for you."
       />
 
-       {/* Search functionality */}
-<div className="relative mx-auto w-full max-w-[500px]">
+          {/* Search functionality */}
+            <div className="relative mx-auto w-full max-w-[500px]">
              
              <input
                placeholder="What are you looking for?"
@@ -48,7 +48,7 @@ const Courses = (): JSX.Element => {
           
 
       {/* Category filter */}
-      <div className="flex items-center justify-center gap-7 font-Roboto text-sm">
+      <div className="flex w-full overflow-x-auto items-center justify-center gap-7 font-Roboto text-xs sm:text-sm">
         {filterButtons.map((button, index) => (
           <button
             key={index}
@@ -57,7 +57,7 @@ const Courses = (): JSX.Element => {
               selectedTab === button.value
                 ? "border-primary-10 text-white bg-primary-10 shadow-md"
                 : "text-primary-10 border-primary-15/20"
-            } border  px-5 py-2 rounded-[100px] hover:border-primary-10 hover:bg-primary-10 transition duration-500 hover:text-white`}
+            } border px-5 py-2 rounded-[100px] hover:border-primary-10 hover:bg-primary-10 transition duration-500 hover:text-white`}
           >
             {button.btnName}
           </button>
