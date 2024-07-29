@@ -3,13 +3,14 @@ import Login from "./Login";
 import crossBtn from "../../assets/Icons/Auth Modal/cross-green.svg";
 import Signup from "./Signup";
 import OTP from "./OTP";
+import SuccessMessage from "./SuccessMessage";
 // import crossBtn from "../../assets/Icons/Auth Modal/cross.svg";
 
 export type TModalTypes = {
   openModal: boolean;
   setOpenModal: Dispatch<SetStateAction<boolean>>;
-  modalType: "Login" | "Signup" | "OTP" | "ForgotPassword";
-  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword">>;
+  modalType: "Login" | "Signup" | "OTP" | "ForgotPassword" | "Success";
+  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword" | "Success">>;
 };
 
 const AuthModal: React.FC<TModalTypes> = ({
@@ -50,7 +51,11 @@ const AuthModal: React.FC<TModalTypes> = ({
           </div>
 
           {/* Auth modal heading */}
-          <div className="flex flex-col gap-1">
+          {
+            modalType === "Success" ?
+            ""
+            :
+            <div className="flex flex-col gap-1">
             <h1 className="text-secondary-800 text-[28px] font-bold text-center">
               <span className="bg-primary-10 px-2 text-white mr-3 py-1">
                 {modalType === "Login"? "Login"
@@ -63,8 +68,10 @@ const AuthModal: React.FC<TModalTypes> = ({
               {modalType === "Login" || modalType === "Signup" ? "To EduFlex" : "OTP"}
             </h1>
 
-            <p className="text-sm max-w-[345px] text-gray-800 mx-auto">Let's get started in a mission of being the gratest man your bloodline has ever seen!</p>
+            <p className="text-sm max-w-[345px] text-gray-800 mx-auto text-center">Let's get started in a mission of being the gratest man your bloodline has ever seen!</p>
           </div>
+          }
+          
 
           <div className="flex flex-col gap-8 mt-8">
             {/* {modalType === "Login" || modalType === "Signup" ? (
@@ -103,9 +110,12 @@ const AuthModal: React.FC<TModalTypes> = ({
               <Login setModalType={setModalType} />
             ) : modalType === "Signup" ? (
               <Signup setModalType={setModalType} />
-            ) : (
+            ) : modalType === "OTP" ? (
               <OTP setModalType={setModalType} />
-            )}
+            ) : (
+              <SuccessMessage setModalType={setModalType}/>
+            )
+          }
           </div>
         </div>
       </div>

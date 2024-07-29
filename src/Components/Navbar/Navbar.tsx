@@ -18,7 +18,7 @@ const Navbar = (): JSX.Element => {
     // For opening the modal
     const [openModal, setOpenModal] = useState<boolean>(false);
     // Modal types
-    const [modalType, setModalType] = useState<"Login" | "Signup" | "OTP" | "ForgotPassword">("Login");
+    const [modalType, setModalType] = useState<"Login" | "Signup" | "OTP" | "ForgotPassword" | "Success">("Login");
     // User type
     // const [userType, setUserType] = useState<"Student" | "Employer">("Student");
 
@@ -162,7 +162,7 @@ const Navbar = (): JSX.Element => {
               onClick={
                 () => {
                   setOpenModal(true)
-                  setModalType("Login")
+                  setModalType("Success")
                 }
               }
               className="font-Roboto text-body-text font-normal hover:text-primary-10 transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"

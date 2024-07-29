@@ -4,9 +4,10 @@ import google from "../../assets/Icons/Auth Modal/google.svg";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useSignupMutation } from "../../Redux/API/baseApi";
 
 export type TSignupLoginModalTypes = {
-  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword">>;
+  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword" | "Success">>;
 };
 
 type TSignupData = {
@@ -16,6 +17,7 @@ type TSignupData = {
 };
 
 const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
+  const [signup, {isLoading}] = useSignupMutation();
   const {
     register,
     handleSubmit,
@@ -24,14 +26,19 @@ const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSignup = (data: TSignupData) => {
+  const handleSignup = async (data: TSignupData) => {
     const signupData = {
       name: data.name,
       email: data.email,
       password: data.password,
     };
+    const response = await signup(signupData).unwrap();
+    if(response.success) {
+      setModalType("Success");
+    }
+    console.log(response);
 
-    setModalType("OTP")
+    // setModalType("OTP")
 
     console.log(signupData);
   };
@@ -122,9 +129,14 @@ const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
       {/* Sign up button */}
       <button
         type="submit"
-        className="bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6"
-      >
-        Get OTP
+        className={`${isLoading ? "animate-pulse bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6" : "animate-none bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6"}`}>
+        {/* Get OTP */}
+        {
+          isLoading ?
+          "Signing Up..."
+          :
+          "Sign Up"
+        }
       </button>
 
       <div className="flex flex-col gap-6">
