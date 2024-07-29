@@ -1,7 +1,10 @@
 import share from "../../../../assets/Icons/share.svg";
-
+import avatar1 from "../../../../assets/Images/Avatar.png";
 import blogImg from "../../../../assets/Images/Blog/1.png";
+import like from "../../../../assets/Icons/like.svg";
+import dislike from "../../../../assets/Icons/dislike.svg";
 import ManageBlogs from "./ManageBlogs";
+import ManageBlogActionDropdown from "./ManageBlogActionDropdown";
 
 const BlogDetailsAdmin = () => {
     const svgs = [
@@ -16,7 +19,7 @@ const BlogDetailsAdmin = () => {
       {/* <div className="w-[25%] bg-dark-5/40 border border-dark-10/30 rounded-lg h-fit p-4">
             hi
       </div> */}
-        <div className="flex flex-col gap-5 w-[30%] bg-dark-5/40 border border-dark-10/30 rounded-lg p-4 h-fit max-h-[890px] overflow-y-auto">
+        <div className="flex flex-col gap-5 w-[30%] bg-dark-5/40 border border-dark-10/30 rounded-lg p-4 h-fit max-h-[890px] overflow-y-auto custom-scrollbar">
         <h1 className="text-body-text text-3xl font-medium">
           Related Blogs
         </h1>
@@ -34,9 +37,13 @@ const BlogDetailsAdmin = () => {
 
       {/* Blog details */}
       <div className="w-[70%] flex flex-col gap-5 bg-dark-5/40 border border-dark-10/30 rounded-lg p-4">
+        <div className="flex items-center justify-between">
         <h1 className="text-body-text text-3xl font-medium">
           How to make a website using Reactjs?
         </h1>
+
+        <ManageBlogActionDropdown/>
+        </div>
 
         <div className="flex items-center justify-between">
             {/* Author name and date */}
@@ -48,8 +55,7 @@ const BlogDetailsAdmin = () => {
           </p>
 
             {/* Social medi share icons */}
-
-          <div className="relative rotate-90 z-50">
+          <div className="relative rotate-90">
             <div className="group flex flex-col items-center justify-center w-max mx-auto absolute top-0 left-[50%] -translate-x-1/2">
                 {/* + icon  */}
                 <div className="hover cursor-pointer flex justify-center size-9 p-1 bg-primary-10 rounded-full items-center group-hover:rotate-90 -rotate-90 hover:bg-primary-10/80 duration-500">
@@ -72,7 +78,7 @@ const BlogDetailsAdmin = () => {
 
         <img className="w-full rounded-lg" src={blogImg} alt="" />
 
-        <div className="flex flex-col gap-3 text-body-text font-semibold text-sm mt-4">
+        <div className="flex flex-col gap-3 text-body-text font-normal text-sm mt-4">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, itaque ea. Tenetur veniam sint quis deleniti doloremque voluptate iure odio quaerat aliquam impedit est quos ex modi maxime magnam itaque, ut eveniet repellendus sunt voluptatem illo deserunt numquam fugiat. Facilis ullam, nemo quasi hic minima incidunt ipsum et repudiandae accusamus!</p>
 
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, itaque ea. Tenetur veniam sint quis deleniti doloremque voluptate iure odio quaerat aliquam impedit est quos ex modi maxime magnam itaque, ut eveniet repellendus sunt voluptatem illo deserunt numquam fugiat. Facilis ullam, nemo quasi hic minima incidunt ipsum et repudiandae accusamus!</p>
@@ -80,6 +86,105 @@ const BlogDetailsAdmin = () => {
 
         <div className="flex justify-start">
         <button className="px-4 py-2 rounded-md bg-primary-10 text-white">Read More</button>
+        </div>
+
+        {/* Comment */}
+        <div>
+        <h1 className="text-body-text text-xl font-medium">
+          Comments
+        </h1>
+
+        <div className="p-3 border border-dark-10/30 rounded-lg flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+                <img src={avatar1} alt="" />
+                  <p className="font-semibold text-neutral-60 text-[15px]">
+                    {"Rahul Sutradhar"}
+                  </p>
+              </div>
+
+              <textarea name="" id="" placeholder="Post your thoughts..." rows={5} className="w-full p-3 border border-dark-10/30 rounded-lg focus:border-primary-10 transition duration-300 focus:outline-none"></textarea>
+
+              <div className="flex justify-end">
+        <button className="px-4 py-2 rounded-md bg-primary-10 text-white">Comment</button>
+        </div>
+
+        <hr className="border border-dark-10/40"/>
+
+
+        {/* Others comments */}
+        <div className="flex flex-col gap-7">
+        {/* Comment card */}
+        <div className="border-b border-dark-10/50 pb-5 flex flex-col gap-3">
+        <div className="flex items-center gap-3">
+                <img src={avatar1} alt="" />
+                <p>
+                  <p className="font-semibold text-neutral-60 text-[15px]">
+                    {"Rahul Sutradhar"}
+                  </p>
+                  <p className="font-normal text-neutral-60 text-[11px]">
+                    {"5"} minutes ago
+                  </p>
+                </p>
+              </div>
+              <p className="text-body-text font-normal text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam molestias, tempore sequi assumenda reprehenderit placeat necessitatibus asperiores. Obcaecati soluta provident deserunt odit quis similique unde non expedita placeat distinctio, voluptatem totam minus quasi omnis pariatur in consequuntur, vitae molestias quisquam!</p>
+
+              <div className="border border-dark-10/40  w-fit rounded-lg px-3 py-2">
+                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-1">
+                    <img src={like} alt="" className="size-5"/>
+                    <p className="text-sm text-gray-500">100</p>
+                </div>
+
+                <div className="h-[20px] w-0.5 bg-gray-300">
+
+                </div>
+
+                <div className="flex items-center gap-1">
+                    <p className="text-sm text-gray-500">55</p>
+                    <img src={dislike} alt="" className="size-5"/>
+                </div>
+                        </div>
+          </div>
+        </div>
+
+        {/* Comment card */}
+        <div className="border-b border-dark-10/50 pb-5 flex flex-col gap-3">
+        <div className="flex items-center gap-3">
+                <img src={avatar1} alt="" />
+                <p>
+                  <p className="font-semibold text-neutral-60 text-[15px]">
+                    {"Rahul Sutradhar"}
+                  </p>
+                  <p className="font-normal text-neutral-60 text-[11px]">
+                    {"5"} minutes ago
+                  </p>
+                </p>
+              </div>
+              <p className="text-body-text font-normal text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam molestias, tempore sequi assumenda reprehenderit placeat necessitatibus asperiores. Obcaecati soluta provident deserunt odit quis similique unde non expedita placeat distinctio, voluptatem totam minus quasi omnis pariatur in consequuntur, vitae molestias quisquam!</p>
+
+              <div className="border border-dark-10/40  w-fit rounded-lg px-3 py-2">
+                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-1">
+                    <img src={like} alt="" className="size-5"/>
+                    <p className="text-sm text-gray-500">100</p>
+                </div>
+
+                <div className="h-[20px] w-0.5 bg-gray-300">
+
+                </div>
+
+                <div className="flex items-center gap-1">
+                    <p className="text-sm text-gray-500">55</p>
+                    <img src={dislike} alt="" className="size-5"/>
+                </div>
+                        </div>
+          </div>
+        </div>
+
+        </div>
+
+
+        </div>
         </div>
       </div>
     </div>

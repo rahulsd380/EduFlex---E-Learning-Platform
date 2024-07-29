@@ -21,4 +21,8 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #30daa4; /* Color when hovered */
   }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px; /* Adjust the width as needed */
+  }
   
