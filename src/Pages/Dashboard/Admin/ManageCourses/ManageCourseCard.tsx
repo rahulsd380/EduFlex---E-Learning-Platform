@@ -35,6 +35,7 @@ const ManageCourseCard: React.FC<ManageCourseCardProps> = ({
         price} = course;
 
         let categoryBg = "Development";
+        
         if(category === "Development"){
             categoryBg = "#1E90FF"
         }else if(category === "Design"){

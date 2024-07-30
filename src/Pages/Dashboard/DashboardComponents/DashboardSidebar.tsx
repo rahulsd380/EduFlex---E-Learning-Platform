@@ -1,10 +1,16 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { FiHome } from "react-icons/fi";
-import { IoInformationCircleOutline } from "react-icons/io5";
-import { FaBook } from "react-icons/fa";
-import { ImBlog } from "react-icons/im";
 import logo from "../../../assets/Images/Logo/logo.png";
 import downArrow from "../../../assets/Icons/down-arrow.svg";
+import home from "../../../assets/Icons/home.svg";
+import dashboard from "../../../assets/Icons/dashboard2.svg";
+import analysis from "../../../assets/Icons/analysis2.svg";
+import user from "../../../assets/Icons/user-group.svg";
+import course from "../../../assets/Icons/manage-course.svg";
+import blog from "../../../assets/Icons/blog.svg";
+import announcement from "../../../assets/Icons/announcement.svg";
+import enrollment from "../../../assets/Icons/manage-enrollment.svg";
+import setting from "../../../assets/Icons/setting.svg";
+import team from "../../../assets/Icons/team.svg";
 import ThemeToggleBtn from "../../../Components/Navbar/HamburgerMenu/ThemeToggleBtn";
 import { useState } from "react";
 
@@ -16,37 +22,37 @@ const DashboardSidebar = () => {
     {
       pathName: "Home",
       link: "",
-      icon: <FiHome />,
+      icon: home,
     },
     {
       pathName: "Dashboard",
       link: "admin",
-      icon: <FiHome />,
+      icon: dashboard,
     },
     {
       pathName: "Reports & Analytics",
       link: "admin/reports-analytics",
-      icon: <FiHome />,
+      icon: analysis,
     },
     {
       pathName: "Manage Team",
       link: "admin/manage-team",
-      icon: <FiHome />,
+      icon: team,
     },
     {
       pathName: "Manage User",
       link: "admin/manage-users",
-      icon: <IoInformationCircleOutline />,
+      icon: user,
     },
     {
       pathName: "Manage Courses",
       link: "admin/manage-course",
-      icon: <FaBook />,
+      icon: course,
     },
     {
       pathName: "Blogs",
       link: "admin/manage-blogs",
-      icon: <ImBlog />,
+      icon: blog,
       downArrow : downArrow,
       subMenu: [
         {
@@ -62,17 +68,17 @@ const DashboardSidebar = () => {
     {
       pathName: "Announcements",
       link: "admin/announcements",
-      icon: <FiHome />,
+      icon: announcement,
     },
     {
       pathName: "Manage Enrollments",
       link: "admin/manage-enrollments",
-      icon: <FaBook />,
+      icon: enrollment,
     },
     {
       pathName: "Settings",
       link: "admin/setting",
-      icon: <FaBook />,
+      icon: setting,
       downArrow : downArrow,
       subMenu: [
         { pathName: "General Settings", link: "admin/setting/general-settings" },
@@ -110,7 +116,7 @@ const DashboardSidebar = () => {
               }`}
             >
               <div className="flex items-center gap-3 w-full">
-              {navLink.icon} {navLink.pathName}
+              <img src={navLink.icon} alt="" className="size-5"/> {navLink.pathName}
               
               </div>
               {
