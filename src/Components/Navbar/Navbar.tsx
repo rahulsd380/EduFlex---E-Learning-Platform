@@ -162,7 +162,7 @@ const Navbar = (): JSX.Element => {
               onClick={
                 () => {
                   setOpenModal(true)
-                  setModalType("Success")
+                  setModalType("Login")
                 }
               }
               className="font-Roboto text-body-text font-normal hover:text-primary-10 transition duration-300 flex items-center gap-1 transform hover:-translate-y-0.5"

@@ -1,7 +1,9 @@
 import Confetti from "react-confetti";
 import success from "../../assets/Icons/success.svg";
+import React from "react";
+import { TSignupLoginModalTypes } from "./Signup";
 
-const SuccessMessage = ({ setModalType }) => {
+const SuccessMessage : React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
   return (
     <div className="font-Roboto">
       <Confetti width={500} height={550} />

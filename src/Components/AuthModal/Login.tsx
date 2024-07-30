@@ -4,7 +4,6 @@ import google from "../../assets/Icons/Auth Modal/google.svg";
 import { useState } from "react";
 import { TSignupLoginModalTypes } from "./Signup";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 
 type TLoginData = {
   email: string;
@@ -140,18 +139,6 @@ const Login: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
           Continue with Google
         </button>
 
-        <p className="text-sm max-w-[380px] text-gray-800 mx-auto">
-          By signing up to create an account, I accept Company's{" "}
-          <p className="inline">
-            <Link to={"/"} className="text-primary-10 hover:underline font-medium inline">
-              Terms & Conditions
-            </Link>{" "}
-            <p className="text-gray-800 inline">and</p>{" "}
-            <Link to={"/"} className="text-primary-10 hover:underline font-medium inline">
-              Privacy policy
-            </Link>
-          </p>
-        </p>
       </div>
     </form>
   );

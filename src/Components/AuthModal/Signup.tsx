@@ -161,7 +161,7 @@ const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
           Continue with Google
         </button>
 
-        <p className="text-sm max-w-[380px] text-gray-800 mx-auto">
+        <p className="text-sm max-w-[380px] text-gray-800 mx-auto text-center">
           By signing up to create an account, I accept Company's{" "}
           <p className="inline">
             <Link
