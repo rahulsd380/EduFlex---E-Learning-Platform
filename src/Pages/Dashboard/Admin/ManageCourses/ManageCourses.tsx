@@ -2,8 +2,10 @@ import React from 'react';
 import ManageCourseCard from './ManageCourseCard';
 import img1 from "../../../../assets/Images/Blog/1.png";
 import avatar3 from "../../../../assets/Images/Avatar2.png";
+import { TCourse } from './manageCourse.types';
 
-const coursesData = [
+// Course dummy data
+const coursesData : TCourse[] = [
   {
     image: img1,
     category: "Development",

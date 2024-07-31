@@ -57,7 +57,7 @@ const DashboardSidebar = () => {
       subMenu: [
         {
           pathName: "Add Blog",
-          link: "admin/manage-blogs/add-blog",
+          link: "admin/manage-blog/add-blog",
         },
         {
           pathName: "Manage Blogs",

@@ -2,24 +2,13 @@ import React from 'react';
 import star from "../../../../assets/Icons/Star 1.svg";
 import deadline from "../../../../assets/Icons/deadline.svg";
 import enrolled from "../../../../assets/Icons/enrolled.svg";
+import { TCourse } from './manageCourse.types';
 
-interface ManageCourseCardProps {
-  course: {
-    image: string;
-  category: string;
-  title: string;
-  rating: number;
-  description: string;
-  instructorName: string;
-  instructorTitle: string;
-  instructorAvatar: string;
-  enrolledCount: number;
-  daysLeft: number;
-  price: number;
-  }
+export type TManageCourseCardProps = {
+  course: TCourse
 }
 
-const ManageCourseCard: React.FC<ManageCourseCardProps> = ({
+const ManageCourseCard: React.FC<TManageCourseCardProps> = ({
   course
 }) => {
     const {image,

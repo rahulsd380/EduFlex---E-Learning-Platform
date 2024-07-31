@@ -24,6 +24,7 @@ import ManageTeam from './Pages/Dashboard/Admin/ManageTeam/ManageTeam';
 import BlogDetailsAdmin from './Pages/Dashboard/Admin/ManageBlogs/BlogDetailsAdmin';
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
+import AddBlogModal from './Pages/Dashboard/Admin/ManageBlogs/AddBlogModal';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path : 'manage-team',
         element : <ManageTeam/>
+      },
+      {
+        path : 'manage-blog/add-blog',
+        element : <AddBlogModal/>
       },
     ]
   }
