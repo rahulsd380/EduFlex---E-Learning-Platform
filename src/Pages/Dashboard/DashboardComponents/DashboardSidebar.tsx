@@ -76,6 +76,11 @@ const DashboardSidebar = () => {
       icon: enrollment,
     },
     {
+      pathName: "Profile",
+      link: "admin/profile",
+      icon: user,
+    },
+    {
       pathName: "Settings",
       link: "admin/setting",
       icon: setting,

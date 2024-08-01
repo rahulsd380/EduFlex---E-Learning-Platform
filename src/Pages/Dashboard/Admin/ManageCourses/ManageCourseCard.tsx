@@ -42,7 +42,7 @@ const ManageCourseCard: React.FC<TManageCourseCardProps> = ({
       <img src={image} alt="" className="rounded-lg h-[180px]" />
 
       <div className="flex absolute top-2 left-2">
-        <div style={{backgroundColor : categoryBg}} className="px-1.5 py-1 text-white flex items-center justify-center rounded-r-lg text-xs">
+        <div style={{backgroundColor : categoryBg}} className="px-1.5 py-1 text-white flex items-center justify-center rounded-r-lg rounded-tl-lg text-xs">
           {category}
         </div>
       </div>

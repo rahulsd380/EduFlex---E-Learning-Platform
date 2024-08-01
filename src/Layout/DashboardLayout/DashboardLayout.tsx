@@ -4,7 +4,7 @@ import DashboardHeader from "../../Pages/Dashboard/DashboardComponents/Dashboard
 import DashboardSidebar from "../../Pages/Dashboard/DashboardComponents/DashboardSidebar";
 
 const DashboardLayout = () => {
-  
+  // bg-gradient-to-bl from-[#f3f3f3] via-[#eafff4] to-[#f7f7f7]
   return (
     <div className="flex">
       <DashboardSidebar/>
