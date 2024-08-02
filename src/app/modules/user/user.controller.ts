@@ -10,12 +10,14 @@ const createUser = catchAsync(async (req, res) => {
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "Account created successfully.",
+      message: "User retrived successfully.",
       data: result,
     });
   });
 
 const getAllUsers = catchAsync(async (req, res) => {
+
+  console.log(req.cookies);
     const result = await UserServices.getAllUsers();
   
     sendResponse(res, {
