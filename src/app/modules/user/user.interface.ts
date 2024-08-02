@@ -1,22 +1,31 @@
+import { Model } from "mongoose";
+import { USER_ROLE } from "./user.constants";
 
 export enum UserRole {
     Admin = "admin",
     Student = "student",
-    Manager = "manager"
+    Manager = "manager",
+    Instructor = 'instructor',
+    Ceo = "ceo"
   }
 
-export type TUser = {
-  name: {
-    first_name: string;
-    last_name: string;
-  };
+export interface TUser {
+  name: string;
   email: string;
   password : string;
   job_title: string;
   address: string;
-  phone_number: string;
+  phone_number?: string | null;
   skills: string[];
   objective: string;
   social_links: string[];
   role: UserRole;
+  passwordChangedAt?: Date;
 };
+
+export interface UserModel extends Model<TUser>{
+  isUserExistsByEmail(email : string) : Promise<TUser>;
+  isPasswordMatched(plainTextPassword : string, hashedPassword : string) : Promise<boolean>;
+};
+
+export type TUserRole = keyof typeof USER_ROLE;
