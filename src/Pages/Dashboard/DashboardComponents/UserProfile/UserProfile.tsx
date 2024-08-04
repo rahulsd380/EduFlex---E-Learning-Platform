@@ -3,6 +3,11 @@ import prize1 from '../../../../assets/Icons/prize1.svg';
 import prize2 from '../../../../assets/Icons/prize2.svg';
 import prize3 from '../../../../assets/Icons/prize3.svg';
 import prize4 from '../../../../assets/Icons/prize4.svg';
+
+import mentor from '../../../../assets/Icons/mentor.svg';
+import support from '../../../../assets/Icons/support.svg';
+import inviteFriend from '../../../../assets/Icons/invite-friend.svg';
+import deleteProfile from '../../../../assets/Icons/delete-profile.svg';
 import { useState } from 'react';
 import PersonalInformation from './PersonalInformation';
 import SocialLinksSetting from './SocialLinksSetting';
@@ -11,7 +16,7 @@ import NotificationSetting from './NotificationSetting';
 import PrivacySetting from './PrivacySetting';
 
 const UserProfile = () => {
-  const [profileTab, setprofileTab] = useState<"PersonalDetails" | "SocialLinks" | "Skills" | "Notifications" | "Privacy">("Notifications");
+  const [profileTab, setprofileTab] = useState<"PersonalDetails" | "SocialLinks" | "Skills" | "Notifications" | "Privacy">("PersonalDetails");
     return (
         <div className="flex gap-10 w-full font-Roboto">
            <div className="bg-white rounded-xl p-3 shadow w-[35%] flex flex-col gap-10">
@@ -78,28 +83,28 @@ const UserProfile = () => {
 
         <div className='flex items-center gap-2'>
         <div className='bg-warning-10/5 p-1 size-8 rounded-full flex items-center justify-center shadow-inner font-bold text-xl'>
-          <img src={prize1} alt="" className='size-10' />
+          <img src={mentor} alt="" className='size-10' />
         </div>
         <p className='text-neutral-60 text-sm '>Become a Mentor</p>
         </div>
 
         <div className='flex items-center gap-2'>
         <div className='bg-warning-10/5 p-1 size-8 rounded-full flex items-center justify-center shadow-inner font-bold text-xl'>
-          <img src={prize1} alt="" className='size-10' />
+          <img src={support} alt="" className='size-10' />
         </div>
         <p className='text-neutral-60 text-sm '>Get Support</p>
         </div>
 
         <div className='flex items-center gap-2'>
         <div className='bg-warning-10/5 p-1 size-8 rounded-full flex items-center justify-center shadow-inner font-bold text-xl'>
-          <img src={prize1} alt="" className='size-10' />
+          <img src={inviteFriend} alt="" className='size-10' />
         </div>
         <p className='text-neutral-60 text-sm '>Invite Friends</p>
         </div>
 
         <div className='flex items-center gap-2'>
         <div className='bg-warning-10/5 p-1 size-8 rounded-full flex items-center justify-center shadow-inner font-bold text-xl'>
-          <img src={prize1} alt="" className='size-10' />
+          <img src={deleteProfile} alt="" className='size-10' />
         </div>
         <p className='text-neutral-60 text-sm '>Delete Account</p>
         </div>

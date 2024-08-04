@@ -18,7 +18,7 @@ const Root = () => {
     //         setIsPageLoading(false);
     //       })
     //     }
-    //   },[isPageLoading])
+    //   },[isPageLoading]);
 
 
     useEffect(() => {
@@ -32,6 +32,7 @@ const Root = () => {
           window.onload = null;
         };
       }, [isPageLoading]);
+      
     return (
         isPageLoading ? 
         <PreLoader/>

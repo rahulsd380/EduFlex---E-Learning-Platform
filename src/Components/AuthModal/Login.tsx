@@ -4,6 +4,12 @@ import google from "../../assets/Icons/Auth Modal/google.svg";
 import { useState } from "react";
 import { TSignupLoginModalTypes } from "./Signup";
 import { useForm } from "react-hook-form";
+import { useLoginMutation } from "../../Redux/Features/Auth/authApi";
+import { useAppDispatch } from './../../Redux/hooks';
+import { setUser } from "../../Redux/Features/Auth/authSlice";
+import { verifyToken } from "../../Utils/verifytoken";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 type TLoginData = {
   email: string;
@@ -11,6 +17,10 @@ type TLoginData = {
 };
 
 const Login: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const [login, {isLoading}] = useLoginMutation();
   const {
     register,
     handleSubmit,
@@ -19,13 +29,17 @@ const Login: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = (data: TLoginData) => {
+  const handleLogin = async (data: TLoginData) => {
     const loginData = {
       email: data.email,
       password: data.password,
     };
 
-    console.log(loginData);
+    const response = await login(loginData).unwrap();
+    const user = verifyToken(response.data?.accessToken);
+    dispatch(setUser({ user, token: response.data.accessToken }));
+    toast.success("Logged in successfully.");
+    navigate("/");
   };
 
   return (
@@ -117,7 +131,7 @@ const Login: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
         type="submit"
         className="bg-primary-10 text-white font-medium w-full px-4 py-3 rounded-lg focus:outline-none mt-6"
       >
-        Log In
+        {isLoading ? "Login in..." : "Log In"}
       </button>
 
       <div className="flex flex-col gap-6">

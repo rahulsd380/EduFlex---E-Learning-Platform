@@ -2,8 +2,11 @@ import { useState } from "react";
 import Heading from "../../Components/Heading";
 import CourseCard from "./CourseCard";
 import search from "../../assets/Icons/search.svg";
+import { useGetAllCoursesQuery } from "../../Redux/Features/Course/courseApi";
+import CourseCardLoading from "./CourseCardLoading";
 
 const Courses = (): JSX.Element => {
+  const {data, isLoading} = useGetAllCoursesQuery({});
   const [selectedTab, setSelectedTab] = useState<string>("All");
 
   const filterButtons = [
@@ -26,7 +29,7 @@ const Courses = (): JSX.Element => {
       {/* Heading */}
       <Heading
         subTitle="Explore Programs"
-        heaing="Our Most Popular Class"
+        heaing="Our Most Popular Classes"
         description="Let's join our famous class, the knowledge provided will definitely be useful for you."
       />
 
@@ -65,9 +68,14 @@ const Courses = (): JSX.Element => {
       </div>
 
 
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-10 mt-10">
+        {isLoading
+          ? Array(6).fill(null).map((_, index) => <CourseCardLoading key={index} />)
+          : data?.data?.map(course => <CourseCard key={course._id} details={course} />)}
+      </div>
 
 
-      <CourseCard />
+      
     </div>
   );
 };

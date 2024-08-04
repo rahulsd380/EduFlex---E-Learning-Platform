@@ -4,7 +4,7 @@ import google from "../../assets/Icons/Auth Modal/google.svg";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useSignupMutation } from "../../Redux/API/baseApi";
+import { useSignupMutation } from "../../Redux/Features/Auth/authApi";
 
 export type TSignupLoginModalTypes = {
   setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword" | "Success">>;

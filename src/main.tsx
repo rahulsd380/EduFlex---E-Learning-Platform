@@ -23,8 +23,13 @@ import ManageEnrollments from './Pages/Dashboard/Admin/ManageEnrollments/ManageE
 import ManageTeam from './Pages/Dashboard/Admin/ManageTeam/ManageTeam';
 import BlogDetailsAdmin from './Pages/Dashboard/Admin/ManageBlogs/BlogDetailsAdmin';
 import { Provider } from 'react-redux';
-import { store } from './Redux/store';
+import { persistor, store } from './Redux/store';
 import UserProfile from './Pages/Dashboard/DashboardComponents/UserProfile/UserProfile';
+import { PersistGate } from 'redux-persist/integration/react';
+import ProtectedRoute from './Layout/ProtectedRoute/ProtectedRoute';
+import { Toaster } from 'sonner'
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,7 +61,7 @@ const router = createBrowserRouter([
 
   {
     path : '/admin',
-    element : <DashboardLayout/>,
+    element : <ProtectedRoute><DashboardLayout/></ProtectedRoute>,
     children : [
       {
         path : 'manage dashboard',
@@ -105,8 +110,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
 
     <RouterProvider router={router} />
+    </PersistGate>
     </Provider>
+    <Toaster position="top-center" />
   </React.StrictMode>,
 )

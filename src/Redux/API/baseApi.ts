@@ -1,56 +1,47 @@
-// Need to use the React-specific entry point to import createApi
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { BaseQueryApi, BaseQueryFn, createApi, DefinitionType, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { RootState } from '../store';
+import { setUser } from '../Features/Auth/authSlice';
 
-// Define a service using a base URL and expected endpoints
-export const baseApi = createApi({
-  reducerPath: 'baseApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api' }),
-//   tagTypes: ["products",],
-  endpoints: (builder) => ({
+const baseQuery = fetchBaseQuery({
+  baseUrl: 'http://localhost:5000/api',
+  credentials : 'include',
+  prepareHeaders : (headers, {getState}) => {
+    const token = (getState() as RootState).auth.token;
 
-    signup: builder.mutation({
-        query: (data) => ({
-            method : "POST",
-            url : "/auth/signup",
-            body : data,
-        }),
-        // invalidatesTags : ["products"]
-      }),
-    // getAllProducts: builder.query({
-    //     query: () => ({
-    //         method : "GET",
-    //         url : "/products",
-    //     }),
-    //     providesTags : ["products"]
-    //   }),
-
-    // createProduct: builder.mutation({
-    //     query: (data) => ({
-    //         method : "POST",
-    //         url : "/products/create-product",
-    //         body : data,
-    //     }),
-    //     invalidatesTags : ["products"]
-    //   }),
-
-    //   updateProduct: builder.mutation({
-    //     query: ({ id, data }) => ({
-    //       method: "PUT",
-    //       url: `/products/update-product/${id}`,
-    //       body: data,
-    //     }),
-    //     invalidatesTags: ["products"],
-    //   }),
-
-    //   deleteProduct: builder.mutation({
-    //     query: (id) => ({
-    //       method: "DELETE",
-    //       url: `/products/delete-product/${id}`,
-    //     }),
-    //     invalidatesTags: ["products"],
-    //   }),
-
-  }),
+    if(token){
+      headers.set('authorization', `${token}`);
+    }
+    return headers; 
+  }
 });
 
-export const { useSignupMutation } = baseApi;
+const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, DefinitionType> = async (args, api, extraOptions) : Promise<any> => {
+  const result = await baseQuery(args, api, extraOptions);
+  console.log(result);
+
+  if(result.error?.status === 401){
+    const res = await fetch('http://localhost:5000/api/auth/refresh-token', {
+      credentials : 'include'
+    });
+
+    const data = await res.json();
+    console.log(data);
+    const user = (api.getState() as RootState).auth.user
+    api.dispatch(
+      setUser({
+        user,
+        token : data.data.accessToken
+      })
+    )
+  }
+
+  return result;
+}
+
+export const baseApi = createApi({
+  reducerPath: 'baseApi',
+  baseQuery: baseQueryWithRefreshToken,
+  endpoints: () => ({}),
+});
+
+// export const { } = baseApi;
