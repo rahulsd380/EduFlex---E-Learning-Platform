@@ -12,7 +12,7 @@ app.use(cookieParser())
 app.use(express.json());
 
 // Middleware for handling CORS
-app.use(cors({origin : ['http://localhost:5173']}));
+app.use(cors({origin : ['http://localhost:5173'], credentials : true}));
 
 // Application routes
 app.use('/api', router);

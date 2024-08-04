@@ -34,7 +34,7 @@ const loginUser = async (payload: TLoginUser) => {
     role: user.role,
   };
 
-  const accessToekn = createToekn(
+  const accessToken = createToekn(
     jwtpayload,
     config.jwt_access_secret as string,
     config.jwt_access_expires_in as string
@@ -50,7 +50,7 @@ const loginUser = async (payload: TLoginUser) => {
 
   // const result =
   return {
-    accessToekn,
+    accessToken,
     refreshToekn,
   };
 };
@@ -126,14 +126,14 @@ const refreshToken = async (token: string) => {
     email: user.email,
     role: user.role,
   };
-  const accessToekn = createToekn(
+  const accessToken = createToekn(
     jwtpayload,
     config.jwt_access_secret as string,
     config.jwt_access_expires_in as string
   );
 
   return {
-    accessToekn
+    accessToken
   }
 };
 
