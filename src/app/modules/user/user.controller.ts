@@ -10,7 +10,7 @@ const createUser = catchAsync(async (req, res) => {
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "User retrived successfully.",
+      message: "User creted successfully.",
       data: result,
     });
   });
@@ -28,7 +28,21 @@ const getAllUsers = catchAsync(async (req, res) => {
     });
   });
 
+  const getMe = catchAsync(async (req, res) => {
+    const {id, role} = req.user;
+  
+    const result = await UserServices.getMe(id, role);
+  
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'My profile retrived succesfully',
+      data: result,
+    });
+  });
+
   export const UserControllers = {
     createUser,
-    getAllUsers
+    getAllUsers,
+    getMe,
   }

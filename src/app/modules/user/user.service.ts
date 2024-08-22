@@ -1,8 +1,9 @@
 import { TUser, UserRole } from "./user.interface";
 import { User } from "./user.model";
 
+// create user route
 const createUser = async (payload: TUser) => {
-  const {name, email, password, job_title, address, phone_number, skills, objective, social_links, role} = payload;
+  const {name, email, password, job_title, address, phone_number, skills, objective, social_links, role,projects, enrolledCourses} = payload;
   
   const userPayload: TUser = {
     name: name,
@@ -15,18 +16,28 @@ const createUser = async (payload: TUser) => {
     objective: objective || "",
     social_links: social_links || [],
     role: role || UserRole.Student,
+    projects : projects || [],
+    enrolledCourses : enrolledCourses || [],
+    isAccountDeleted : false,
   };
 
   const result = await User.create(userPayload);
   return result;
 };
 
+// get all users route
 const getAllUsers = async () => {
   const result = await User.find();
   return result;
 };
 
+const getMe = async (id:string, role:string) => {
+  const result = User.findOne({id});
+  return result;
+}
+
 export const UserServices = {
   createUser,
-  getAllUsers
+  getAllUsers,
+  getMe
 };

@@ -18,8 +18,6 @@ export type TCourse = {
   title: string;
   description: string;
   price: string;
-  reviewerImg: string;
-  reviewerName: string;
   totalEnrolled: string;
   courseDuration: string;
   instructor: TInstructor[];
@@ -31,7 +29,7 @@ export type TCourse = {
   enrollmentDeadline: string;
   startDate: string;
   endDate: string;
-  numberOfLessons: number;
+  numberOfLessons: string;
   assignmentsAndAssessments: string;
   certification: string;
   reviews: TReview[];

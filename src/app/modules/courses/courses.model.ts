@@ -19,19 +19,15 @@ const InstructorSchema = new Schema({
 const ReviewSchema = new Schema({
   reviewerName: {
     type: String,
-    required: true,
   },
   reviewerImg: {
     type: String,
-    required: true,
   },
   review: {
     type: String,
-    required: true,
   },
   reviewDate: {
     type: String,
-    required: true,
   },
 });
 
@@ -59,17 +55,9 @@ const CourseSchema = new Schema<TCourse>({
     type: String,
     required: true,
   },
-  reviewerImg: {
-    type: String,
-    required: true,
-  },
-  reviewerName: {
-    type: String,
-    required: true,
-  },
   totalEnrolled: {
     type: String,
-    required: true,
+    default : "0"
   },
   courseDuration: {
     type: String,
@@ -97,7 +85,7 @@ const CourseSchema = new Schema<TCourse>({
     required: true,
   },
   numberOfLessons: {
-    type: Number,
+    type: String,
     required: true,
   },
   assignmentsAndAssessments: {
@@ -110,6 +98,16 @@ const CourseSchema = new Schema<TCourse>({
   },
   reviews: [ReviewSchema],
 });
+
+const TemporaryCourseSchema = new Schema({
+  content: {
+    type: String,
+    required: true,
+  },
+});
+
+
+export const TemporyCourse = model("TemporaryCourse", TemporaryCourseSchema);
 
 const Course = model<TCourse>("Course", CourseSchema);
 export default Course;
