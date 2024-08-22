@@ -10,7 +10,7 @@ const PersonalInformation = () => {
         </div>
         </div>
 
-        <div className='flex items-center gap-5'>
+        <div className='flex flex-col md:flex-row items-center gap-5'>
             {/* Name */}
         <div className="flex flex-col gap-1 w-full">
           <p className="text-body-text text-sm">Full Name</p>
@@ -48,7 +48,7 @@ const PersonalInformation = () => {
           />
         </div>
 
-        <div className='flex items-center gap-5'>
+        <div className='flex flex-col md:flex-row items-center gap-5'>
             {/* City */}
         <div className="flex flex-col gap-1 w-full">
           <p className="text-body-text text-sm">City</p>
@@ -74,7 +74,7 @@ const PersonalInformation = () => {
 
            </div>
 
-        <div className='flex items-center gap-5'>
+        <div className='flex flex-col md:flex-row items-center gap-5'>
             {/* ZIP Code */}
         <div className="flex flex-col gap-1 w-full">
           <p className="text-body-text text-sm">ZIP Code</p>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import logo from "../../../assets/Images/Logo//fabicon.png";
+import logo from "../../../assets/Images/Logo/logo.png";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { ReactNode } from "react";
@@ -10,6 +10,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import { IoLogOutOutline } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
+import search from "../../../assets/Icons/search.svg";
 
 interface NavigationLinks {
   pathName: string;
@@ -63,6 +64,8 @@ const HamburgerMenu = ({ links }: Props): JSX.Element => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [isHamburgerOpen]);
+
+  
   return (
     <div className="relative hamburgerMenu block lg:hidden">
       <AiOutlineMenu
@@ -71,7 +74,7 @@ const HamburgerMenu = ({ links }: Props): JSX.Element => {
       />
 
       <div
-        className={`overflow-y-scroll fixed inset-y-0 right-0 z-50 bg-gray-800 w-64 h-screen transition-all duration-300 transform ${
+        className={`overflow-y-scroll fixed inset-y-0 right-0 z-50 bg-neutral-60 text-white w-64 h-screen transition-all duration-300 transform ${
           isHamburgerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -79,12 +82,13 @@ const HamburgerMenu = ({ links }: Props): JSX.Element => {
           <div>
             <div className="flex justify-between items-center p-[9px]">
               {/* Logo */}
-              <Link to={"/"} className="flex gap-1 items-center">
-                <img className="w-12 md:w-12" src={logo} alt="" />
-                <h1 className="text-xl font-Roboto text-gray-100">
-                  Genius Grove
-                </h1>
-              </Link>
+             {/* Logo */}
+        <Link to={"/"} className="flex items-center gap-2">
+          <img className="w-10" src={logo} alt="" />
+          <h1 className="font-Roboto font-bold text-[27px] white">
+            EduFlex
+          </h1>
+        </Link>
 
               {/* Hamburger menu close button */}
               <MdKeyboardArrowLeft
@@ -92,10 +96,25 @@ const HamburgerMenu = ({ links }: Props): JSX.Element => {
                 className="text-white text-4xl cursor-pointer"
               />
             </div>
+
+            
             <div className="w-full h-[1px] bg-gray-500"></div>
 
+            
+
             {/* Navigations links */}
-            <div className="flex flex-col items-start gap-5 p-4 border-b border-gray-600 pb-3">
+            <div className="flex flex-col items-start gap-5 p-4 border-b border-neutral-40/50 pb-3">
+
+            <div className="relative">
+              <img src={search} alt="" className="absolute left-[6px] top-3" />
+              <input
+                placeholder="Want to learn?"
+                type="text"
+                className="border-[1px] border-neutral-40/50 rounded-lg bg-neutral-60/10 py-2 pl-7 pr-2 focus:border-primary-10 transition duration-300 focus:outline-none"
+              />
+            </div>
+
+
               <h1 className="text-base font-normal font-Roboto text-gray-200">
                 Main Menu
               </h1>
@@ -112,7 +131,7 @@ const HamburgerMenu = ({ links }: Props): JSX.Element => {
             </div>
 
             {/* Theme toggle and logout */}
-            <div className="flex flex-col items-start gap-5 p-4 border-b border-gray-600 pb-3">
+            <div className="flex flex-col items-start gap-5 p-4 border-b border-neutral-40/50 pb-3">
               <h1 className="text-base font-normal font-Roboto text-gray-300">
                 Account
               </h1>

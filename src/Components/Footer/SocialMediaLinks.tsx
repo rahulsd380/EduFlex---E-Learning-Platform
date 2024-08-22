@@ -13,7 +13,7 @@ const SocialMediaILinks = () => {
               >
                 <img src={icon.icon} alt="" className="size-3 xl:size-6" />
               </a>
-            ))};
+            ))}
           </div>
     );
 };

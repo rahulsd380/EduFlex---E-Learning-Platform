@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import PopularCourseCard from "./PopularCourseCard";
 import Heading from "../Heading";
 import { useGetAllCoursesQuery } from "../../Redux/Features/Course/courseApi";
 import CourseCardLoading from "../../Pages/Courses/CourseCardLoading";
-import CourseCard from "../../Pages/Courses/CourseCard";
+import CourseCard, { TCourse } from "../../Pages/Courses/CourseCard";
 
 const PopularCourses = () => {
   const {data, isLoading} = useGetAllCoursesQuery({});
@@ -16,10 +15,10 @@ const PopularCourses = () => {
           description="Let's join our famous class, the knowledge provided will definitely be useful for you."
         />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-10 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-10 mt-4">
         {isLoading
           ? Array(3).fill(null).map((_, index) => <CourseCardLoading key={index} />)
-          : data?.data?.slice(0,3).map(course => <CourseCard key={course._id} details={course} />)}
+          : data?.data?.slice(0,3).map((course : TCourse) => <CourseCard key={course._id} details={course} />)}
       </div>
 
         <div className="flex justify-center">

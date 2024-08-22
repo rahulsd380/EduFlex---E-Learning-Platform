@@ -11,7 +11,7 @@ type TManageUserCardProps = {
 
 const ManageUserCard: React.FC<TManageUserCardProps> = ({ user }) => {
   return (
-    <div className="bg-neutral-40/5 max-w-[250px] rounded-lg shadow relative">
+    <div className="bg-neutral-40/5 w-[250px] rounded-lg shadow relative">
       <div className="p-4 flex flex-col items-center justify-center">
         {/* Img */}
         <div className="size-36 rounded-full bg-white border border-neutral-55 flex justify-center items-center">
@@ -46,7 +46,7 @@ const ManageUserCard: React.FC<TManageUserCardProps> = ({ user }) => {
           </div>
           <div className="bg-primary-10 p-2 rounded-md text-white flex items-center gap-2">
             <img src={details} alt="" className="size-4" />
-            <p className="text-white font-semibold text-[11px] text-center">View Details</p>
+            <p className="text-white font-semibold text-[11px] text-center">Details</p>
           </div>
         </div>
       </div>

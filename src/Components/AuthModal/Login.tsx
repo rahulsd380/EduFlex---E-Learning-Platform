@@ -123,7 +123,7 @@ const Login: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
         </div>
 
       {/* Forgot password */}
-      <button className="text-primary-10 font-medium text-end mt-2">Forgot Password?</button>
+      <p onClick={() => setModalType("ForgotPassword")} className="text-primary-10 font-medium text-end mt-2 cursor-pointer">Forgot Password?</p>
       </div>
 
       {/* Log in button */}

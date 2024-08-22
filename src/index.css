@@ -25,4 +25,8 @@
   .custom-scrollbar::-webkit-scrollbar {
     width: 4px; /* Adjust the width as needed */
   }
+
+  .custom-scrollbar2::-webkit-scrollbar {
+    height: 5px; /* Adjust the width as needed */
+  }
   

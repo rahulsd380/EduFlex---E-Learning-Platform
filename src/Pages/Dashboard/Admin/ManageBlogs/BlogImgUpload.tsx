@@ -9,7 +9,7 @@ const BlogImgUpload = () => {
     fileInputRef.current.value = ''; 
   };
     return (
-        <div className="w-max rounded-lg border border-dashed p-6 bg-white">
+        <div className="rounded-lg border border-dashed p-6 bg-white h-[310px]">
         <div className="space-y-1.5">
           <h5 className="whitespace-nowrap text-lg font-medium tracking-tight ">Upload your file</h5>
           <p className="text-sm text-gray-500">File Should be in PDF, DOCX or JPG formate</p>

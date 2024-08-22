@@ -16,7 +16,7 @@ type InstructorsCardProps = {
   instructors: TInstructor[];
 };
 
-const InstructorsCard: React.FC<InstructorsCardProps> = ({ instructors }) => {
+const InstructorsCardDemo: React.FC<InstructorsCardProps> = ({ instructors }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
       {instructors.map((instructor) => (
@@ -62,4 +62,4 @@ const InstructorsCard: React.FC<InstructorsCardProps> = ({ instructors }) => {
   );
 };
 
-export default InstructorsCard;
+export default InstructorsCardDemo;

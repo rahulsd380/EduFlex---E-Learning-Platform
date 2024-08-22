@@ -1,14 +1,11 @@
 import eyeOpen from "../../assets/Icons/Auth Modal/eye-open.svg";
 import eyeClosed from "../../assets/Icons/Auth Modal/eye-closed.svg";
 import google from "../../assets/Icons/Auth Modal/google.svg";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useSignupMutation } from "../../Redux/Features/Auth/authApi";
-
-export type TSignupLoginModalTypes = {
-  setModalType: Dispatch<SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword" | "Success">>;
-};
+import { TModalTypes } from "./authModal.types";
 
 type TSignupData = {
   name: string;
@@ -16,7 +13,7 @@ type TSignupData = {
   password: string;
 };
 
-const Signup: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
+const Signup: React.FC<TModalTypes> = ({ setModalType }) => {
   const [signup, {isLoading}] = useSignupMutation();
   const {
     register,

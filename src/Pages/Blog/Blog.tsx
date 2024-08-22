@@ -1,97 +1,72 @@
+import Heading from "../../Components/Heading";
 import Reusable from "../../Components/Reusable/Reusable";
-import blog from "../../assets/Images/blog.jpg";
 import BlogsCard from "./BlogsCard";
-
-export type TBlog = {
-  _id: string;
-  imageUrl: string;
-  category: string;
-  date: string;
-  title: string;
-  description: string;
-  readCount: number;
-};
+import searchIcon from "../../assets/Icons/search.svg";
+import { useState } from "react";
+import { useGetAllBlogsQuery } from "../../Redux/Features/Blog/blogApi";
+import BlogsCardLoader from "../../Components/Loaders/BlogCardLoader";
+import { TBlog } from "./blog.types";
 
 const Blog = (): JSX.Element => {
-  const blogs: TBlog[] = [
+  const [selectedTab, setSelectedTab] = useState<string>("All");
+
+  const {data, isLoading} = useGetAllBlogsQuery({});
+
+  const filterButtons = [
     {
-      _id: "1",
-      imageUrl: "https://example.com/image1.png",
-      category: "Programming",
-      date: "May 12, 2024",
-      title: "How to become a programmer.",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit. Mollitia alias odit ullam labore.",
-      readCount: 828,
+      btnName: "All",
+      value: "All",
     },
     {
-      _id: "2",
-      imageUrl: "https://example.com/image2.png",
-      category: "Web Development",
-      date: "June 1, 2024",
-      title: "Getting started with React.",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla facilisi curabitur egestas.",
-      readCount: 1024,
+      btnName: "Web Development",
+      value: "Web Development",
     },
     {
-      _id: "3",
-      imageUrl: "https://example.com/image3.png",
-      category: "Data Science",
-      date: "April 20, 2024",
-      title: "Introduction to Machine Learning.",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
-      readCount: 540,
-    },
-    {
-      _id: "4",
-      imageUrl: "https://example.com/image4.png",
-      category: "Cybersecurity",
-      date: "March 15, 2024",
-      title: "Best practices for securing your applications.",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit. Ut enim ad minim veniam quis.",
-      readCount: 672,
-    },
-    {
-      _id: "5",
-      imageUrl: "https://example.com/image5.png",
-      category: "Cloud Computing",
-      date: "February 28, 2024",
-      title: "Understanding the basics of AWS.",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quis nostrud exercitation ullamco laboris.",
-      readCount: 815,
+      btnName: "UI/UX Design",
+      value: "UI/UX Design",
     },
   ];
 
   return (
-    <div className="max-w-[1500px] w-[90%] mx-auto">
-      {/* HERO SECTION */}
-      <div className="relative mt-3">
-        <div className="absolute z-10 flex flex-col justify-center h-full gap-4 px-5">
-          <h1 className="text-4xl text-white font-medium font-Roboto">
-            Explore the World of Ideas: <br />
-            Diving into Engaging Articles, Insights, and Inspiration on Our
-            Blog!
-          </h1>
-          <p className="text-white font-normal font-Roboto w-3/4">
-            Explore our blog: a treasure trove of diverse articles, insights,
-            and inspiration. From tech trends to cultural reflections, our
-            curated content offers something for everyone. Engage with
-            thought-provoking analyses and captivating narratives that spark
-            curiosity and ignite imagination. Whether seeking expert advice or a
-            moment of reflection, our blog promises to inform and inspire. Join
-            us on this enriching journey of discovery and exploration.
-          </p>
+    <div className="max-w-[1500px] w-[90%] mx-auto flex flex-col gap-5 mt-3">
+      {/* Heading */}
+      <Heading
+        subTitle="Explore Blogs"
+        heaing="Explore Knowledge Through Insightful Blogs"
+        description="Stay Updated with the Latest Educational Trends and Tips"
+      />
 
-          <button className="bg-gradient-to-r from-indigo-500 to-blue-500 py-2 px-2 md:px-4 rounded-md text-white font-Roboto font-normal w-fit">
-            Read Article
-          </button>
+      {/* Search functionality */}
+      <div className="relative mx-auto w-full max-w-[500px]">
+        <input
+          placeholder="What are you looking for?"
+          type="text"
+          className="border-[1px] border-dark-5 rounded-[100px] bg-white py-2 pl-4 pr-16 focus:border-primary-10 transition duration-300 focus:outline-none w-full"
+        />
+        <div
+          className="bg-dark-5 py-2 px-5 absolute right-0 top-0 bottom-0 rounded-r-[100px] cursor-pointer flex items-center justify-center"
+        >
+          <img src={searchIcon} alt="Search" />
         </div>
-        <div className="bg-gray-800 w-full h-96 absolute opacity-60 rounded-xl"></div>
-        <img className="w-full h-96 rounded-xl" src={blog} alt="" />
+      </div>
+
+      <hr className="border border-primary-15/10" />
+
+      {/* Category filter */}
+      <div className="flex w-full overflow-x-auto items-center justify-center gap-7 font-Roboto text-xs sm:text-sm">
+        {filterButtons.map((button, index) => (
+          <button
+            key={index}
+            onClick={() => setSelectedTab(button.value)}
+            className={`${
+              selectedTab === button.value
+                ? "border-primary-10 text-white bg-primary-10 shadow-md"
+                : "text-primary-10 border-primary-15/20"
+            } border px-5 py-2 rounded-[100px] hover:border-primary-10 hover:bg-primary-10 transition duration-500 hover:text-white`}
+          >
+            {button.btnName}
+          </button>
+        ))}
       </div>
 
       <Reusable
@@ -103,19 +78,24 @@ const Blog = (): JSX.Element => {
       />
 
       {/* Card */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-10">
-        {blogs.map((blog) => (
-          <BlogsCard
-            key={blog._id}
-            _id={blog._id}
-            imageUrl={blog.imageUrl}
-            category={blog.category}
-            date={blog.date}
-            title={blog.title}
-            description={blog.description}
-            readCount={blog.readCount}
-          />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
+        {
+          isLoading ? 
+          Array.from({ length: 6 }).map((_, index) => <BlogsCardLoader key={index} />)
+          :
+          data?.data?.map((blog : TBlog) => (
+            <BlogsCard
+              key={blog._id}
+              _id={blog._id}
+              blogImgUrl={blog.blogImgUrl}
+              category={blog.category}
+              publishedAt={blog.publishedAt}
+              title={blog.title}
+              blogContent={blog.blogContent}
+              // readCount={blog.readCount}
+            />
+          ))
+        }
       </div>
     </div>
   );

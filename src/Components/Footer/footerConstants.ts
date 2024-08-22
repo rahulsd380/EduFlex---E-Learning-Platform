@@ -22,16 +22,16 @@ export const footerItems = [
         path: "about-us",
       },
       {
-        label: "All Products",
-        path: "all-products",
+        label: "Courses",
+        path: "courses",
       },
       {
-        label: "Cart",
-        path: "cart",
+        label: "Blogs",
+        path: "blog",
       },
       {
-        label: "Manage products",
-        path: "dashboard",
+        label: "Dashboard",
+        path: "admin",
       },
     ],
   },
@@ -39,8 +39,8 @@ export const footerItems = [
     title: "Important Links",
     items: [
       {
-        label: "My Orders",
-        path: "my-orders",
+        label: "My Courses",
+        path: "my-courses",
       },
       {
         label: "Terms & Conditions",

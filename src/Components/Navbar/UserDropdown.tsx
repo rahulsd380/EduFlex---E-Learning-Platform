@@ -6,7 +6,7 @@ import { CiUnlock } from "react-icons/ci";
 
 export type TUserDropdownPropsTypes = {
   setModalType: Dispatch<
-    SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword" | "Success">
+    SetStateAction<"Login" | "Signup" | "OTP" | "ForgotPassword" | "ResetPassword" | "Success">
   >;
   setOpenModal: Dispatch<React.SetStateAction<boolean>>;
 };

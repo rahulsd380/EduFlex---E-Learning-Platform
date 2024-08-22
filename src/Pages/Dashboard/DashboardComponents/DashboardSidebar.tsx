@@ -1,106 +1,19 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../../assets/Images/Logo/logo.png";
-import downArrow from "../../../assets/Icons/down-arrow.svg";
-import home from "../../../assets/Icons/home.svg";
-import dashboard from "../../../assets/Icons/dashboard2.svg";
-import analysis from "../../../assets/Icons/analysis2.svg";
-import user from "../../../assets/Icons/user-group.svg";
-import course from "../../../assets/Icons/manage-course.svg";
-import blog from "../../../assets/Icons/blog.svg";
-import announcement from "../../../assets/Icons/announcement.svg";
-import enrollment from "../../../assets/Icons/manage-enrollment.svg";
-import setting from "../../../assets/Icons/setting.svg";
-import team from "../../../assets/Icons/team.svg";
 import ThemeToggleBtn from "../../../Components/Navbar/HamburgerMenu/ThemeToggleBtn";
 import { useState } from "react";
+import { navLinks } from "./dashboardSidebarNavlinks";
 
 const DashboardSidebar = () => {
   const location = useLocation();
   const [activeMenu, setActiveMenu] = useState(null);
-
-  const navLinks = [
-    {
-      pathName: "Home",
-      link: "",
-      icon: home,
-    },
-    {
-      pathName: "Dashboard",
-      link: "admin",
-      icon: dashboard,
-    },
-    {
-      pathName: "Reports & Analytics",
-      link: "admin/reports-analytics",
-      icon: analysis,
-    },
-    {
-      pathName: "Manage Team",
-      link: "admin/manage-team",
-      icon: team,
-    },
-    {
-      pathName: "Manage User",
-      link: "admin/manage-users",
-      icon: user,
-    },
-    {
-      pathName: "Manage Courses",
-      link: "admin/manage-course",
-      icon: course,
-    },
-    {
-      pathName: "Blogs",
-      link: "admin/manage-blogs",
-      icon: blog,
-      downArrow : downArrow,
-      subMenu: [
-        {
-          pathName: "Add Blog",
-          link: "admin/manage-blog/add-blog",
-        },
-        {
-          pathName: "Manage Blogs",
-          link: "admin/manage-blogs/manage-blogs",
-        },
-      ],
-    },
-    {
-      pathName: "Announcements",
-      link: "admin/announcements",
-      icon: announcement,
-    },
-    {
-      pathName: "Manage Enrollments",
-      link: "admin/manage-enrollments",
-      icon: enrollment,
-    },
-    {
-      pathName: "Profile",
-      link: "admin/profile",
-      icon: user,
-    },
-    {
-      pathName: "Settings",
-      link: "admin/setting",
-      icon: setting,
-      downArrow : downArrow,
-      subMenu: [
-        { pathName: "General Settings", link: "admin/setting/general-settings" },
-        { pathName: "Notification Settings", link: "admin/setting/notification-settings" },
-        { pathName: "Language Preferences", link: "admin/setting/language-preferences" },
-        { pathName: "Accessibility Options", link: "admin/setting/accessibility-options" },
-        { pathName: "Security Settings", link: "admin/setting/security-settings" },
-      ],
-    },
-  ];
 
   const handleExpand = (link) => {
     setActiveMenu((prevLink) => (prevLink === link ? null : link));
   };
 
   return (
-    <div className="w-[270px] bg-neutral-60 h-screen overflow-x-hidden overflow-y-auto flex flex-col justify-between font-Roboto">
+    <div className="w-[270px] bg-neutral-60 h-screen sticky top-0 overflow-x-hidden overflow-y-auto hidden lg:flex flex-col justify-between font-Roboto">
       {/* Logo */}
       <Link to={"/"} className="flex items-center gap-2 p-5">
         <img className="w-10" src={logo} alt="EduFlex Logo" />

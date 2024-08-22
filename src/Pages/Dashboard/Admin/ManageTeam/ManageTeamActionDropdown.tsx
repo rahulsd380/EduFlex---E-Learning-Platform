@@ -8,7 +8,7 @@ import remove from "../../../../assets/Icons/remove.svg";
 
 
 
-const ManageTeamActionDropdown = (): JSX.Element => {
+const ManageTeamActionDropdown = ({setTeamMemberDetailsModal}): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDropdown = (): void => {
@@ -40,9 +40,7 @@ const ManageTeamActionDropdown = (): JSX.Element => {
             <div className="py-1 flex flex-col gap-4">
              
               <button
-                onClick={() => {
-                  setIsOpen(false);
-                }}
+                onClick={() => setTeamMemberDetailsModal(true)}
                 className="font-Roboto text-body-text font-normal hover:text-primary-10 transition duration-300 flex items-center gap-3 transform hover:-translate-y-0.5"
               >
                 <img src={edit} alt="" className="size-6"/>

@@ -5,13 +5,14 @@ import Hero from "../../Components/HeroSection/Hero";
 import Instructors from "../../Components/Instructors/Instructors";
 import OurService from "../../Components/OurService/OurService";
 import PopularCourses from "../../Components/PopularCourses/PopularCourses";
+import Testimonials from "../../Components/Testimonials/Testimonials";
 
 const Home = () => {
-
     return ( 
         <div>
             <Hero/>
             <PopularCourses/>
+            <Testimonials/>
             <OurService/>
             <Instructors/>
             <FAQ/>

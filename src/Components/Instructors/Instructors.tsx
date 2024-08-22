@@ -1,47 +1,43 @@
 import Heading from "../Heading";
-import InstructorsCard from "./InstructorsCard";
+import InstructorCard from "./InstructorCard";
+import image from "../../assets/Images/profileImg.jpeg";
 
-type TInstructors = {
-  id: number;
-  img: string;
+// type TInstructors = {
+//   id: number;
+//   img: string;
+//   instructorName: string;
+//   title: string;
+//   companyInfo: string;
+//   fbProfile: string;
+//   linkedinProfile: string;
+// };
+
+export type TInstructors = {
+  _id : string
+  image : string;
   instructorName: string;
-  title: string;
-  companyInfo: string;
-  fbProfile: string;
-  linkedinProfile: string;
-};
+  role : string;
+}
 
 const Instructors = () => {
   const instructors : TInstructors[] = [
     {
-      id: 1,
-      img: "https://example.com/image1.jpg",
+      _id: "1",
+      image: image,
       instructorName: "Rahul Sutradhar",
-      title: "Senior Developer",
-      companyInfo:
-        "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-      fbProfile: "https://www.facebook.com/rahulsd836",
-      linkedinProfile: "https://www.linkedin.com/in/rahul-sutradhar-a99749202",
+      role: "Senior Developer",
     },
     {
-      id: 2,
-      img: "https://example.com/image2.jpg",
+      _id: "2",
+      image: image,
       instructorName: "Jane Smith",
-      title: "Product Manager",
-      companyInfo:
-        "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-      fbProfile: "https://facebook.com/janesmith",
-      linkedinProfile: "https://linkedin.com/in/janesmith",
+      role: "Product Manager",
     },
     {
-      id: 3,
-      img: "https://example.com/image3.jpg",
+      _id: "3",
+      image: image,
       instructorName: "Alice Johnson",
-      title: "UI/UX Designer",
-      companyInfo:
-        "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-      fbProfile: "https://facebook.com/alicejohnson",
-      linkedinProfile: "https://linkedin.com/in/alicejohnson",
+      role: "UI/UX Designer",
     },
   ];
 
@@ -53,7 +49,16 @@ const Instructors = () => {
       description="On Weekend UX, instructors from all over the world instruct millions of students. We offer the knowledge and abilities."
       />
 
-      <InstructorsCard instructors={instructors} />
+      <div className="flex items-center flex-wrap gap-14 justify-center mt-10">
+      {
+        instructors.map(instructor => 
+
+          <InstructorCard key={instructor._id} instructor={instructor}/>
+        )
+      }
+      </div>
+
+      {/* <InstructorsCard instructors={instructors} /> */}
     </div>
   );
 };

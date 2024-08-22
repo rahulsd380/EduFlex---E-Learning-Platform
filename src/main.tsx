@@ -28,6 +28,13 @@ import UserProfile from './Pages/Dashboard/DashboardComponents/UserProfile/UserP
 import { PersistGate } from 'redux-persist/integration/react';
 import ProtectedRoute from './Layout/ProtectedRoute/ProtectedRoute';
 import { Toaster } from 'sonner'
+import CourseDetailsPage from './Pages/Courses/CourseDetails/CourseDetailsPage';
+import AddCourse from './Pages/Dashboard/Admin/ManageCourses/AddCourse/AddCourse';
+import SeeData from './Pages/Dashboard/Admin/ManageCourses/AddCourse/SeeData';
+import SuccessfullEnrollment from './Components/SuccessfullEnrollment/SuccessfullEnrollment';
+import AddBlog from './Pages/Dashboard/Admin/ManageBlogs/AddBlog/AddBlog';
+import ManageFaq from './Pages/Dashboard/Admin/ManageFaq/ManageFaq';
+import Chats from './Pages/Dashboard/DashboardPages/Chats/Chats';
 
 
 const router = createBrowserRouter([
@@ -45,16 +52,26 @@ const router = createBrowserRouter([
         element: <Blog></Blog>
       },
       {
+        path : "/enroll",
+        element: <SuccessfullEnrollment/>
+      },
+      {
         path : "/courses",
         element: <Courses></Courses>
       },
       {
-        path : "/blogDetails",
-        element: <BlogDetails></BlogDetails>
+        path : "/blogDetails/:id",
+        element: <BlogDetails/>,
+        loader : ({params}) => fetch(`http://localhost:5000/api/blogs/${params.id}`)
       },
       {
         path : "/contactUs",
         element: <ContactUs></ContactUs>
+      },
+      {
+        path : '/course/:courseId',
+        element : <CourseDetailsPage/>,
+        loader : ({params}) => fetch(`http://localhost:5000/api/courses/${params.courseId}`)
       },
     ]
   },
@@ -64,7 +81,7 @@ const router = createBrowserRouter([
     element : <ProtectedRoute><DashboardLayout/></ProtectedRoute>,
     children : [
       {
-        path : 'manage dashboard',
+        path : 'dashboard',
         element : <Dashboard/>
       },
       {
@@ -76,8 +93,9 @@ const router = createBrowserRouter([
         element : <ManageBlogs/>
       },
       {
-        path : 'blog-details',
-        element : <BlogDetailsAdmin/>
+        path : 'blog-details/:id',
+        element : <BlogDetailsAdmin/>,
+        loader : ({params}) => fetch(`http://localhost:5000/api/blogs/${params.id}`)
       },
       {
         path : 'manage-users',
@@ -103,6 +121,27 @@ const router = createBrowserRouter([
         path : 'profile',
         element : <UserProfile/>
       },
+      {
+        path : 'add-course',
+        element : <AddCourse/>
+      },
+      {
+        path : 'see-data',
+        element : <SeeData/>
+      },
+      {
+        path : 'add-blog',
+        element : <AddBlog/>
+      },
+      {
+        path : 'manage-faq',
+        element : <ManageFaq/>
+      },
+      {
+        path : 'chats',
+        element : <Chats/>
+      },
+      
     ]
   }
 ]);

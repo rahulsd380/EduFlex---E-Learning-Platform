@@ -11,12 +11,12 @@ const Footer = () => {
   return (
     <div className="bg-[#222222] mt-20">
       <footer className="max-w-[1500px] w-[90%] mx-auto px-8 md:px-0 py-8 md:py-14 flex flex-col gap-10">
-        <div className="flex flex-col md:flex-row justify-between gap-7">
+        <div className="flex flex-col lg:flex-row justify-between gap-7">
 
         
         <div className="flex flex-col gap-8">
           <Link to={"/"} className="flex items-center gap-2">
-            <img src={logo} alt="spotify-hub" className="size-20" />
+            <img src={logo} alt="spotify-hub" className="size-10 md:size-20" />
             <h1 className="font-Roboto text-xl md:text-4xl font-bold text-neutral-5">
               EduFlex
             </h1>
@@ -57,7 +57,7 @@ const Footer = () => {
               </h1>
               <li className="flex flex-col gap-4 text-neutral-40 text-sm">
                 {item.items.map(({ label, path }) => (
-                  <Link to={`/${path}`} className="hover:underline">
+                  <Link key={label} to={`/${path}`} className="hover:underline">
                     {label}
                   </Link>
                 ))}

@@ -40,7 +40,7 @@ const AddBlogModal = ({openAddBlogModal, setOpenAddBlogModal}) => {
         <BlogImgUpload/>
         </div>
 
-        <form onSubmit={handleSubmit()} className="flex flex-col gap-4 w-full bg-white p-3 rounded-lg">
+        <div className="flex flex-col gap-4 w-full bg-white p-3 rounded-lg">
 
             {/* Category */}
           <div className="flex flex-col gap-1 w-full">
@@ -105,7 +105,7 @@ const AddBlogModal = ({openAddBlogModal, setOpenAddBlogModal}) => {
             
 
 
-        </form>
+        </div>
     </div>
 
           </div>

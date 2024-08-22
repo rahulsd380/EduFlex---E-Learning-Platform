@@ -9,6 +9,8 @@ import line from "../../../../assets/Icons/line.svg";
 import grid from "../../../../assets/Icons/grid.svg";
 import lineWhite from "../../../../assets/Icons/line-white.svg";
 import gridWhite from "../../../../assets/Icons/grid-white.svg";
+import AddCourseModal from './AddCourseModal';
+import { Link } from 'react-router-dom';
 
 // Course dummy data
 const coursesData : TCourse[] = [
@@ -80,6 +82,8 @@ const coursesData : TCourse[] = [
 ];
 
 const ManageCourses: React.FC = () => {
+  const [openAddCourseModal, setOpenAddCourseModal] = useState(false);
+
   const [view, setView] = useState<"grid" | "table">("grid");
 
   const categories = [
@@ -91,11 +95,13 @@ const ManageCourses: React.FC = () => {
   
   return (
     <div className='flex flex-col gap-10'>
-      <div className='p-4 rounded-lg bg-white border border-neutral-60/20 flex items-center justify-between'>
 
-      <div className='flex items-center gap-4'>
+      {/* Heading & filter */}
+      <div className='p-2 md:p-4 rounded-lg bg-white border border-neutral-60/20 flex flex-col xl:flex-row items-center justify-between gap-4 xl:gap-0'>
+
+      <div className='flex flex-col md:flex-row items-center gap-4 w-full'>
         {/* Search  by couse title */}
-        <div>
+        <div className='w-full md:w-fit'>
           <input 
           placeholder='Search by title'
           type="text" 
@@ -103,7 +109,7 @@ const ManageCourses: React.FC = () => {
         </div>
 
         {/* Search  by Author */}
-        <div>
+        <div className='w-full md:w-fit'>
           <input 
           placeholder='Search by author'
           type="text" 
@@ -112,7 +118,7 @@ const ManageCourses: React.FC = () => {
         </div>
 
         {/* Category */}
-        <div className="">
+        <div className="w-full md:w-fit">
         <select
           id="category"
           className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
@@ -126,15 +132,15 @@ const ManageCourses: React.FC = () => {
       </div>
 
         {/* Search btn */}
-      <div>
+      {/* <div>
       <button className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full hover:bg-primary-10 hover:text-white flex items-center gap-2">
       <img src={search} alt="" className="" />
         Search
       </button>
-      </div>
+      </div> */}
       </div>
 
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center justify-start md:justify-center xl:justify-end gap-4 w-full'>
 
         <div className='bg-dark-5/20 border border-dark-10/30 focus:border-primary-10 transition duration-300 focus:outline-none rounded flex items-center'>
 
@@ -146,12 +152,12 @@ const ManageCourses: React.FC = () => {
             <img src={view === "grid" ? gridWhite : grid} alt="" className='size-6'/>
             </div>
         </div>
-      <div>
-      <button className="border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full bg-primary-10 text-white flex items-center gap-2">
+
+     <Link to={"/admin/add-course"} className="border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full md:w-fit bg-primary-10 text-white flex justify-center items-center gap-2  text-xs md:text-base">
       <img src={plus} alt="" className="size-6" />
         Create New Course
-      </button>
-      </div>
+      </Link>
+
       </div>
 
 
@@ -166,6 +172,7 @@ const ManageCourses: React.FC = () => {
         />
       ))}
     </div>
+    <AddCourseModal openAddCourseModal={openAddCourseModal} setOpenAddCourseModal={setOpenAddCourseModal}/>
     </div>
   );
 };
