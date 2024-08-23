@@ -4,8 +4,9 @@ import google from "../../assets/Icons/Auth Modal/google.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useSignupMutation } from "../../Redux/Features/Auth/authApi";
 import { TModalTypes } from "./authModal.types";
+import { toast } from "sonner";
+import { useSignupMutation } from "../../Redux/Features/Auth/authApi";
 
 type TSignupData = {
   name: string;
@@ -29,15 +30,24 @@ const Signup: React.FC<TModalTypes> = ({ setModalType }) => {
       email: data.email,
       password: data.password,
     };
-    const response = await signup(signupData).unwrap();
+
+    try{
+      const response = await signup(signupData).unwrap();
+      console.log(response);
     if(response.success) {
       setModalType("Success");
+      toast.success("Signup successful")
     }
-    console.log(response);
+    }catch(err){
+      toast.error("Signup failed. Please try again.")
+      console.error(err);
+      return;
+    }
+    
 
     // setModalType("OTP")
 
-    console.log(signupData);
+    
   };
 
   return (

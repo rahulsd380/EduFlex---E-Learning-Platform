@@ -124,7 +124,7 @@ const AuthModal: React.FC<TAuthModalTypes> = ({
             {/* <Login/> */}
 
             {modalType === "Login" ? (
-              <Login setModalType={setModalType} />
+              <Login setModalType={setModalType} setOpenModal={setOpenModal} />
             ) : modalType === "Signup" ? (
               <Signup setModalType={setModalType} />
             ) : modalType === "OTP" ? (

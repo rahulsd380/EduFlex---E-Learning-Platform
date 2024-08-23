@@ -63,7 +63,7 @@ const SuccessfullEnrollment = () => {
           </div>
 
           <div className="flex justify-center mt-3">
-          <Link to={"/admin"} className="font-semibold text-neutral-60 hover:underline text-center">Go to Dashboard</Link>
+          <Link to={"/dashboard"} className="font-semibold text-neutral-60 hover:underline text-center">Go to Dashboard</Link>
           </div>
 
 

@@ -18,7 +18,7 @@ import editProfile from "../../assets/Icons/edit-profile.svg";
 import inbox from "../../assets/Icons/inbox.svg";
 import setting from "../../assets/Icons/setting2.svg";
 import help from "../../assets/Icons/help.svg";
-import logout from "../../assets/Icons/logout.svg";
+import logoutIcon from "../../assets/Icons/logout.svg";
 import downArrow from "../../assets/Icons/down-arrow-dark.svg";
 import userIcon from "../../assets/Icons/user.svg";
 import Modal1 from "../Modals/Modal1";
@@ -33,10 +33,22 @@ import { FaUsersCog } from "react-icons/fa";
 import { MdAddIcCall } from "react-icons/md";
 
 import { RxCross1 } from "react-icons/rx";
+import { selectCurrentUser } from "../../Redux/Features/Auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
+import {logout} from "../../Redux/Features/Auth/authSlice"
+import { toast } from "sonner";
 
 
 
 const Navbar = (): JSX.Element => {
+  const user = useAppSelector(selectCurrentUser);
+  console.log(user);
+
+  const dispatch = useAppDispatch();
+
+  const [open, setOpen] = useState(false);
+
+
   //  For modal1
   const [openModal1, setOpenModal1] = useState(false);
     // For opening the modal
@@ -51,6 +63,11 @@ const Navbar = (): JSX.Element => {
 
   const handleModal = (): void => {
     setIsModalOpen(!isModalOpen);
+  };
+
+  const handleLogout = (): void => {
+    dispatch(logout());
+    toast.success("Logged out")
   };
 
   const links = [
@@ -76,7 +93,7 @@ const Navbar = (): JSX.Element => {
     },
     {
       pathName: "Dashboard",
-      link: "admin/dashboard",
+      link: "dashboard",
       icon: <ImBlog />,
     },
 
@@ -116,32 +133,32 @@ const Navbar = (): JSX.Element => {
     };
   }, []);
 
-  const [open, setOpen] = useState(false);
+
   const dropDownRef = useRef(null);
   const items = [
     {
         pathname : "My Profile",
-        link : "/admin/my-profile",
+        link : "/dashboard/my-profile",
         icon : myProfile
     },
     {
         pathname : "Edit Profile",
-        link : "/admin/my-profile",
+        link : "/dashboard/my-profile",
         icon : editProfile
     },
     {
         pathname : "Inbox",
-        link : "/admin/my-profile",
+        link : "/dashboard/my-profile",
         icon : inbox
     },
     {
         pathname : "Setting",
-        link : "/admin/my-profile",
+        link : "/dashboard/my-profile",
         icon : setting
     },
     {
         pathname : "Help",
-        link : "/admin/my-profile",
+        link : "/dashboard/my-profile",
         icon : help
     },
   ];
@@ -217,8 +234,41 @@ const Navbar = (): JSX.Element => {
             />
           </div> */}
 
-          {/* Login and sign up btn */}
-          <div className="hidden md:flex items-center gap-5">
+          {
+            user ?
+<div ref={dropDownRef} className="hidden md:block relative mx-auto w-fit">
+      <div onClick={() => setOpen((prev) => !prev)} className="flex items-center gap-4 cursor-pointer">
+            <div className="size-10 rounded-full bg-dark-5/40 border border-dark-10/30 flex justify-center items-center">
+                <img src={userIcon} alt="" className="size-8" />
+            </div>
+                <div className="flex items-center gap-2">
+                <p className="text-neutral-60 font-semibold text-lg">Rahul Sutradhar</p>
+
+                <img src={downArrow} alt="" className="size-6" />
+                </div>
+            </div>
+      <ul className={`${open ? 'visible translate-y-0 duration-300' : 'invisible translate-y-4'} absolute top-16 z-50 w-full  bg-white shadow rounded-b-lg py-2`}>
+        {items.map((item, idx) => (
+          <li key={idx} className={` px-4 py-2 ${open ? 'opacity-100 duration-300' : 'opacity-0'} hover:text-primary-10 cursor-pointer text-body-text`}>
+            <div className="flex items-center gap-2">
+            <img src={item.icon} alt="" className="size-5"/>
+            {item.pathname}
+            </div>
+          </li>
+        ))}
+
+    
+
+<li onClick={handleLogout} className={` px-4 py-2 ${open ? 'opacity-100 duration-300' : 'opacity-0'} hover:text-primary-10 cursor-pointer text-body-text border-t border-neutral-55/20`}>
+            <div className="flex items-center gap-2">
+            <img src={logoutIcon} alt="" className="size-5"/>
+            Log Out
+            </div>
+          </li>
+      </ul>
+    </div>
+    :
+    <div className="hidden md:flex items-center gap-5">
             <button
               onClick={
                 () => {
@@ -243,38 +293,13 @@ const Navbar = (): JSX.Element => {
               Sign Up For Free
             </button>
           </div>
+          }
+
+          {/* Login and sign up btn */}
 
 
             {/* User dropdown */}
-          {/* <div ref={dropDownRef} className="hidden md:block relative mx-auto w-fit">
-      <div onClick={() => setOpen((prev) => !prev)} className="flex items-center gap-4 cursor-pointer">
-            <div className="size-10 rounded-full bg-dark-5/40 border border-dark-10/30 flex justify-center items-center">
-                <img src={userIcon} alt="" className="size-8" />
-            </div>
-                <div className="flex items-center gap-2">
-                <p className="text-neutral-60 font-semibold text-lg">Rahul Sutradhar</p>
-
-                <img src={downArrow} alt="" className="size-6" />
-                </div>
-            </div>
-      <ul className={`${open ? 'visible translate-y-0 duration-300' : 'invisible translate-y-4'} absolute top-16 z-50 w-full  bg-white shadow rounded-b-lg py-2`}>
-        {items.map((item, idx) => (
-          <li key={idx} className={` px-4 py-2 ${open ? 'opacity-100 duration-300' : 'opacity-0'} hover:text-primary-10 cursor-pointer text-body-text`}>
-            <div className="flex items-center gap-2">
-            <img src={item.icon} alt="" className="size-5"/>
-            {item.pathname}
-            </div>
-          </li>
-        ))}
-
-<li className={` px-4 py-2 ${open ? 'opacity-100 duration-300' : 'opacity-0'} hover:text-primary-10 cursor-pointer text-body-text border-t border-neutral-55/20`}>
-            <div className="flex items-center gap-2">
-            <img src={logout} alt="" className="size-5"/>
-            Log Out
-            </div>
-          </li>
-      </ul>
-    </div> */}
+          
 
           {/* {user && <UserDropdown setOpenModal={setOpenModal} setModalType={setModalType}/>} */}
           <HamburgerMenu links={links} />

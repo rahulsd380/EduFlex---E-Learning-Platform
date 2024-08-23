@@ -191,7 +191,7 @@ const Chats = () => {
             </div>
             
             <div className="relative w-full">
-            <input type="text" className="bg-dark-5/60 rounded-3xl px-4 py-2 w-full border border-neutral-55/10 focus:border-primary-10 transition duration-300 focus:outline-none" />
+            <input type="text" placeholder="Type your message" className="bg-dark-5/60 rounded-3xl px-4 py-2 w-full border border-neutral-55/10 focus:border-primary-10 transition duration-300 focus:outline-none" />
             <img src={send} alt="" className="size-6 absolute bottom-2 right-3 cursor-pointer" />
             </div>
           </div>

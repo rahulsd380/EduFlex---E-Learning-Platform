@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaPencilAlt } from 'react-icons/fa';
 
 const Profile: React.FC = () => {
+
   const [image, setImage] = useState<string | ArrayBuffer | null>(null);
   const [file, setFile] = useState<File | null>(null);
 

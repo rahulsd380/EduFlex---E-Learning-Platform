@@ -20,14 +20,14 @@ const Notifications = () => {
         onClick={() => setOpen((prev) => !prev)}
         src={notification}
         alt=""
-        className="size-8 hidden xl:block cursor-pointer"
+        className="size-8 cursor-pointer"
       />
     <div
         className={`${
           open
-            ? "visible translate-y-0 duration-300 w-96 h-72 overflow-y-auto -left-56"
+            ? "visible translate-y-0 duration-300 w-96 h-72 overflow-y-auto -left-[250px] md:-left-56"
             : "invisible translate-y-4 size-0"
-        } absolute top-16 z-50  bg-white shadow rounded-b-lg py-2`}
+        } absolute top-16 z-50  bg-white shadow-xl rounded-b-lg py-2`}
       >
         <div className="flex flex-col overflow-y-hidden">
         {

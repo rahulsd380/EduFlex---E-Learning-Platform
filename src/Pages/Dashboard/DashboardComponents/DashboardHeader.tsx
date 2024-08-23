@@ -19,23 +19,23 @@ const DashboardHeader = () => {
   let title: string = "Admin";
   let subTitle = "Manage your dashboard and expand more facilities.";
 
-  if (location.pathname === "/admin") {
+  if (location.pathname === "/dashboard") {
     title = "Admin";
     subTitle = "Manage your dashboard and expand more facilities.";
-  } else if (location.pathname === "/admin/manage-course") {
+  } else if (location.pathname === "/dashboard/manage-course") {
     title = "Manage Courses";
     subTitle = "Organize and maintain all course materials.";
-  } else if (location.pathname === "/admin/manage-team") {
+  } else if (location.pathname === "/dashboard/manage-team") {
     title = "Manage Team";
     subTitle = "Expand new with the iconic team member.";
-  } else if (location.pathname === "/admin/manage-blogs") {
+  } else if (location.pathname === "/dashboard/manage-blogs") {
     title = "Manage Blogs";
     subTitle = "Create, edit, and manage informative content.";
-  } else if (location.pathname === "/admin/manage-users") {
+  } else if (location.pathname === "/dashboard/manage-users") {
     title = "Manage Users";
     subTitle = "Handle user accounts, profiles, and access.";
   }
-   else if (location.pathname === "/admin/manage-faq") {
+   else if (location.pathname === "/dashboard/manage-faq") {
     title = "Manage FAQ";
     subTitle = "Handle all the faq's.";
   }
@@ -45,27 +45,27 @@ const DashboardHeader = () => {
   const items = [
     {
       pathname: "My Profile",
-      link: "/admin/my-profile",
+      link: "/dashboard/my-profile",
       icon: myProfile,
     },
     {
       pathname: "Edit Profile",
-      link: "/admin/my-profile",
+      link: "/dashboard/my-profile",
       icon: editProfile,
     },
     {
       pathname: "Inbox",
-      link: "/admin/my-profile",
+      link: "/dashboard/my-profile",
       icon: inbox,
     },
     {
       pathname: "Setting",
-      link: "/admin/my-profile",
+      link: "/dashboard/my-profile",
       icon: setting,
     },
     {
       pathname: "Help",
-      link: "/admin/my-profile",
+      link: "/dashboard/my-profile",
       icon: help,
     },
   ];
@@ -113,7 +113,7 @@ const DashboardHeader = () => {
         
         {/* <img src={notification} alt="" className="size-8 hidden xl:block" /> */}
         <Notifications/>
-        <Link to={"/admin/chats"}><img src={chat} alt="" className="size-6  hidden xl:block" /></Link>
+        <Link to={"/dashboard/chats"}><img src={chat} alt="" className="size-6  hidden xl:block" /></Link>
 
         <div ref={dropDownRef} className="relative mx-auto w-fit">
           <div
@@ -123,7 +123,7 @@ const DashboardHeader = () => {
             <div className="size-10 rounded-full bg-dark-5/40 border border-dark-10/30 flex justify-center items-center">
               <img src={user} alt="" className="size-8" />
             </div>
-            <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <div>
                 <p className="text-neutral-60 font-semibold ">
                   Rahul Sutradhar

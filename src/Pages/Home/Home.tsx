@@ -1,4 +1,5 @@
 // import Categories from "../../Components/Categories/Categories";
+import Companies from "../../Components/Companies/Companies";
 import FAQ from "../../Components/FAQ/FAQ";
 import Hero from "../../Components/HeroSection/Hero";
 // import Overview from "../../Components/HeroSection/Overview/Overview";
@@ -14,6 +15,7 @@ const Home = () => {
             <PopularCourses/>
             <Testimonials/>
             <OurService/>
+            <Companies/>
             <Instructors/>
             <FAQ/>
             {/* <Overview/> */}

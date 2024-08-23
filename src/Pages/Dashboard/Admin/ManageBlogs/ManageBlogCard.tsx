@@ -17,7 +17,7 @@ const ManageBlogCard: React.FC<TBlog> = ({
   const formattedDate = formatDate(publishedAt);
   const blogCardContent = blogContent?.length > 60 ? blogContent.substring(0, 60) + '...' : blogContent
   return (
-    <Link to={`/admin/blog-details`}>
+    <Link to={`/dashboard/blog-details`}>
       <div className="bg-neutral-40/10 shadow hover:shadow-lg transition duration-300 rounded-xl max-w-[270px] cursor-pointer">
         <img src={blogImg} alt="" className="rounded-t-xl h-44" />
 

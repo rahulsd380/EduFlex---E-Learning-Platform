@@ -1,8 +1,7 @@
 import eyeOpen from "../../assets/Icons/Auth Modal/eye-open.svg";
 import eyeClosed from "../../assets/Icons/Auth Modal/eye-closed.svg";
 import google from "../../assets/Icons/Auth Modal/google.svg";
-import { useState } from "react";
-import { TSignupLoginModalTypes } from "./Signup";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLoginMutation } from "../../Redux/Features/Auth/authApi";
 import { useAppDispatch } from './../../Redux/hooks';
@@ -14,9 +13,15 @@ import { toast } from "sonner";
 type TLoginData = {
   email: string;
   password: string;
+  
 };
 
-const Login: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
+type TLoginModal = {
+  setModalType: Dispatch<SetStateAction<string>>;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+}
+
+const Login: React.FC<TLoginModal> = ({ setModalType, setOpenModal }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -35,11 +40,16 @@ const Login: React.FC<TSignupLoginModalTypes> = ({ setModalType }) => {
       password: data.password,
     };
 
-    const response = await login(loginData).unwrap();
+    try{
+      const response = await login(loginData).unwrap();
     const user = verifyToken(response.data?.accessToken);
     dispatch(setUser({ user, token: response.data.accessToken }));
     toast.success("Logged in successfully.");
+    setOpenModal(false);
     navigate("/");
+    }catch(error){
+      toast.error(error.data.message)
+    }
   };
 
   return (

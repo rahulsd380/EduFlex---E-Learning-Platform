@@ -83,7 +83,7 @@ const ManageBlogs = () => {
             </div>
         </div>
 
-      <Link to={"/admin/add-blog"} className="border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full md:w-fit bg-primary-10 text-white flex justify-center items-center gap-2 text-xs md:text-base">
+      <Link to={"/dashboard/add-blog"} className="border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full md:w-fit bg-primary-10 text-white flex justify-center items-center gap-2 text-xs md:text-base">
       <img src={plus} alt="" className="size-6" />
         Create New Blog
       </Link>

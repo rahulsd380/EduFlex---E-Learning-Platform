@@ -227,7 +227,7 @@ const ManageFaq = () => {
       <Modal1
         openModal1={openModal1}
         setOpenModal1={setOpenModal1}
-        classNames="w-[500px]"
+        classNames="w-[500px] p-4"
       >
         {/* Heading */}
         <div className="flex items-center justify-between border-b border-dark-10/60 pb-2">

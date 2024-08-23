@@ -13,10 +13,9 @@ import whatsapp from "../../../../assets/Icons/Profile-Social-Media-Icons/whatsa
 import youtube from "../../../../assets/Icons/Profile-Social-Media-Icons/youtube.svg";
 import eye from "../../../../assets/Icons/eye.svg";
 
-const SocialLinksSetting
- = () => {
+const SocialLinksSetting = ({socialLinks}) => {
 
-    const [selectedLink, setSelectedLink] = useState<string[]>([]);
+    const [selectedLink, setSelectedLink] = useState<string[]>(socialLinks);
     const [currentLink, setCurrentLink] = useState("");
     console.log(selectedLink);
 

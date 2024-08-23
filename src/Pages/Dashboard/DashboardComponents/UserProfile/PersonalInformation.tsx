@@ -1,6 +1,6 @@
 import profileImg from '../../../../assets/Images/profileImg.jpeg'
 
-const PersonalInformation = () => {
+const PersonalInformation = ({userName, email, address, phoneNumber}) => {
     return (
         <div className='flex flex-col gap-4 mt-10 font-Roboto'>
 
@@ -15,7 +15,7 @@ const PersonalInformation = () => {
         <div className="flex flex-col gap-1 w-full">
           <p className="text-body-text text-sm">Full Name</p>
           <input
-          defaultValue={"Rahul Sutradhar"}
+          defaultValue={userName}
             type="text"
             id="name"
             className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
@@ -26,7 +26,7 @@ const PersonalInformation = () => {
         <div className="flex flex-col gap-1 w-full">
           <p className="text-body-text text-sm">Email</p>
           <input
-          defaultValue={"rahulsd380@gmail.com"}
+          defaultValue={email}
             type="text"
             id="email"
             className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
@@ -40,11 +40,23 @@ const PersonalInformation = () => {
         <div className="flex flex-col gap-1 w-full">
           <p className="text-body-text text-sm">Address</p>
           <input
-          defaultValue={"Kamalapur, Adarsha Sadar, Cumilla-3501, Bangladesh"}
+          defaultValue={address}
             type="text"
             id="address"
             className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
             placeholder="Enter your full name"
+          />
+        </div>
+
+           {/* Phone Number */}
+        <div className="flex flex-col gap-1 w-full">
+          <p className="text-body-text text-sm">Phone Number</p>
+          <input
+            defaultValue={phoneNumber}
+            type="text"
+            id="phone_number"
+            className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+            placeholder="Enter your phone number"
           />
         </div>
 

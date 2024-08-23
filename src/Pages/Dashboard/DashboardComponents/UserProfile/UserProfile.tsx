@@ -4,6 +4,8 @@ import prize2 from "../../../../assets/Icons/prize2.svg";
 import prize3 from "../../../../assets/Icons/prize3.svg";
 import prize4 from "../../../../assets/Icons/prize4.svg";
 
+import warning from "../../../../assets/Icons/warning.svg";
+
 import mentor from "../../../../assets/Icons/mentor.svg";
 import support from "../../../../assets/Icons/support.svg";
 import inviteFriend from "../../../../assets/Icons/invite-friend.svg";
@@ -15,8 +17,45 @@ import SkillsSetting from "./SkillsSetting";
 import NotificationSetting from "./NotificationSetting";
 import PrivacySetting from "./PrivacySetting";
 import ProjectSetting from "./ProjectSetting/ProjectSetting";
+import { useDeleteAccountMutation, useGetMeQuery } from "../../../../Redux/Features/Auth/authApi";
+import Modal1 from "../../../../Components/Modals/Modal1";
+import { toast } from "sonner";
 
 const UserProfile = () => {
+  const [openModal1, setOpenModal1] = useState(false);
+  const {data:userProfileData , isLoading} = useGetMeQuery({});
+
+  const [deleteAccount, {isLoading : isDeleting}] = useDeleteAccountMutation();
+
+  const handleDeleteAccount = async (userId: string) => {
+    const deleteData = {
+      isAccountDeleted: true,
+    };
+    try {
+      const res = await deleteAccount({ userId, data: deleteData }).unwrap();
+      toast.success(res.message);
+      setOpenModal1(false)
+    } catch (err) {
+      toast.success(err)
+    }
+  };
+  
+
+  const {
+    _id,
+    name : userName,
+    email,
+    job_title,
+    projects,
+    address,
+    phone_number,
+    skills,
+    objective,
+    social_links,
+    role,
+    enrolledCourses
+  } = userProfileData?.data || {};
+
   const [profileTab, setprofileTab] = useState<
     | "PersonalDetails"
     | "SocialLinks"
@@ -25,6 +64,10 @@ const UserProfile = () => {
     | "Privacy"
     | "Projects"
   >("PersonalDetails");
+
+  if(isLoading){
+    return <p>Loading...</p>
+  }
   
   return (
     <div className="flex flex-col md:flex-row gap-10 w-full font-Roboto">
@@ -109,7 +152,7 @@ const UserProfile = () => {
             <p className="text-neutral-60 text-sm ">Invite Friends</p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div onClick={() => setOpenModal1(true)} className="flex items-center gap-2 cursor-pointer">
             <div className="bg-warning-10/5 p-1 size-8 rounded-full flex items-center justify-center shadow-inner font-bold text-xl">
               <img src={deleteProfile} alt="" className="size-10" />
             </div>
@@ -192,19 +235,62 @@ const UserProfile = () => {
         </div>
 
         {profileTab === "PersonalDetails" ? (
-          <PersonalInformation />
+          <PersonalInformation userName={userName} email={email} address={address} phoneNumber={phone_number}/>
         ) : profileTab === "SocialLinks" ? (
-          <SocialLinksSetting />
+          <SocialLinksSetting socialLinks={social_links}/>
         ) : profileTab === "Skills" ? (
-          <SkillsSetting />
+          <SkillsSetting skills={skills}/>
         ) : profileTab === "Notifications" ? (
           <NotificationSetting />
         ) : profileTab === "Projects" ? (
-          <ProjectSetting />
+          <ProjectSetting projects={projects} />
         ) : (
           <PrivacySetting />
         )}
       </div>
+
+
+
+
+      <Modal1 openModal1={openModal1}
+        setOpenModal1={setOpenModal1}
+        classNames={"w-[500px] overflow-y-auto p-8"}>
+          <div className="flex flex-col gap-4 items-center w-full">
+            <div className="size-20 rounded-full bg-warning-10/20 p-1 flex items-center justify-center">
+              <img src={warning} alt="" className="size-14" />
+            </div>
+
+            <h1 className="font-Roboto text-2xl text-neutral-60 text-center font-semibold">Are you sure?</h1>
+            <p className="text-body-text font-Roboto text-sm text-center max-w-96 mx-auto">Once your account is deleted, all of your informations will be lost and you will not be able to revert those again!</p>
+
+            <div className="flex flex-col gap-3 w-full">
+            <button
+            onClick={() => handleDeleteAccount(_id)}
+                type="submit"
+                className="bg-warning-10 border border-warning-10 text-white font-medium px-10 py-3 rounded focus:outline-none shadow"
+              >
+                {
+                  isDeleting ? 
+                  "Deleting..."
+                  :
+                  "Delete Account"
+                }
+              </button>
+
+            <button
+            onClick={() => setOpenModal1(false)}
+                className="bg-dark-5/60 border border-dark-5 text-body-text font-medium px-10 py-3 rounded focus:outline-none shadow"
+              >
+                Cancel
+              </button>
+            </div>
+
+
+          </div>
+      </Modal1>
+
+
+
     </div>
   );
 };
