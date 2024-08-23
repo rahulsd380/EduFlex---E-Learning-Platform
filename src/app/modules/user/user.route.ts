@@ -10,6 +10,7 @@ const router = express.Router();
 router.post('/signup', validateRequest(UserValidations.UserValidationSchema), UserControllers.createUser);
 router.get('/', UserControllers.getAllUsers);
 router.get('/me', auth('student', 'admin', 'instructor', 'manager', 'ceo'), UserControllers.getMe);
+router.put('/:id', auth('student', 'admin', 'instructor', 'manager', 'ceo'), UserControllers.updateProfile);
 
 
 // router.post('/create-admin', UserControllers.createAdmin);

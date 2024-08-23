@@ -24,7 +24,12 @@ const loginUser = async (payload: TLoginUser) => {
     throw new AppError(httpStatus.FORBIDDEN, "Password not matched!");
   }
 
-  // Have to check if the user is deleted or not
+    // Checking if the user is deleted or not
+    if(user.isAccountDeleted){
+      throw new AppError(httpStatus.FORBIDDEN, 'Your account is deleted.')
+      }
+
+      
   // Have to check if the user is suspended or not
 
   // create token and send to the client
@@ -110,6 +115,7 @@ const refreshToken = async (token: string) => {
   const { email, iat } = decoded;
 
   const user = await User.isUserExistsByEmail(email);
+  console.log(user);
 
   // Checking if the user exists or not
   if (!user) {
@@ -119,7 +125,12 @@ const refreshToken = async (token: string) => {
   if(user.passwordChangedAt && User.isJWtIssuedBeforePasswordChanged(user.passwordChangedAt, iat as number)){
     throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized!')
     }
-  // Have to check if the user is deleted or not
+
+    // Checking if the user is deleted or not
+  if(user.isAccountDeleted){
+    throw new AppError(httpStatus.FORBIDDEN, 'Your account is deleted.')
+    }
+
   // Have to check if the user is suspended or not
 
   const jwtpayload = {

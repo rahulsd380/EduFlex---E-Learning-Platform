@@ -7,8 +7,8 @@ export type TProjects = {
   githubLink: string;
   liveLink: string;
   technologyUsed: string[];
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   images: string[];
 };
 

@@ -17,8 +17,8 @@ const ProjectsSchema = new Schema<TProjects>({
   githubLink: { type: String },
   liveLink: { type: String },
   technologyUsed: { type: [String], required: true },
-  startDate: { type: Date, required: true },
-  endDate: { type: Date },
+  startDate: { type: String, required: true },
+  endDate: { type: String },
   images: { type: [String] },
 });
 

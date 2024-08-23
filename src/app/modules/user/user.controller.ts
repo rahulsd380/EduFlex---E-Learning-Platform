@@ -29,9 +29,9 @@ const getAllUsers = catchAsync(async (req, res) => {
   });
 
   const getMe = catchAsync(async (req, res) => {
-    const {id, role} = req.user;
+    const {id} = req.user;
   
-    const result = await UserServices.getMe(id, role);
+    const result = await UserServices.getMe(id);
   
     sendResponse(res, {
       statusCode: httpStatus.OK,
@@ -41,8 +41,22 @@ const getAllUsers = catchAsync(async (req, res) => {
     });
   });
 
+  const updateProfile= catchAsync(async (req, res) => {
+    const {id} = req.params;
+    const result = await UserServices.updateProfile(id, req.body);
+  
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Profile deleted successfully",
+      data: result,
+    });
+
+  });
+
   export const UserControllers = {
     createUser,
     getAllUsers,
     getMe,
+    updateProfile,
   }

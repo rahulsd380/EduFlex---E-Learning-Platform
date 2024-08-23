@@ -6,8 +6,8 @@ const ProjectSchema = z.object({
   githubLink: z.string().url({ message: "GitHub link must be a valid URL" }).optional(),
   liveLink: z.string().url({ message: "Live link must be a valid URL" }).optional(),
   technologyUsed: z.array(z.string()).min(1, { message: "At least one technology must be used" }),
-  startDate: z.date({ message: "Start date is required" }),
-  endDate: z.date().optional(),
+  startDate: z.string({ message: "Start date is required" }),
+  endDate: z.string().optional(),
   images: z.array(z.string().url({ message: "Each image must be a valid URL" })).optional(),
 });
 

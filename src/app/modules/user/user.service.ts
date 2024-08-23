@@ -31,13 +31,22 @@ const getAllUsers = async () => {
   return result;
 };
 
-const getMe = async (id:string, role:string) => {
+const getMe = async (id:string) => {
   const result = User.findOne({id});
   return result;
-}
+};
+
+const updateProfile = async (id : string, payload : Partial<TUser>) => {
+  const result = await User.findByIdAndUpdate(id, payload, {
+    new: true,
+    runValidators: true,
+  });
+  return result;
+};
 
 export const UserServices = {
   createUser,
   getAllUsers,
-  getMe
+  getMe,
+  updateProfile,
 };
