@@ -138,17 +138,17 @@ const Navbar = (): JSX.Element => {
   const items = [
     {
         pathname : "My Profile",
-        link : "/dashboard/my-profile",
+        link : "/dashboard/profile",
         icon : myProfile
     },
     {
         pathname : "Edit Profile",
-        link : "/dashboard/my-profile",
+        link : "/dashboard/profile",
         icon : editProfile
     },
     {
         pathname : "Inbox",
-        link : "/dashboard/my-profile",
+        link : "/dashboard/chats",
         icon : inbox
     },
     {
@@ -249,12 +249,14 @@ const Navbar = (): JSX.Element => {
             </div>
       <ul className={`${open ? 'visible translate-y-0 duration-300' : 'invisible translate-y-4'} absolute top-16 z-50 w-full  bg-white shadow rounded-b-lg py-2`}>
         {items.map((item, idx) => (
+         <Link to={item.link}>
           <li key={idx} className={` px-4 py-2 ${open ? 'opacity-100 duration-300' : 'opacity-0'} hover:text-primary-10 cursor-pointer text-body-text`}>
             <div className="flex items-center gap-2">
             <img src={item.icon} alt="" className="size-5"/>
             {item.pathname}
             </div>
           </li>
+         </Link>
         ))}
 
     

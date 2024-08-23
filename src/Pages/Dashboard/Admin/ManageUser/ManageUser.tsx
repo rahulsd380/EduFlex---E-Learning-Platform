@@ -65,6 +65,7 @@ const ManageUser = () => {
     { value: 'instructor', label: 'Instructor' },
     { value: 'admin', label: 'Admin'},
   ];
+  
 
   return (
     <div>

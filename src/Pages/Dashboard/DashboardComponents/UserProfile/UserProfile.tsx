@@ -10,6 +10,7 @@ import mentor from "../../../../assets/Icons/mentor.svg";
 import support from "../../../../assets/Icons/support.svg";
 import inviteFriend from "../../../../assets/Icons/invite-friend.svg";
 import deleteProfile from "../../../../assets/Icons/delete-profile.svg";
+import cross from "../../../../assets/Icons/cross.svg";
 import { useState } from "react";
 import PersonalInformation from "./PersonalInformation";
 import SocialLinksSetting from "./SocialLinksSetting";
@@ -20,6 +21,16 @@ import ProjectSetting from "./ProjectSetting/ProjectSetting";
 import { useDeleteAccountMutation, useGetMeQuery } from "../../../../Redux/Features/Auth/authApi";
 import Modal1 from "../../../../Components/Modals/Modal1";
 import { toast } from "sonner";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+
+type TApplication = {
+  name: string;
+  email: string;
+  phone: string;
+  about_yourself: string;
+  reason_of_apply: string;
+};
 
 const UserProfile = () => {
   const [openModal1, setOpenModal1] = useState(false);
@@ -64,6 +75,19 @@ const UserProfile = () => {
     | "Privacy"
     | "Projects"
   >("PersonalDetails");
+
+  const [openModal2, setOpenModal2] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TApplication>();
+
+  const handleApplyForInstructor = (data : TApplication) => {
+    console.log(data);
+  };
+
+
 
   if(isLoading){
     return <p>Loading...</p>
@@ -131,7 +155,7 @@ const UserProfile = () => {
             Support
           </h1>
 
-          <div className="flex items-center gap-2">
+          <div onClick={() => setOpenModal2(true)} className="flex items-center gap-2 cursor-pointer">
             <div className="bg-warning-10/5 p-1 size-8 rounded-full flex items-center justify-center shadow-inner font-bold text-xl">
               <img src={mentor} alt="" className="size-10" />
             </div>
@@ -287,6 +311,148 @@ const UserProfile = () => {
 
 
           </div>
+      </Modal1>
+
+      {/* Modal for applying to become an insturctor */}
+      <Modal1
+        openModal1={openModal2}
+        setOpenModal1={setOpenModal2}
+        classNames={"size-[500px] overflow-y-auto p-4"}
+      >
+        <div className="">
+          {/* Heading */}
+          <div className="flex items-center justify-between border-b border-dark-10/60 pb-2">
+            <h1 className="text-xl text-body-text font-semibold">
+              Apply to become an{" "}
+              <span className="text-primary-10">Instructor</span>
+            </h1>
+            <img
+              onClick={() => setOpenModal2(false)}
+              src={cross}
+              alt=""
+              className="size-7 cursor-pointer"
+            />
+          </div>
+
+          <form onSubmit={handleSubmit(handleApplyForInstructor)} className="flex flex-col gap-3 mt-5">
+            
+            {/* Name */}
+            <div className="flex flex-col gap-1 w-full">
+              <p className="text-body-text font-medium text-sm">Name</p>
+              <input
+                {...register("name", { required: "Name is required" })}
+                type="text"
+                id="name"
+                className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+                placeholder="Enter your full name"
+              />
+              {errors.name && (
+                <span className="text-warning-10 text-start">
+                  {errors.name.message as string}
+                </span>
+              )}
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col gap-1 w-full">
+              <p className="text-body-text font-medium text-sm">Email</p>
+              <input
+                {...register("email", { required: "Email is required" })}
+                type="text"
+                id="email"
+                className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+                placeholder="Enter your full name"
+              />
+              {errors.email && (
+                <span className="text-warning-10 text-start">
+                  {errors.email.message as string}
+                </span>
+              )}
+            </div>
+
+            {/* Phone Number */}
+            <div className="flex flex-col gap-1 w-full">
+              <p className="text-body-text font-medium text-sm">Phone Number</p>
+              <input
+                {...register("phone", { required: "Phone Number is required" })}
+                type="text"
+                id="phone"
+                className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+                placeholder="Enter your full name"
+              />
+              {errors.phone && (
+                <span className="text-warning-10 text-start">
+                  {errors.phone.message as string}
+                </span>
+              )}
+            </div>
+
+             {/* Brief About Yourself */}
+<div className="flex flex-col gap-1 w-full">
+  <p className="text-body-text font-medium text-sm">Brief About Yourself</p>
+  <textarea
+    {...register("about_yourself", { required: "Brief About Yourself is required" })}
+    rows={5}
+    id="about_yourself"
+    className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+    placeholder="Enter the Brief About Yourself"
+  />
+  {errors.about_yourself && (
+    <span className="text-warning-10 text-start">
+      {errors.about_yourself.message as string}
+    </span>
+  )}
+</div>
+
+            {/* Why You Want To Become An Instructor? */}
+<div className="flex flex-col gap-1 w-full">
+  <p className="text-body-text font-medium text-sm">Why You Want To Become An Instructor?</p>
+  <textarea
+    {...register("reason_of_apply", { required: "Tell us why you want to become an instructor." })}
+    rows={5}
+    id="reason_of_apply"
+    className="bg-dark-5/20 border border-dark-10/30 p-2 focus:border-primary-10 transition duration-300 focus:outline-none rounded w-full"
+    placeholder="Enter the reason why you want to become an instructor"
+  />
+  {errors.reason_of_apply && (
+    <span className="text-warning-10 text-start">
+      {errors.reason_of_apply.message as string}
+    </span>
+  )}
+</div>
+
+           {/* Remember Me */}
+      <div className="flex items-center gap-2">
+          <input
+            // {...register("rememberMe")}
+            type="checkbox"
+            id="rememberMe"
+            className="accent-primary-10 size-4"
+          />
+          <label htmlFor="rememberMe" className="text-body-text font-medium">
+            I aggree with the <Link to={"/"} className="text-primary-10 hover:underline">Terms & Conditions</Link>
+          </label>
+        </div>
+
+       <div className="flex items-center justify-end gap-4 mt-6">
+      
+      <button
+            onClick={() => setOpenModal1(false)}
+                className="bg-dark-5/60  text-body-text font-medium px-4 py-3 rounded focus:outline-none shadow"
+              >
+                Cancel
+              </button>
+
+              <button
+        type="submit"
+        className="bg-primary-10 text-white font-medium px-16 py-3 rounded-lg focus:outline-none"
+      >
+        {"Submit"}
+      </button>
+       </div>
+
+          </form>
+        </div>
       </Modal1>
 
 

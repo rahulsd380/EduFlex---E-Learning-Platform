@@ -39,6 +39,10 @@ const DashboardHeader = () => {
     title = "Manage FAQ";
     subTitle = "Handle all the faq's.";
   }
+   else if (location.pathname === "/dashboard/instructor-request") {
+    title = "Manage Instructor Requests";
+    subTitle = "Handle all requests from the user.";
+  }
 
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);

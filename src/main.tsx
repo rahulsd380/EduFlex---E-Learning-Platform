@@ -35,6 +35,7 @@ import AddCourse from './Pages/Dashboard/Admin/ManageCourses/AddCourse/AddCourse
 import SeeData from './Pages/Dashboard/Admin/ManageCourses/AddCourse/SeeData';
 import AddBlog from './Pages/Dashboard/Admin/ManageBlogs/AddBlog/AddBlog';
 import ManageFaq from './Pages/Dashboard/Admin/ManageFaq/ManageFaq';
+import InstructorRequest from './Pages/Dashboard/Admin/InstructorRequest/InstructorRequest';
 
 
 const router = createBrowserRouter([
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
     element : <ProtectedRoute><DashboardLayout/></ProtectedRoute>,
     children : [
       {
-        path : 'dashboard',
+        path : '',
         element : <Dashboard/>
       },
       {
@@ -114,8 +115,12 @@ const router = createBrowserRouter([
         element : <ManageEnrollments/>
       },
       {
-        path : 'manage-team',
+        path : 'manage-instructors',
         element : <ManageTeam/>
+      },
+      {
+        path : 'instructor-request',
+        element : <InstructorRequest/>
       },
       {
         path : 'profile',

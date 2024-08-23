@@ -11,6 +11,7 @@ import setting from "../../../assets/Icons/setting.svg";
 import team from "../../../assets/Icons/team.svg";
 import chats from "../../../assets/Icons/my-inbox-chats.svg";
 import notifications from "../../../assets/Icons/notifications-white.svg";
+import instructorRequest from "../../../assets/Icons/instructor-request.svg";
 
 export const navLinks = [
     {
@@ -20,7 +21,7 @@ export const navLinks = [
     },
     {
       pathName: "Dashboard",
-      link: "",
+      link: "dashboard",
       icon: dashboard,
     },
     {
@@ -29,14 +30,19 @@ export const navLinks = [
       icon: analysis,
     },
     {
-      pathName: "Manage Team",
-      link: "dashboard/manage-team",
+      pathName: "Manage Instructors",
+      link: "dashboard/manage-instructors",
       icon: team,
     },
     {
       pathName: "Chats",
       link: "dashboard/chats",
       icon: chats,
+    },
+    {
+      pathName: "Instructor Request",
+      link: "dashboard/instructor-request",
+      icon: instructorRequest,
     },
     {
       pathName: "Notifications",

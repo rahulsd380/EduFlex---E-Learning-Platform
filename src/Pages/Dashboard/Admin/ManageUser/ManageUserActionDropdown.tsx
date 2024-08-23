@@ -198,7 +198,7 @@ const ManageUserActionDropdown = (): JSX.Element => {
       <Modal1
         openModal1={openModal1}
         setOpenModal1={setOpenModal1}
-        classNames="w-[500px] h-fit"
+        classNames="w-[500px] h-fit p-4"
       >
         <div className="flex items-center justify-between">
           <h1 className="text-xl text-body-text font-semibold">
